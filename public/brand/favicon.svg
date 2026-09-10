@@ -1,10 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
-  <rect width="160" height="160" rx="34" fill="#020814"/>
-  <g transform="translate(16 16)"><svg viewBox="0 0 128 128" width="128" height="128" x="0" y="0"><path d="M 100 38
-   C 100 24 84 16 63 16
-   C 42 16 27 25 27 41
-   C 27 55 41 62 64 68
-   C 87 74 101 81 101 95
-   C 101 111 86 120 65 120
-   C 44 120 28 112 28 98" fill="none" stroke="#FFFFFF" stroke-width="18" stroke-linecap="butt"/></svg></g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 166" width="180" height="166">
+  <rect width="180" height="166" rx="34" fill="#020814"/>
+  <g transform="translate(18 14)">
+    <path fill="#FFFFFF" d="M 118 92 C 118 77 103 69 84 65 L 70 62 L 76 83 L 86 85
+   C 96 87 100 90 100 94 C 100 100 93 104 82 104 L 32 104 L 36 122 L 84 122
+   C 107 122 118 110 118 92 Z"/>
+    <path fill="none" stroke="#020814" stroke-width="3.5" d="M 61 45 C 62 53 68 57 78 59 L 92 63"/>
+    <path fill="#FFFFFF" d="M 124 44 C 124 24 107 11 84 11 C 59 11 43 24 43 43
+   C 43 58 53 66 73 71 L 88 75 L 82 54 L 70 51 C 63 49 61 47 61 43
+   C 61 37 69 33 84 33 C 96 33 105 37 106 44 Z"/>
+  </g>
 </svg>

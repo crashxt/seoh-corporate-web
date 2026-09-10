@@ -1,10 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="SEOH DESIGN TECH">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 136" width="150" height="136" role="img" aria-label="SEOH DESIGN TECH">
   <title>SEOH — isotipo reducido (negativo)</title>
-  <path d="M 100 38
-   C 100 24 84 16 63 16
-   C 42 16 27 25 27 41
-   C 27 55 41 62 64 68
-   C 87 74 101 81 101 95
-   C 101 111 86 120 65 120
-   C 44 120 28 112 28 98" fill="none" stroke="#FFFFFF" stroke-width="18" stroke-linecap="butt"/>
+    
+    
+    <g fill="#FFFFFF">
+      <rect x="6" y="50" width="9" height="9" rx="1.5"/>
+      <rect x="19" y="42" width="6.5" height="6.5" rx="1.2"/>
+      <rect x="4" y="67" width="6" height="6" rx="1.2"/>
+      <rect x="17" y="58" width="11" height="11" rx="1.8"/>
+    </g>
+    <g stroke="#FFFFFF" stroke-width="2" fill="none">
+      <path d="M 12 80 h 14 l 6 6 h 12"/>
+      <path d="M 8 89 h 10 l 6 6 h 16"/>
+    </g>
+    <g fill="#FFFFFF">
+      <circle cx="47" cy="86" r="3"/>
+      <circle cx="51" cy="95" r="3"/>
+    </g>
+    <path fill="#FFFFFF" d="M 118 92 C 118 77 103 69 84 65 L 70 62 L 76 83 L 86 85
+   C 96 87 100 90 100 94 C 100 100 93 104 82 104 L 32 104 L 36 122 L 84 122
+   C 107 122 118 110 118 92 Z"/>
+    <path fill="#FFFFFF" d="M 124 44 C 124 24 107 11 84 11 C 59 11 43 24 43 43
+   C 43 58 53 66 73 71 L 88 75 L 82 54 L 70 51 C 63 49 61 47 61 43
+   C 61 37 69 33 84 33 C 96 33 105 37 106 44 Z"/>
+    <path fill="#FFFFFF" d="M 82 54 L 88 75 L 76 83 L 70 62 Z"/>
 </svg>

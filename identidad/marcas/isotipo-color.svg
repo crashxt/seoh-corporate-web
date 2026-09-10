@@ -1,17 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="SEOH DESIGN TECH">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 136" width="150" height="136" role="img" aria-label="SEOH DESIGN TECH">
   <title>SEOH — isotipo (color)</title>
-  <path d="M 100 38
-   C 100 24 84 16 63 16
-   C 42 16 27 25 27 41
-   C 27 55 41 62 64 68
-   C 87 74 101 81 101 95
-   C 101 111 86 120 65 120
-   C 44 120 28 112 28 98" fill="none" stroke="#0057B8" stroke-width="18" stroke-linecap="butt"/>
-  <g transform="translate(70 69) scale(0.74) translate(-64 -68)">
-    <path d="M 64 40 L 89 50 L 89 76 C 89 91 78 101 64 108 C 50 101 39 91 39 76 L 39 50 Z"
-          fill="#020814" stroke="#41D7FF" stroke-width="5.5" stroke-linejoin="round"/>
-    <path d="M 56 74 v -6 a 8 8 0 0 1 16 0 v 6" fill="none" stroke="#FFFFFF" stroke-width="5"/>
-    <rect x="52" y="73" width="24" height="19" rx="3.5" fill="#FFFFFF"/>
-    <circle cx="64" cy="81" r="2.8" fill="#020814"/>
-  </g>
+  <defs>
+    <linearGradient id="cara" x1="0.15" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#7FD1FF"/><stop offset="0.38" stop-color="#1B93EE"/><stop offset="1" stop-color="#004399"/>
+    </linearGradient>
+    <linearGradient id="caraBaja" x1="0.2" y1="0" x2="0.5" y2="1">
+      <stop offset="0" stop-color="#0C74CE"/><stop offset="1" stop-color="#002E7E"/>
+    </linearGradient>
+    <linearGradient id="filo" x1="0" y1="0" x2="1" y2="0.6">
+      <stop offset="0" stop-color="#BFE9FF"/><stop offset="0.55" stop-color="#7FD1FF" stop-opacity="0.5"/><stop offset="1" stop-color="#7FD1FF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+    
+    
+    <g fill="#2E9EFF">
+      <rect x="6" y="50" width="9" height="9" rx="1.5" opacity="0.95"/>
+      <rect x="19" y="42" width="6.5" height="6.5" rx="1.2" opacity="0.7"/>
+      <rect x="4" y="67" width="6" height="6" rx="1.2" opacity="0.55"/>
+      <rect x="17" y="58" width="11" height="11" rx="1.8"/>
+    </g>
+    <g stroke="#2E9EFF" stroke-width="2" fill="none" opacity="0.8">
+      <path d="M 12 80 h 14 l 6 6 h 12"/>
+      <path d="M 8 89 h 10 l 6 6 h 16"/>
+    </g>
+    <g fill="#2E9EFF">
+      <circle cx="47" cy="86" r="3"/>
+      <circle cx="51" cy="95" r="3"/>
+    </g>
+    <path fill="url(#caraBaja)" d="M 118 92 C 118 77 103 69 84 65 L 70 62 L 76 83 L 86 85
+   C 96 87 100 90 100 94 C 100 100 93 104 82 104 L 32 104 L 36 122 L 84 122
+   C 107 122 118 110 118 92 Z"/>
+    <path fill="none" stroke="#00112E" stroke-width="5" opacity="0.55"
+          d="M 60 44 C 60 52 66 56 76 58 L 92 62 L 88 80"/>
+    <path fill="url(#cara)" d="M 124 44 C 124 24 107 11 84 11 C 59 11 43 24 43 43
+   C 43 58 53 66 73 71 L 88 75 L 82 54 L 70 51 C 63 49 61 47 61 43
+   C 61 37 69 33 84 33 C 96 33 105 37 106 44 Z"/>
+    <path fill="none" stroke="url(#filo)" stroke-width="2.6" stroke-linecap="round"
+          d="M 121 42 C 120 26 105 15 84 15 C 62 15 47 27 47 43"/>
+    <path fill="#001C4A" opacity="0.6" d="M 82 54 L 88 75 L 76 83 L 70 62 Z"/>
+    <g transform="translate(84 77) scale(0.64) translate(-64 -68)">
+      <path d="M 64 40 L 89 50 L 89 76 C 89 91 78 101 64 108 C 50 101 39 91 39 76 L 39 50 Z"
+            fill="#020814" stroke="#41D7FF" stroke-width="5.5" stroke-linejoin="round"/>
+      <path d="M 56 74 v -6 a 8 8 0 0 1 16 0 v 6" fill="none" stroke="#FFFFFF" stroke-width="5"/>
+      <rect x="52" y="73" width="24" height="19" rx="3.5" fill="#FFFFFF"/>
+      <circle cx="64" cy="81" r="2.8" fill="#020814"/>
+    </g>
 </svg>
