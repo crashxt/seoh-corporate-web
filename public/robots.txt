@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+# Sitemap: PENDIENTE_URL_DEFINITIVA/sitemap.xml

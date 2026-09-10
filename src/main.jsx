@@ -34,7 +34,7 @@ const services = [
     icon: Code2,
     title: 'Software empresarial',
     text:
-      'Soluciones web y de escritorio adaptadas a procesos reales de negocio.'
+      'Soluciones web, móviles y de escritorio adaptadas a procesos reales de negocio.'
   },
   {
     icon: ShieldCheck,
@@ -503,11 +503,7 @@ function App() {
 
               <p>
 
-                SEOH DESIGN TECH S.A. es la
-                empresa matriz desde la que
-                desarrollamos, operamos y damos
-                soporte a nuestras soluciones
-                digitales y tecnológicas.
+                SEOH DESIGN TECH S.A. es una empresa ecuatoriana creada acorde a las demandas y necesidades actuales de las empresas y personas, generamos soluciones de vanguardia con tecnología robusta y de primera línea.
 
               </p>
 
