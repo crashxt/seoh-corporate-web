@@ -1,0 +1,72 @@
+<!--
+  Tarjeta de presentación — 90 × 50 mm, la medida habitual en Ecuador.
+
+  Incluye 3 mm de sangrado por lado (el arte mide 96 × 56 mm) y una línea de
+  seguridad interior de 5 mm: ningún texto debe entrar en esa franja porque el
+  guillotinado tiene tolerancia.
+
+  Dos caras, una junto a otra. Antes de enviar a imprenta:
+    1. Convertir todo el texto a curvas.
+    2. Convertir a CMYK. El azul #0057B8 equivale aproximadamente a
+       C100 M60 Y0 K0 (Pantone 2935 C).
+    3. Sustituir los datos entre corchetes.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="192mm" height="56mm" viewBox="0 0 192 56">
+  <title>SEOH DESIGN TECH — tarjeta de presentación</title>
+
+  <defs>
+    <!-- Isotipo reducido en blanco, para la cara frontal. -->
+    <g id="marca-blanca">
+      <path d="M 100 38 C 100 24 84 16 63 16 C 42 16 27 25 27 41 C 27 55 41 62 64 68 C 87 74 101 81 101 95 C 101 111 86 120 65 120 C 44 120 28 112 28 98"
+            fill="none" stroke="#FFFFFF" stroke-width="18" stroke-linecap="butt"/>
+      <g transform="translate(70 69) scale(0.74) translate(-64 -68)">
+        <path d="M 64 40 L 89 50 L 89 76 C 89 91 78 101 64 108 C 50 101 39 91 39 76 L 39 50 Z"
+              fill="#020814" stroke="#FFFFFF" stroke-width="5.5" stroke-linejoin="round"/>
+        <path d="M 56 74 v -6 a 8 8 0 0 1 16 0 v 6" fill="none" stroke="#FFFFFF" stroke-width="5"/>
+        <rect x="52" y="73" width="24" height="19" rx="3.5" fill="#FFFFFF"/>
+        <circle cx="64" cy="81" r="2.8" fill="#020814"/>
+      </g>
+    </g>
+
+    <!-- Isotipo reducido en azul, para la cara de datos sobre blanco. -->
+    <g id="marca-azul">
+      <path d="M 100 38 C 100 24 84 16 63 16 C 42 16 27 25 27 41 C 27 55 41 62 64 68 C 87 74 101 81 101 95 C 101 111 86 120 65 120 C 44 120 28 112 28 98"
+            fill="none" stroke="#0057B8" stroke-width="18" stroke-linecap="butt"/>
+      <g transform="translate(70 69) scale(0.74) translate(-64 -68)">
+        <path d="M 64 40 L 89 50 L 89 76 C 89 91 78 101 64 108 C 50 101 39 91 39 76 L 39 50 Z"
+              fill="#FFFFFF" stroke="#0057B8" stroke-width="5.5" stroke-linejoin="round"/>
+        <path d="M 56 74 v -6 a 8 8 0 0 1 16 0 v 6" fill="none" stroke="#0057B8" stroke-width="5"/>
+        <rect x="52" y="73" width="24" height="19" rx="3.5" fill="#0057B8"/>
+        <circle cx="64" cy="81" r="2.8" fill="#FFFFFF"/>
+      </g>
+    </g>
+  </defs>
+
+  <!-- ================= CARA FRONTAL ================= -->
+  <g>
+    <rect x="0" y="0" width="96" height="56" fill="#020814"/>
+    <use href="#marca-blanca" transform="translate(30 11) scale(0.265)"/>
+    <text x="48" y="47" text-anchor="middle" fill="#FFFFFF"
+          font-family="'Segoe UI', Arial, sans-serif" font-size="4.6" font-weight="600"
+          letter-spacing="1.9">SEOH DESIGN TECH</text>
+  </g>
+
+  <!-- ================= CARA DE DATOS ================= -->
+  <g transform="translate(96 0)">
+    <rect x="0" y="0" width="96" height="56" fill="#FFFFFF"/>
+    <!-- Filete de marca en el canto: refuerza identidad sin gastar tinta. -->
+    <rect x="0" y="0" width="1.8" height="56" fill="#0057B8"/>
+
+    <use href="#marca-azul" transform="translate(72 7) scale(0.12)"/>
+
+    <text x="9" y="17" fill="#020814" font-family="'Segoe UI', Arial, sans-serif"
+          font-size="5" font-weight="700">[Nombre y Apellido]</text>
+    <text x="9" y="23" fill="#0057B8" font-family="'Segoe UI', Arial, sans-serif"
+          font-size="3.4" font-weight="600" letter-spacing="0.5">[CARGO]</text>
+
+    <text x="9" y="34" fill="#26364a" font-family="'Segoe UI', Arial, sans-serif" font-size="3.3">[+593 00 000 0000]</text>
+    <text x="9" y="39.5" fill="#26364a" font-family="'Segoe UI', Arial, sans-serif" font-size="3.3">[nombre]@seohdesigntech.com</text>
+    <text x="9" y="45" fill="#26364a" font-family="'Segoe UI', Arial, sans-serif" font-size="3.3">seohdesigntech.com</text>
+    <text x="9" y="50.5" fill="#7a8a9c" font-family="'Segoe UI', Arial, sans-serif" font-size="3.3">[Ciudad], Ecuador</text>
+  </g>
+</svg>

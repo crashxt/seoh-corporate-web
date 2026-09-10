@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <rect width="160" height="160" rx="34" fill="#020814"/>
+  <g transform="translate(16 16)"><svg viewBox="0 0 128 128" width="128" height="128" x="0" y="0"><path d="M 100 38
+   C 100 24 84 16 63 16
+   C 42 16 27 25 27 41
+   C 27 55 41 62 64 68
+   C 87 74 101 81 101 95
+   C 101 111 86 120 65 120
+   C 44 120 28 112 28 98" fill="none" stroke="#FFFFFF" stroke-width="18" stroke-linecap="butt"/></svg></g>
+</svg>
