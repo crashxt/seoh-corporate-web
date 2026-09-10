@@ -2,3 +2,9 @@ node_modules/
 dist/
 .wrangler/
 .DS_Store
+
+# Credenciales reales. El repositorio es publico: un .env con la clave de
+# Supabase quedaria expuesto. Solo se versiona .env.example.
+.env
+.env.*
+!.env.example
