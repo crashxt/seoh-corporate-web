@@ -1,0 +1,53 @@
+name: Calidad
+
+# Se ejecuta en cada propuesta de cambio y en cada publicación a main, para que
+# nada llegue al sitio sin compilar.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Comprobar tipos
+        run: npm run typecheck
+
+      - name: Compilar
+        run: npm run build
+
+      # Los assets de marca se generan con scripts. Si alguien edita un script y
+      # olvida regenerar, el sitio publicaria una version antigua del logotipo
+      # sin que nadie lo note.
+      - name: Comprobar que los assets estén regenerados
+        run: |
+          npm run images
+          if [ -n "$(git status --porcelain public/brand)" ]; then
+            echo "::error::Los assets de public/brand no coinciden con lo que produce el script."
+            echo "Ejecute 'npm run images' y confirme el resultado."
+            git status --porcelain public/brand
+            exit 1
+          fi
+
+      # Un enlace roto a un icono o al logotipo da un 404 en cada visita y pasa
+      # desapercibido con facilidad: ya ocurrió una vez.
+      - name: Comprobar referencias a assets
+        run: |
+          fallos=0
+          for ref in $(grep -oE '/brand/[A-Za-z0-9._-]+' index.html public/site.webmanifest | grep -oE '/brand/[A-Za-z0-9._-]+' | sort -u); do
+            if [ ! -f "public$ref" ]; then
+              echo "::error::Referencia rota: $ref"
+              fallos=1
+            fi
+          done
+          exit $fallos

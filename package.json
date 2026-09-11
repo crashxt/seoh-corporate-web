@@ -1,20 +1,37 @@
 {
   "name": "seoh-corporate-web",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "limpiar-s": "node scripts/limpiar-marca-s.mjs",
+    "images": "node scripts/optimize-images.mjs",
+    "formatos": "node scripts/exportar-formatos.mjs",
+    "papeleria": "node scripts/generar-papeleria.mjs",
+    "plantillas": "node scripts/generar-plantillas-docx.mjs",
+    "manual": "node scripts/generar-manual.mjs",
+    "marca": "node scripts/generar-marca.mjs",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit",
     "preview": "vite preview",
     "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
-    "@vitejs/plugin-react": "^5.0.0",
-    "vite": "^7.0.0",
-    "wrangler": "^4.0.0",
+    "@supabase/supabase-js": "^2.112.3",
+    "lucide-react": "^0.468.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "lucide-react": "^0.468.0"
+    "react-router-dom": "^7.18.2"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "@vitejs/plugin-react": "^5.0.0",
+    "docx": "^9.7.1",
+    "sharp": "^0.34.0",
+    "typescript": "^7.0.2",
+    "vite": "^7.0.0",
+    "wrangler": "^4.0.0"
   }
 }
