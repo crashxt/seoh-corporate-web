@@ -22,6 +22,9 @@
   --fondo-tarjeta: #FFFFFF;
   --fondo-tarjeta-activa: #FFFFFF;
   --fondo-hundido: #E3EBF4;
+  /* La barra fija va translucida sobre el fondo para que el contenido se
+     intuya al desplazarse. */
+  --fondo-barra: rgba(238, 243, 249, 0.88);
 
   /* Marca. El azul primario es el que si reproduce en imprenta. */
   --acento: #0057B8;
@@ -36,13 +39,15 @@
   /* Texto, en tres niveles de jerarquia. */
   --texto: #0C1A2B;
   --texto-medio: #455C73;
-  --texto-tenue: #6F8399;
+  /* Verificado a 4.5:1 sobre las dos superficies del sitio: la tarjeta
+     blanca y el fondo de pagina. El tono anterior se quedaba en 3.9. */
+  --texto-tenue: #5A6C80;
   --texto-inverso: #FFFFFF;
 
   /* Estados de las verticales. */
   --estado-operativo: #0F7A52;
   --estado-implementacion: #0057B8;
-  --estado-diseno: #6F8399;
+  --estado-diseno: #5A6C80;
 
   /* Lineas y separadores. */
   --borde: rgba(12, 26, 43, 0.12);
@@ -231,7 +236,7 @@ p {
   justify-content: space-between;
   gap: var(--espacio-md);
   padding: var(--espacio-sm) var(--espacio-lg);
-  background: rgba(238, 243, 249, 0.88);
+  background: var(--fondo-barra);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--borde);
 }
@@ -437,7 +442,7 @@ p {
 
 .estado-operativo {
   color: var(--estado-operativo);
-  border-color: rgba(84, 230, 167, 0.35);
+  border-color: rgba(15, 122, 82, 0.32);
 }
 
 .estado-implementacion {
