@@ -29,6 +29,13 @@ export type Vertical = {
   estado: EstadoVertical;
 };
 
+/**
+ * Etiquetas visibles.
+ *
+ * 'operativo' se reserva para cuando haya clientes usando el vertical en
+ * produccion. Prometer de mas trae al cliente equivocado y lo pierde en la
+ * primera reunion.
+ */
 export const ETIQUETA_ESTADO: Record<EstadoVertical, string> = {
   operativo: 'Operativo',
   implementacion: 'En implementación',
@@ -98,7 +105,7 @@ export const VERTICALES: Vertical[] = [
       'Calendario y notificaciones dentro de la aplicación',
       'Auditoría de quién hizo qué y cuándo',
     ],
-    estado: 'operativo',
+    estado: 'implementacion',
   },
   {
     slug: 'comercial',
