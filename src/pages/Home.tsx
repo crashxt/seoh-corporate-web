@@ -42,7 +42,10 @@ export default function Home() {
         </div>
 
         <div className="portada-marca">
-          <Logo variante="hero" ancho={520} prioridad />
+          <Logo variante="hero" ancho={360} prioridad />
+          {/* El lema venia incrustado dentro del PNG del logotipo: ni Google lo
+              leia ni un lector de pantalla lo anunciaba. Ahora es texto. */}
+          <p className="lema">{EMPRESA.lema}</p>
         </div>
       </section>
 

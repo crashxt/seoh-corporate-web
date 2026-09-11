@@ -18,12 +18,14 @@ const FUENTES = {
   cabecera: {
     base: '/brand/logo-header',
     anchos: [400, 800],
-    proporcion: 810 / 2916,
+    proporcion: 1146 / 4096,
   },
+  // El heroe muestra solo la S: el nombre ya esta en la cabecera y repetirlo
+  // no aporta. El lema pasa a ser texto real de la pagina.
   hero: {
     base: '/brand/logo-hero',
-    anchos: [640, 1100],
-    proporcion: 678 / 1536,
+    anchos: [420, 760],
+    proporcion: 3796 / 4096,
   },
 } as const;
 

@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "limpiar-s": "node scripts/limpiar-marca-s.mjs",
     "images": "node scripts/optimize-images.mjs",
     "marca": "node scripts/generar-marca.mjs",
     "build": "tsc --noEmit && vite build",

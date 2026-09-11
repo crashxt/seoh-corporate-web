@@ -15,31 +15,38 @@
 /* 1. Tokens ================================================================ */
 
 :root {
-  /* Fondo. El negro base coincide con el incrustado en el logotipo. */
-  --fondo: #020814;
-  --fondo-elevado: #050f1f;
-  --fondo-tarjeta: rgba(255, 255, 255, 0.028);
-  --fondo-tarjeta-activa: rgba(255, 255, 255, 0.055);
+  /* Fondo claro con carga fria: acompana al azul de marca sin el blanco
+     quirurgico, que sobre pantalla cansa y deja los bordes sin definir. */
+  --fondo: #EEF3F9;
+  --fondo-elevado: #FFFFFF;
+  --fondo-tarjeta: #FFFFFF;
+  --fondo-tarjeta-activa: #FFFFFF;
+  --fondo-hundido: #E3EBF4;
 
-  /* Marca. Un unico cian y un unico azul, no seis variantes. */
-  --acento: #41d7ff;
-  --acento-fuerte: #0068ff;
-  --acento-tenue: rgba(65, 215, 255, 0.14);
-  --acento-borde: rgba(65, 215, 255, 0.28);
+  /* Marca. El azul primario es el que si reproduce en imprenta. */
+  --acento: #0057B8;
+  --acento-fuerte: #003B7E;
+  --acento-tenue: rgba(0, 87, 184, 0.09);
+  --acento-borde: rgba(0, 87, 184, 0.28);
+
+  /* El cian de marca (#41D7FF) no alcanza contraste suficiente sobre claro:
+     queda para decoracion, nunca para texto ni para elementos de accion. */
+  --cian-decorativo: #41D7FF;
 
   /* Texto, en tres niveles de jerarquia. */
-  --texto: #eef7ff;
-  --texto-medio: #a9bfd6;
-  --texto-tenue: #758da7;
+  --texto: #0C1A2B;
+  --texto-medio: #455C73;
+  --texto-tenue: #6F8399;
+  --texto-inverso: #FFFFFF;
 
   /* Estados de las verticales. */
-  --estado-operativo: #54e6a7;
-  --estado-implementacion: var(--acento);
-  --estado-diseno: var(--texto-tenue);
+  --estado-operativo: #0F7A52;
+  --estado-implementacion: #0057B8;
+  --estado-diseno: #6F8399;
 
   /* Lineas y separadores. */
-  --borde: rgba(255, 255, 255, 0.09);
-  --borde-fuerte: rgba(255, 255, 255, 0.16);
+  --borde: rgba(12, 26, 43, 0.12);
+  --borde-fuerte: rgba(12, 26, 43, 0.24);
 
   /* Ritmo vertical y horizontal. */
   --espacio-xs: 0.5rem;
@@ -60,8 +67,8 @@
 
   --transicion: 180ms ease;
 
-  --sombra-elevada: 0 24px 60px rgba(0, 0, 0, 0.45);
-  --resplandor: 0 0 40px rgba(65, 215, 255, 0.18);
+  --sombra: 0 1px 2px rgba(12, 26, 43, 0.06), 0 8px 24px rgba(12, 26, 43, 0.06);
+  --sombra-elevada: 0 12px 40px rgba(12, 26, 43, 0.14);
 
   --tipo-base: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
 }
@@ -140,7 +147,7 @@ main {
   z-index: 100;
   padding: var(--espacio-sm) var(--espacio-md);
   background: var(--acento);
-  color: #001019;
+  color: var(--texto-inverso);
   font-weight: 600;
   border-radius: var(--radio-sm);
 }
@@ -224,7 +231,7 @@ p {
   justify-content: space-between;
   gap: var(--espacio-md);
   padding: var(--espacio-sm) var(--espacio-lg);
-  background: rgba(2, 8, 20, 0.82);
+  background: rgba(238, 243, 249, 0.88);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--borde);
 }
@@ -315,7 +322,7 @@ p {
 
 .nav-cta:hover {
   background: var(--acento);
-  color: #001019;
+  color: var(--texto-inverso);
 }
 
 .boton-menu {
@@ -346,7 +353,7 @@ p {
 }
 
 .seccion-nucleo {
-  background: radial-gradient(1000px 400px at 50% 0%, rgba(0, 104, 255, 0.1), transparent 70%);
+  background: var(--fondo-hundido);
   max-width: none;
 }
 
@@ -374,13 +381,13 @@ p {
 
 .boton-primario {
   background: linear-gradient(135deg, var(--acento) 0%, var(--acento-fuerte) 100%);
-  color: #00121f;
-  box-shadow: var(--resplandor);
+  color: var(--texto-inverso);
+  box-shadow: var(--sombra);
 }
 
 .boton-primario:hover {
   transform: translateY(-2px);
-  color: #00121f;
+  color: var(--texto-inverso);
 }
 
 .boton-secundario {
@@ -457,7 +464,8 @@ p {
   background: var(--fondo-tarjeta);
   border: 1px solid var(--borde);
   border-radius: var(--radio);
-  transition: border-color var(--transicion), background var(--transicion),
+  box-shadow: var(--sombra);
+  transition: border-color var(--transicion), box-shadow var(--transicion),
     transform var(--transicion);
 }
 
@@ -466,7 +474,7 @@ p {
 .linea:hover,
 .canal:hover {
   border-color: var(--acento-borde);
-  background: var(--fondo-tarjeta-activa);
+  box-shadow: var(--sombra-elevada);
   transform: translateY(-3px);
 }
 
@@ -522,11 +530,25 @@ p {
   gap: var(--espacio-sm);
 }
 
+.portada-marca {
+  display: grid;
+  justify-items: center;
+  gap: var(--espacio-md);
+}
+
+.lema {
+  max-width: 26ch;
+  text-align: center;
+  color: var(--acento-fuerte);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
 .portada-marca img {
   width: 100%;
   max-width: 520px;
   margin-inline: auto;
-  filter: drop-shadow(0 0 60px rgba(0, 104, 255, 0.35));
+  filter: none;
 }
 
 /* --- Las dos lineas de negocio --- */
@@ -545,7 +567,7 @@ p {
 /* La linea principal se distingue sin gritar: un borde de marca basta. */
 .linea-principal {
   border-color: var(--acento-borde);
-  background: linear-gradient(160deg, var(--acento-tenue) 0%, transparent 60%);
+  background: linear-gradient(160deg, var(--acento-tenue) 0%, var(--fondo-elevado) 60%);
 }
 
 /* --- Rejillas --- */
@@ -958,7 +980,7 @@ label {
 input,
 textarea {
   padding: 0.65rem 0.8rem;
-  background: var(--fondo);
+  background: var(--fondo-elevado);
   border: 1px solid var(--borde);
   border-radius: var(--radio-sm);
   color: var(--texto);
@@ -1163,7 +1185,21 @@ textarea {
     order: -1;
   }
 
-  .portada-marca img {
+  .portada-marca {
+  display: grid;
+  justify-items: center;
+  gap: var(--espacio-md);
+}
+
+.lema {
+  max-width: 26ch;
+  text-align: center;
+  color: var(--acento-fuerte);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.portada-marca img {
     max-width: 420px;
   }
 

@@ -261,11 +261,85 @@ function trazadosDe(mascara, areaMinima) {
     .filter(Boolean);
 }
 
+// ---------------------------------------------------------------------------
+// 5. Bandas de tono
+// ---------------------------------------------------------------------------
+/**
+ * Reconstruye el modelado de la cinta.
+ *
+ * Trazar la cinta como una silueta plana pierde todo el volumen del original:
+ * la cara iluminada, el reverso en sombra y los filos de luz. Aqui se corta el
+ * rango de luminancia en bandas y se traza cada una por separado.
+ *
+ * Las mascaras son acumulativas —cada banda incluye todo lo mas claro que
+ * ella— y se pintan de la mas oscura a la mas clara. Asi se superponen sin
+ * dejar costuras entre capas.
+ */
+function bandasDeTono(mascara, cuantas) {
+  const luminancias = [];
+  for (let y = 0; y < H; y++) {
+    for (let x = 0; x < W; x++) {
+      if (!mascara[idx(x, y)]) continue;
+      const p = leer(x, y);
+      luminancias.push(0.299 * p.r + 0.587 * p.g + 0.114 * p.b);
+    }
+  }
+  if (luminancias.length === 0) return [];
+  luminancias.sort((a, b) => a - b);
+
+  // Cortes por percentil: reparte area entre bandas en vez de por valor, que
+  // con un degradado deja bandas casi vacias.
+  const cortes = [];
+  for (let k = 1; k < cuantas; k++) {
+    cortes.push(luminancias[Math.floor((luminancias.length * k) / cuantas)]);
+  }
+
+  const bandas = [];
+  for (let k = 0; k < cuantas; k++) {
+    const capa = new Uint8Array(W * H);
+    const minimo = k === 0 ? -1 : cortes[k - 1];
+    let sr = 0;
+    let sg = 0;
+    let sb = 0;
+    let n = 0;
+
+    for (let y = 0; y < H; y++) {
+      for (let x = 0; x < W; x++) {
+        const i = idx(x, y);
+        if (!mascara[i]) continue;
+        const p = leer(x, y);
+        const luz = 0.299 * p.r + 0.587 * p.g + 0.114 * p.b;
+        if (luz <= minimo) continue;
+        capa[i] = 1; // acumulativa: incluye todo lo mas claro
+        // El color representativo se toma solo de la banda propia.
+        const maximo = k === cuantas - 1 ? 1e9 : cortes[k];
+        if (luz <= maximo) {
+          sr += p.r;
+          sg += p.g;
+          sb += p.b;
+          n++;
+        }
+      }
+    }
+
+    if (n === 0) continue;
+    const hex = (v) => Math.round(v / n).toString(16).padStart(2, '0');
+    bandas.push({ color: `#${hex(sr)}${hex(sg)}${hex(sb)}`, trazados: trazadosDe(capa, 30) });
+  }
+  return bandas;
+}
+
 const trazados = {
   silueta: trazadosDe(silueta, 40),
   cinta: trazadosDe(capas.cinta, 40),
   escudo: trazadosDe(capas.escudo, 40),
   candado: trazadosDe(capas.candado, 25),
+};
+
+// Cinco bandas bastan para leer el volumen sin disparar el numero de contornos.
+const relieve = {
+  cinta: bandasDeTono(capas.cinta, 5),
+  escudo: bandasDeTono(capas.escudo, 3),
 };
 
 for (const [nombre, lista] of Object.entries(trazados)) {
@@ -275,7 +349,7 @@ for (const [nombre, lista] of Object.entries(trazados)) {
 
 await writeFile(
   'identidad/marcas/_calco.json',
-  JSON.stringify({ lado: LADO, trazados }, null, 1),
+  JSON.stringify({ lado: LADO, trazados, relieve }, null, 1),
   'utf8',
 );
 console.log(`\n  calco guardado en identidad/marcas/_calco.json`);
