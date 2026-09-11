@@ -8,15 +8,13 @@
     2. Abrir este archivo en el navegador, seleccionar la firma completa,
        copiarla y pegarla en Gmail, Outlook o el cliente que se use.
 
-  La imagen es un archivo local que viaja junto a este HTML. Al copiar la firma
-  desde el navegador, Gmail y Outlook la incrustan dentro del propio mensaje, de
-  modo que llega al destinatario aunque el sitio no esté publicado.
+  El logotipo se carga desde el sitio publicado, así que no se adjunta una
+  imagen en cada correo enviado.
 
-  Por eso los dos archivos tienen que estar en la misma carpeta.
-
-  Cuando el dominio esté activo puede sustituirse por la versión alojada, que
-  evita adjuntar la imagen en cada correo:
-  <img src="https://DOMINIO/brand/firma-marca.png" ... />
+  Si algún día cambia el dominio, esta firma dejaría de mostrar el logotipo en
+  los correos ya enviados. Junto a este archivo queda SEOH_firma_marca.png: con
+  solo apuntar el src a ese nombre, la imagen viaja incrustada en el mensaje y
+  no depende de ningún servidor.
 -->
 <style>
   /* Solo para ver el archivo en el navegador. No forma parte de la firma: al
@@ -27,7 +25,7 @@
        style="border-collapse:collapse;font-family:'Segoe UI',Arial,sans-serif;max-width:470px;">
   <tr>
     <td style="padding:0 18px 0 0;vertical-align:top;">
-      <img src="SEOH_firma_marca.png"
+      <img src="https://seohdesigntech.com/brand/firma-marca.png"
            alt="SEOH DESIGN TECH" width="72" height="72"
            style="display:block;border:0;outline:none;text-decoration:none;" />
     </td>

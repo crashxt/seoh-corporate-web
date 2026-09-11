@@ -67,13 +67,22 @@ imágenes y 25 MB para documentos.
 
 ## Cloudflare Workers
 
-Conecte este repositorio a Workers Builds.
-
-- Production branch: `main`
-- Build command: `npm run build`
-- Deploy command: `npx wrangler deploy`
-
 `wrangler.jsonc` publica `./dist` como Static Assets con reescritura de SPA.
+
+> **Cuidado antes de desplegar.** `wrangler.jsonc` no declara ninguna ruta, así
+> que parece que `npx wrangler deploy` solo afecta al subdominio de pruebas
+> `seoh-corporate-web.crashxtedg.workers.dev`. **No es así.** El dominio
+> `seohdesigntech.com` está atado a este mismo Worker desde el panel de
+> Cloudflare, fuera de este archivo, de modo que **cualquier despliegue sale a
+> producción de inmediato**.
+
+Para publicar:
+
+```bash
+npm run deploy
+```
+
+Comprueba antes que `npm run build` pasa y que el CI está en verde.
 
 ## Pendiente antes de publicar
 
