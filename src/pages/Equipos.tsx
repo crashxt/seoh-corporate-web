@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
-import { ArrowRight, Network } from 'lucide-react';
+import { ArrowRight, Cpu, Network, ShieldCheck, Wifi, Zap } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router-dom';
+import BuscadorEquipos from '../components/BuscadorEquipos';
 import PageHero from '../components/PageHero';
 import Seo from '../components/Seo';
 import { getProducts } from '../services/products';
@@ -9,11 +10,21 @@ import { formatearPrecio } from '../lib/precio';
 
 const TODAS = 'Todos';
 
+/** Icono por categoria. Las que no esten aqui caen en el generico. */
+const ICONOS: Record<string, typeof Network> = {
+  Seguridad: ShieldCheck,
+  'Automatización': Cpu,
+  Infraestructura: Network,
+  Redes: Wifi,
+  'Energía': Zap,
+};
+
 export default function Equipos() {
   const [equipos, setEquipos] = useState<Product[]>([]);
   const [error, setError] = useState('');
   const [cargando, setCargando] = useState(true);
   const [params, setParams] = useSearchParams();
+  const [busqueda, setBusqueda] = useState('');
 
   const categoriaActiva = params.get('categoria') ?? TODAS;
 
@@ -31,10 +42,25 @@ export default function Equipos() {
     [equipos],
   );
 
-  const visibles =
-    categoriaActiva === TODAS
-      ? equipos
-      : equipos.filter((equipo) => equipo.category === categoriaActiva);
+  // Se busca sobre nombre, resumen, marca y codigo: un cliente que llega con
+  // la referencia del proveedor en la mano debe encontrarla.
+  const termino = busqueda.trim().toLowerCase();
+  const visibles = equipos
+    .filter((equipo) => categoriaActiva === TODAS || equipo.category === categoriaActiva)
+    .filter((equipo) =>
+      !termino
+        ? true
+        : [equipo.name, equipo.summary, equipo.brand, equipo.code]
+            .filter(Boolean)
+            .some((campo) => String(campo).toLowerCase().includes(termino)),
+    );
+
+  // Recuento por categoria, para la rejilla de entrada.
+  const conteo = useMemo(() => {
+    const mapa = new Map<string, number>();
+    for (const equipo of equipos) mapa.set(equipo.category, (mapa.get(equipo.category) ?? 0) + 1);
+    return mapa;
+  }, [equipos]);
 
   return (
     <>
@@ -49,6 +75,32 @@ export default function Equipos() {
       </PageHero>
 
       <section className="seccion">
+        {/* Rejilla de entrada: deja ver de un vistazo que lineas hay y cuantos
+            equipos tiene cada una. Se oculta al buscar, que ya es otro modo. */}
+        {!termino && categoriaActiva === TODAS && conteo.size > 0 && (
+          <div className="rejilla-categorias">
+            {[...conteo.entries()].map(([nombre, total]) => {
+              const Icono = ICONOS[nombre] ?? Network;
+              return (
+                <button
+                  type="button"
+                  className="tarjeta-categoria"
+                  key={nombre}
+                  onClick={() => setParams({ categoria: nombre })}
+                >
+                  <Icono aria-hidden="true" />
+                  <span className="nombre-categoria">{nombre}</span>
+                  <span className="conteo-categoria">
+                    {total} {total === 1 ? 'equipo' : 'equipos'}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        )}
+
+        <BuscadorEquipos valor={busqueda} alCambiar={setBusqueda} resultados={visibles.length} />
+
         <div className="filtros" role="group" aria-label="Filtrar por categoría">
           {categorias.map((categoria) => (
             <button
@@ -72,7 +124,11 @@ export default function Equipos() {
         {cargando && <p className="aviso">Cargando catálogo…</p>}
 
         {!cargando && !error && visibles.length === 0 && (
-          <p className="aviso">No hay equipos publicados en esta categoría.</p>
+          <p className="aviso">
+            {termino
+              ? `Ningún equipo coincide con «${busqueda}». Pruebe con la marca o el código.`
+              : 'No hay equipos publicados en esta categoría.'}
+          </p>
         )}
 
         <div className="catalogo">

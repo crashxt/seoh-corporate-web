@@ -867,6 +867,116 @@ p {
   color: var(--texto-medio);
 }
 
+/* --- Rejilla de categorias y buscador --- */
+
+.rejilla-categorias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: var(--espacio-md);
+  margin-bottom: var(--espacio-lg);
+}
+
+.tarjeta-categoria {
+  display: grid;
+  justify-items: center;
+  gap: var(--espacio-xs);
+  padding: var(--espacio-lg) var(--espacio-md);
+  background: var(--fondo-elevado);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  text-align: center;
+  transition: border-color var(--transicion), box-shadow var(--transicion),
+    transform var(--transicion);
+}
+
+.tarjeta-categoria:hover {
+  border-color: var(--acento-borde);
+  box-shadow: var(--sombra-elevada);
+  transform: translateY(-3px);
+}
+
+.tarjeta-categoria svg {
+  width: 30px;
+  height: 30px;
+  color: var(--acento);
+}
+
+.nombre-categoria {
+  color: var(--texto);
+  font-size: 1.02rem;
+  font-weight: 650;
+}
+
+.conteo-categoria {
+  color: var(--texto-tenue);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.buscador {
+  display: grid;
+  gap: var(--espacio-xs);
+  margin-bottom: var(--espacio-md);
+}
+
+.buscador-campo {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-sm);
+  max-width: 520px;
+  padding: 0 var(--espacio-md);
+  background: var(--fondo-elevado);
+  border: 1px solid var(--borde);
+  border-radius: 999px;
+}
+
+.buscador-campo:focus-within {
+  border-color: var(--acento-borde);
+}
+
+.buscador-campo svg {
+  flex-shrink: 0;
+  color: var(--texto-tenue);
+}
+
+.buscador-campo input {
+  flex: 1;
+  padding: 0.75rem 0;
+  background: transparent;
+  border: none;
+  color: var(--texto);
+  font-size: 0.98rem;
+}
+
+/* El navegador dibuja su propia cruz en los campos de busqueda; sobra. */
+.buscador-campo input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.buscador-campo input:focus {
+  outline: none;
+}
+
+.buscador-campo button {
+  display: grid;
+  place-items: center;
+  padding: 4px;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  color: var(--texto-tenue);
+}
+
+.buscador-campo button:hover {
+  color: var(--texto);
+}
+
+.buscador-recuento {
+  color: var(--texto-tenue);
+  font-size: 0.88rem;
+}
+
 /* --- Precio y cotizacion --- */
 
 .bloque-precio {
