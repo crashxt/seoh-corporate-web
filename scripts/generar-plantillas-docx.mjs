@@ -25,6 +25,7 @@ import {
   TextRun,
 } from 'docx';
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { CONTACTO } from './datos-contacto.mjs';
 
 const DESTINO = 'identidad/plantillas';
 // 512 px sobran para el tamano al que se imprime el membrete, y evitan
@@ -79,7 +80,7 @@ const pie = () =>
         tabStops: [{ type: TabStopType.RIGHT, position: 9026 }],
         children: [
           new TextRun({
-            text: 'SEOH DESIGN TECH S.A.  ·  info@seohdesigntech.com  ·  seohdesigntech.com',
+            text: `${CONTACTO.nombre}  ·  ${CONTACTO.telefonoLegible}  ·  ${CONTACTO.correo}  ·  ${CONTACTO.dominio}`,
             size: 15,
             color: GRIS,
           }),
@@ -138,7 +139,7 @@ const membrete = new Document({
       parrafo('Atentamente,', { after: 700 }),
       parrafo('[Nombre y Apellido]', { negrita: true, after: 0 }),
       parrafo('[Cargo]', { color: GRIS, size: 19, after: 0 }),
-      parrafo('SEOH DESIGN TECH S.A.', { color: GRIS, size: 19 }),
+      parrafo(CONTACTO.nombre, { color: GRIS, size: 19 }),
     ]),
   ],
 });
@@ -174,7 +175,7 @@ const oficio = new Document({
       parrafo('Atentamente,', { after: 700 }),
       parrafo('[Nombre y Apellido]', { negrita: true, after: 0 }),
       parrafo('[Cargo]', { color: GRIS, size: 19, after: 0 }),
-      parrafo('SEOH DESIGN TECH S.A.', { color: GRIS, size: 19, after: 400 }),
+      parrafo(CONTACTO.nombre, { color: GRIS, size: 19, after: 400 }),
 
       parrafo('Adjunto: [detalle de anexos, o eliminar esta línea si no los hay]', {
         size: 18,

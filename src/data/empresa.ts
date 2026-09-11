@@ -22,9 +22,9 @@ type Contacto = {
 export const CONTACTO: Contacto = {
   correo: 'info@seohdesigntech.com',
   /** Formato internacional sin espacios, p. ej. '+593987654321'. Vacio = no se muestra. */
-  telefono: '',
+  telefono: '+593998793588',
   /** Numero de WhatsApp en formato internacional sin '+'. Vacio = no se muestra. */
-  whatsapp: '',
+  whatsapp: '593998793588',
   ciudad: 'Ecuador',
 };
 
@@ -39,3 +39,17 @@ export const telefonoLegible = CONTACTO.telefono
 export const enlaceWhatsapp = CONTACTO.whatsapp
   ? `https://wa.me/${CONTACTO.whatsapp}`
   : null;
+
+/**
+ * Datos registrales, para los documentos legales.
+ *
+ * La Ley Organica de Proteccion de Datos Personales exige identificar al
+ * responsable del tratamiento. Un dato vacio se omite en la pagina en lugar de
+ * publicarse a medias.
+ */
+export const REGISTRO = {
+  /** RUC de la sociedad. */
+  ruc: '',
+  /** Domicilio fiscal completo: calle, numero, ciudad, provincia. */
+  direccion: '',
+};

@@ -8,6 +8,7 @@
  */
 import sharp from 'sharp';
 import { mkdir, writeFile } from 'node:fs/promises';
+import { CONTACTO } from './datos-contacto.mjs';
 
 const DESTINO = 'identidad/plantillas';
 
@@ -63,10 +64,10 @@ const tarjeta = `<!--
     <text x="9" y="23" fill="${AZUL}" font-family="'Segoe UI', Arial, sans-serif"
           font-size="3.3" font-weight="600" letter-spacing="0.5">[CARGO]</text>
 
-    <text x="9" y="34" fill="${MEDIO}" font-family="'Segoe UI', Arial, sans-serif" font-size="3.3">[+593 00 000 0000]</text>
-    <text x="9" y="39.5" fill="${MEDIO}" font-family="'Segoe UI', Arial, sans-serif" font-size="3.3">[nombre]@seohdesigntech.com</text>
-    <text x="9" y="45" fill="${AZUL_PROFUNDO}" font-family="'Segoe UI', Arial, sans-serif" font-size="3.3" font-weight="600">seohdesigntech.com</text>
-    <text x="9" y="50.5" fill="${GRIS}" font-family="'Segoe UI', Arial, sans-serif" font-size="3.3">[Ciudad], Ecuador</text>
+    <text x="9" y="34" fill="${MEDIO}" font-family="'Segoe UI', Arial, sans-serif" font-size="3.3">${CONTACTO.telefonoLegible}</text>
+    <text x="9" y="39.5" fill="${MEDIO}" font-family="'Segoe UI', Arial, sans-serif" font-size="3.3">[nombre]@${CONTACTO.dominio}</text>
+    <text x="9" y="45" fill="${AZUL_PROFUNDO}" font-family="'Segoe UI', Arial, sans-serif" font-size="3.3" font-weight="600">${CONTACTO.dominio}</text>
+    <text x="9" y="50.5" fill="${GRIS}" font-family="'Segoe UI', Arial, sans-serif" font-size="3.3">[Ciudad], ${CONTACTO.ciudad}</text>
   </g>
 </svg>
 `;
@@ -92,7 +93,7 @@ const firma = `<!--
        style="border-collapse:collapse;font-family:'Segoe UI',Arial,sans-serif;max-width:470px;">
   <tr>
     <td style="padding:0 18px 0 0;vertical-align:top;">
-      <img src="https://seohdesigntech.com/brand/firma-marca.png"
+      <img src="https://${CONTACTO.dominio}/brand/firma-marca.png"
            alt="SEOH DESIGN TECH" width="72" height="72"
            style="display:block;border:0;outline:none;text-decoration:none;" />
     </td>
@@ -105,13 +106,13 @@ const firma = `<!--
       </div>
 
       <div style="font-size:13px;color:${MEDIO};line-height:1.7;">
-        <a href="tel:[+593000000000]" style="color:${MEDIO};text-decoration:none;">[+593 00 000 0000]</a><br />
-        <a href="mailto:[nombre]@seohdesigntech.com" style="color:${MEDIO};text-decoration:none;">[nombre]@seohdesigntech.com</a><br />
-        <a href="https://seohdesigntech.com" style="color:${AZUL};text-decoration:none;font-weight:600;">seohdesigntech.com</a>
+        <a href="tel:${CONTACTO.telefono}" style="color:${MEDIO};text-decoration:none;">${CONTACTO.telefonoLegible}</a><br />
+        <a href="mailto:[nombre]@${CONTACTO.dominio}" style="color:${MEDIO};text-decoration:none;">[nombre]@${CONTACTO.dominio}</a><br />
+        <a href="https://${CONTACTO.dominio}" style="color:${AZUL};text-decoration:none;font-weight:600;">${CONTACTO.dominio}</a>
       </div>
 
       <div style="font-size:11px;color:${GRIS};padding-top:10px;font-style:italic;">
-        Diseñamos soluciones. Construimos confianza.
+        ${CONTACTO.lema}
       </div>
     </td>
   </tr>

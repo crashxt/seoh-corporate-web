@@ -1,16 +1,27 @@
 import PageHero from '../components/PageHero';
 import Seo from '../components/Seo';
-import { CONTACTO, EMPRESA } from '../data/empresa';
+import { CONTACTO, EMPRESA, REGISTRO, telefonoLegible } from '../data/empresa';
 
 /**
  * Paginas legales.
  *
  * El contenido describe lo que este sitio hace realmente: no incorpora
  * analitica ni publicidad, no instala cookies de seguimiento y solo trata datos
- * personales cuando alguien decide escribir por los canales publicados. Antes
- * de la puesta en produccion debe revisarlo un profesional y completarse la
- * identificacion fiscal del responsable.
+ * personales cuando alguien decide escribir por los canales publicados.
+ *
+ * Esta redactado contra la Ley Organica de Proteccion de Datos Personales del
+ * Ecuador, que exige identificar al responsable del tratamiento y enumerar los
+ * derechos de la persona titular. Falta completar RUC y domicilio en
+ * data/empresa.ts, y conviene que lo revise un profesional antes de publicar.
  */
+
+/** Identificacion del responsable, omitiendo lo que aun no este confirmado. */
+const identificacion = () => {
+  const partes = [`${EMPRESA.nombre}`];
+  if (REGISTRO.ruc) partes.push(`con RUC ${REGISTRO.ruc}`);
+  partes.push(REGISTRO.direccion ? `y domicilio en ${REGISTRO.direccion}` : `con domicilio en ${CONTACTO.ciudad}`);
+  return partes.join(', ');
+};
 type Documento = 'privacidad' | 'terminos';
 
 const CONTENIDO: Record<
@@ -25,8 +36,8 @@ const CONTENIDO: Record<
       {
         titulo: 'Responsable del tratamiento',
         parrafos: [
-          `${EMPRESA.nombre}, con domicilio en ${CONTACTO.ciudad}, es responsable del tratamiento de los datos personales recogidos a través de este sitio web.`,
-          `Para cualquier consulta relativa a esta política puedes escribir a ${CONTACTO.correo}.`,
+          `${identificacion()}, es responsable del tratamiento de los datos personales recogidos a través de este sitio web.`,
+          `Para cualquier consulta relativa a esta política puedes escribir a ${CONTACTO.correo}${telefonoLegible ? ` o llamar al ${telefonoLegible}` : ''}.`,
         ],
       },
       {
@@ -44,6 +55,13 @@ const CONTENIDO: Record<
         ],
       },
       {
+        titulo: 'Con qué base legal',
+        parrafos: [
+          'Tratamos tus datos sobre la base de tu consentimiento, que otorgas al escribirnos voluntariamente, y del interés legítimo en atender y dar seguimiento a la relación comercial que tú mismo inicias.',
+          'Puedes retirar ese consentimiento en cualquier momento, sin que ello afecte a la licitud del tratamiento anterior.',
+        ],
+      },
+      {
         titulo: 'Durante cuánto tiempo',
         parrafos: [
           'Conservamos la información mientras se mantenga la relación o el interés comercial, y después durante el plazo que exija la normativa aplicable.',
@@ -52,7 +70,16 @@ const CONTENIDO: Record<
       {
         titulo: 'Tus derechos',
         parrafos: [
-          `Puedes solicitar el acceso, la rectificación o la supresión de tus datos, así como oponerte a su tratamiento, escribiendo a ${CONTACTO.correo}.`,
+          'La Ley Orgánica de Protección de Datos Personales del Ecuador te reconoce los derechos de acceso, rectificación, actualización, eliminación, oposición, portabilidad y a no ser objeto de decisiones automatizadas.',
+          `Para ejercer cualquiera de ellos escribe a ${CONTACTO.correo} indicando el derecho que invocas. Responderemos en el plazo que fija la normativa.`,
+          'Si consideras que no hemos atendido correctamente tu solicitud, puedes presentar un reclamo ante la autoridad de protección de datos personales del Ecuador.',
+        ],
+      },
+      {
+        titulo: 'Seguridad de la información',
+        parrafos: [
+          'Aplicamos medidas técnicas y organizativas para proteger la información frente a accesos no autorizados, pérdida o alteración, incluyendo control de accesos por rol, cifrado en tránsito y registro de actividad.',
+          'Si llegara a producirse una vulneración que afecte a tus datos, te lo comunicaremos y lo notificaremos a la autoridad competente conforme exige la normativa.',
         ],
       },
       {
@@ -71,7 +98,8 @@ const CONTENIDO: Record<
       {
         titulo: 'Objeto',
         parrafos: [
-          `Este sitio tiene carácter informativo y presenta los servicios y productos de ${EMPRESA.nombre}. Su consulta no genera por sí sola relación contractual alguna.`,
+          `Este sitio tiene carácter informativo y presenta los servicios y productos de ${identificacion()}. Su consulta no genera por sí sola relación contractual alguna.`,
+          `Para cualquier comunicación relacionada con estos términos: ${CONTACTO.correo}.`,
         ],
       },
       {
@@ -91,6 +119,12 @@ const CONTENIDO: Record<
         titulo: 'Responsabilidad',
         parrafos: [
           'Procuramos que la información publicada sea exacta y esté actualizada, pero no podemos garantizar la ausencia de errores ni la disponibilidad ininterrumpida del sitio.',
+        ],
+      },
+      {
+        titulo: 'Legislación aplicable',
+        parrafos: [
+          'Estos términos se rigen por la legislación de la República del Ecuador. Para cualquier controversia derivada de su interpretación o aplicación, las partes se someten a los jueces competentes del domicilio de la empresa.',
         ],
       },
       {
