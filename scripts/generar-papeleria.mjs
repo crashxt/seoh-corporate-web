@@ -78,7 +78,9 @@ const tarjeta = `<!--
 // Tablas y estilos en linea: Outlook usa el motor de Word y descarta hojas de
 // estilo, flexbox y grid. El logotipo es una imagen alojada porque muchos
 // clientes de correo no renderizan SVG.
-const firma = `<!--
+const firma = `<!doctype html>
+<meta charset="utf-8">
+<!--
   Firma de correo — SEOH DESIGN TECH
 
   Cómo usarla:
@@ -86,14 +88,26 @@ const firma = `<!--
     2. Abrir este archivo en el navegador, seleccionar la firma completa,
        copiarla y pegarla en Gmail, Outlook o el cliente que se use.
 
-  La imagen apunta al sitio publicado. Mientras el dominio no esté activo,
-  reemplace esa URL por la del logotipo alojado donde corresponda.
+  La imagen es un archivo local que viaja junto a este HTML. Al copiar la firma
+  desde el navegador, Gmail y Outlook la incrustan dentro del propio mensaje, de
+  modo que llega al destinatario aunque el sitio no esté publicado.
+
+  Por eso los dos archivos tienen que estar en la misma carpeta.
+
+  Cuando el dominio esté activo puede sustituirse por la versión alojada, que
+  evita adjuntar la imagen en cada correo:
+  <img src="https://DOMINIO/brand/firma-marca.png" ... />
 -->
+<style>
+  /* Solo para ver el archivo en el navegador. No forma parte de la firma: al
+     seleccionar y copiar la tabla, estos estilos no viajan con ella. */
+  body { background: #FFFFFF; margin: 24px; }
+</style>
 <table cellpadding="0" cellspacing="0" border="0"
        style="border-collapse:collapse;font-family:'Segoe UI',Arial,sans-serif;max-width:470px;">
   <tr>
     <td style="padding:0 18px 0 0;vertical-align:top;">
-      <img src="https://${CONTACTO.dominio}/brand/firma-marca.png"
+      <img src="SEOH_firma_marca.png"
            alt="SEOH DESIGN TECH" width="72" height="72"
            style="display:block;border:0;outline:none;text-decoration:none;" />
     </td>
@@ -120,8 +134,18 @@ const firma = `<!--
 `;
 
 await mkdir(DESTINO, { recursive: true });
+
+// La imagen de la firma viaja junto al HTML. Sin ella la firma se queda sin
+// logotipo, que es justo lo que ocurria apuntando a un dominio aun inactivo.
+await sharp('brand-src/SEOH_S_limpia.png')
+  .resize(216, 216, { fit: 'contain', background: { r: 255, g: 255, b: 255, alpha: 1 } })
+  .flatten({ background: { r: 255, g: 255, b: 255, alpha: 1 } })
+  .png({ compressionLevel: 9 })
+  .toFile(`${DESTINO}/SEOH_firma_marca.png`);
+
 await writeFile(`${DESTINO}/SEOH_tarjeta_presentacion.svg`, tarjeta, 'utf8');
 await writeFile(`${DESTINO}/SEOH_firma_correo.html`, firma, 'utf8');
 
 console.log(`  ${DESTINO}/SEOH_tarjeta_presentacion.svg`);
 console.log(`  ${DESTINO}/SEOH_firma_correo.html`);
+console.log(`  ${DESTINO}/SEOH_firma_marca.png`);
