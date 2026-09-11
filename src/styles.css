@@ -1087,6 +1087,62 @@ textarea {
   font-size: 0.88rem;
 }
 
+/* --- Diagrama del modelo modular --- */
+
+.diagrama-modular {
+  margin: 0;
+  padding: var(--espacio-lg);
+  background: var(--fondo-elevado);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.diagrama-modular svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Por debajo de este ancho las pastillas se solapan: el diagrama se desplaza
+     en su propio contenedor antes que deformarse. */
+  min-width: 660px;
+}
+
+/* El envoltorio permite el desplazamiento lateral sin que la pagina entera se
+   mueva en horizontal. */
+.diagrama-envoltura {
+  overflow-x: auto;
+  padding-bottom: var(--espacio-xs);
+}
+
+.diagrama-modular figcaption {
+  max-width: var(--ancho-lectura);
+  margin-top: var(--espacio-md);
+  color: var(--texto-medio);
+  font-size: 0.92rem;
+}
+
+.diag-rotulo { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; }
+.diag-chip { font-size: 12px; }
+.diag-org { font-size: 15px; font-weight: 650; }
+.diag-tipo { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
+.diag-modulo { font-size: 11px; font-weight: 600; text-anchor: middle; }
+.diag-pie { font-size: 11px; font-style: italic; }
+
+/* --- Ritmo entre secciones --- */
+/* Alternar la superficie evita que la pagina se lea como una sola lamina
+   plana, que era el efecto de encadenar secciones identicas. */
+
+.seccion-hundida {
+  max-width: none;
+  background: var(--fondo-hundido);
+  border-block: 1px solid var(--borde);
+}
+
+.seccion-hundida > * {
+  max-width: var(--ancho-maximo);
+  margin-inline: auto;
+}
+
 /* 8. Pie =================================================================== */
 
 .pie {

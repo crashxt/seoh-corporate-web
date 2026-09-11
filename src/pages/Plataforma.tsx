@@ -1,5 +1,6 @@
 import { ArrowRight, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import DiagramaModular from '../components/DiagramaModular';
 import PageHero from '../components/PageHero';
 import Seo from '../components/Seo';
 import { COMO_TRABAJAMOS, NUCLEO } from '../data/plataforma';
@@ -28,6 +29,16 @@ export default function Plataforma() {
 
       <section className="seccion">
         <div className="encabezado-seccion">
+          <span className="antetitulo">CÓMO ENCAJA</span>
+          <h2>Una base compartida, entornos separados</h2>
+        </div>
+        <div className="diagrama-envoltura">
+          <DiagramaModular />
+        </div>
+      </section>
+
+      <section className="seccion seccion-hundida">
+        <div className="encabezado-seccion">
           <span className="antetitulo">QUÉ INCLUYE EL NÚCLEO</span>
           <h2>Resuelto una vez, disponible para todos los módulos</h2>
         </div>
@@ -45,7 +56,7 @@ export default function Plataforma() {
         </div>
       </section>
 
-      <section className="seccion seccion-nucleo">
+      <section className="seccion">
         <div className="bloque-ventajas">
           <div className="encabezado-seccion">
             <span className="antetitulo">POR QUÉ MODULAR</span>
