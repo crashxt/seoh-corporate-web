@@ -13,7 +13,7 @@
  * Uso: npm run images
  */
 import sharp from 'sharp';
-import { mkdir, stat } from 'node:fs/promises';
+import { mkdir, readFile, stat } from 'node:fs/promises';
 
 const LOGOTIPO = 'brand-src/SEOH_logo_4K_4096px_transparente.png';
 // Fuente ya saneada: la del paquete arrastra un resto del eslogan pegado en la
@@ -70,23 +70,38 @@ await emitir(cabecera, 'logo-header', [400, 800]);
 await emitir(MARCA_S, 'logo-hero', [420, 760]);
 
 // --- Iconos de navegador ----------------------------------------------------
-for (const medida of [32, 192, 512]) {
+//
+// A 32 px el logotipo con degradado se convierte en una mancha azul: el escudo,
+// el candado y las trazas se empastan. La silueta calcada —la misma forma, sin
+// modelado y a maximo contraste— si se reconoce. Por eso el favicon pequeno usa
+// el vector y los tamanos grandes el logotipo real.
+const { lado, trazados } = JSON.parse(await readFile('identidad/marcas/_calco.json', 'utf8'));
+const svgSilueta = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${lado} ${lado}" width="512" height="512">
+  <rect width="${lado}" height="${lado}" fill="#0C1A2B"/>
+  <g fill="#FFFFFF" fill-rule="evenodd">${trazados.silueta.map((d) => `<path d="${d}"/>`).join('')}</g>
+</svg>`;
+
+for (const medida of [32, 192]) {
   const salida = `${DESTINO}/favicon-${medida}.png`;
-  await sharp(MARCA_S)
-    .resize(medida, medida, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
-    .flatten({ background: FONDO_ICONO })
+  await sharp(Buffer.from(svgSilueta), { density: 600 })
+    .resize(medida, medida)
     .png(PNG_CUANTIZADO)
     .toFile(salida);
   await registrar(salida);
 }
 
-const apple = `${DESTINO}/apple-touch-icon.png`;
-await sharp(MARCA_S)
-  .resize(180, 180, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+// A partir de 180 px el logotipo real ya se lee con todo su detalle.
+const iconoGrande = await sharp(MARCA_S)
+  .resize(440, 440, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
   .flatten({ background: FONDO_ICONO })
-  .png(PNG_CUANTIZADO)
-  .toFile(apple);
-await registrar(apple);
+  .png()
+  .toBuffer();
+
+for (const [nombre, medida] of [['favicon-512.png', 512], ['apple-touch-icon.png', 180]]) {
+  const salida = `${DESTINO}/${nombre}`;
+  await sharp(iconoGrande).resize(medida, medida).png(PNG_CUANTIZADO).toFile(salida);
+  await registrar(salida);
+}
 
 // --- Marca para la firma de correo -----------------------------------------
 const firma = `${DESTINO}/firma-marca.png`;

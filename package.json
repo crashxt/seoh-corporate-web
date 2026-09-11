@@ -10,6 +10,7 @@
     "formatos": "node scripts/exportar-formatos.mjs",
     "papeleria": "node scripts/generar-papeleria.mjs",
     "plantillas": "node scripts/generar-plantillas-docx.mjs",
+    "manual": "node scripts/generar-manual.mjs",
     "marca": "node scripts/generar-marca.mjs",
     "build": "tsc --noEmit && vite build",
     "typecheck": "tsc --noEmit",
