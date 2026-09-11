@@ -2,12 +2,15 @@ import { ArrowRight, Cpu, Layers, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Logo from '../components/Logo';
 import Seo from '../components/Seo';
+import { usarRevelado } from '../hooks/usarRevelado';
 import { EMPRESA } from '../data/empresa';
 import { COMO_TRABAJAMOS, NUCLEO } from '../data/plataforma';
 import { ETIQUETA_ESTADO, VERTICALES } from '../data/verticales';
 import { CATEGORIAS_EQUIPOS, DESCRIPCION_CATEGORIA } from '../data/equipos';
 
 export default function Home() {
+  usarRevelado();
+
   return (
     <>
       <Seo
@@ -51,7 +54,7 @@ export default function Home() {
 
       {/* Las dos lineas de negocio ---------------------------------------- */}
       <section className="seccion lineas">
-        <article className="linea linea-principal">
+        <article className="linea linea-principal" data-revelar>
           <Layers aria-hidden="true" />
           <h2>Software modular por vertical</h2>
           <p>
@@ -64,7 +67,7 @@ export default function Home() {
           </Link>
         </article>
 
-        <article className="linea">
+        <article className="linea" data-revelar>
           <Cpu aria-hidden="true" />
           <h2>Equipos y domótica</h2>
           <p>
@@ -93,7 +96,7 @@ export default function Home() {
           {VERTICALES.map((vertical) => {
             const Icono = vertical.icono;
             return (
-              <Link className="tarjeta-vertical" key={vertical.slug} to={`/soluciones/${vertical.slug}`}>
+              <Link className="tarjeta-vertical" data-revelar key={vertical.slug} to={`/soluciones/${vertical.slug}`}>
                 <span className={`estado estado-${vertical.estado}`}>
                   {ETIQUETA_ESTADO[vertical.estado]}
                 </span>
@@ -125,7 +128,7 @@ export default function Home() {
           {NUCLEO.map((capacidad) => {
             const Icono = capacidad.icono;
             return (
-              <article className="tarjeta-nucleo" key={capacidad.titulo}>
+              <article className="tarjeta-nucleo" data-revelar key={capacidad.titulo}>
                 <Icono aria-hidden="true" />
                 <h3>{capacidad.titulo}</h3>
                 <p>{capacidad.texto}</p>

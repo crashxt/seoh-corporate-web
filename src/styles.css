@@ -171,6 +171,20 @@ textarea:focus-visible {
   border-radius: 4px;
 }
 
+/* Aparicion al entrar en pantalla.
+   La clase la pone JavaScript: sin el, el contenido queda visible y legible,
+   que es como debe comportarse una pagina cuando un script falla. */
+.revelar {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 520ms ease, transform 520ms ease;
+}
+
+.revelar.revelado {
+  opacity: 1;
+  transform: none;
+}
+
 /* Respeta a quien pidio menos movimiento en su sistema operativo. */
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -183,6 +197,13 @@ textarea:focus-visible {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  /* Red de seguridad: si la clase llegara a aplicarse pese a la comprobacion
+     en JavaScript, el contenido se muestra igualmente. */
+  .revelar {
+    opacity: 1;
+    transform: none;
   }
 }
 
