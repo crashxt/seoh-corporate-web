@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
-import { ArrowRight, FileDown } from 'lucide-react';
-import { Link, useParams } from 'react-router-dom';
+import { FileDown } from 'lucide-react';
+import { useParams } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import Seo from '../components/Seo';
 import NoEncontrada from './NoEncontrada';
+import SolicitarCotizacion from '../components/SolicitarCotizacion';
+import { formatearPrecio } from '../lib/precio';
 import { getDocumentUrl, getProduct } from '../services/products';
 import type { Product } from '../types';
 
@@ -55,12 +57,42 @@ export default function EquipoDetalle() {
 
       <section className="seccion detalle-equipo">
         <div>
+          <div className="bloque-precio">
+            {typeof equipo.price === 'number' ? (
+              <>
+                <span className="precio">{formatearPrecio(equipo.price)}</span>
+                <span className="precio-nota">IVA incluido · precio referencial</span>
+              </>
+            ) : (
+              <span className="precio-nota">Precio bajo cotización</span>
+            )}
+          </div>
+
+          {(equipo.brand || equipo.code) && (
+            <dl className="ficha-datos">
+              {equipo.brand && (
+                <>
+                  <dt>Marca</dt>
+                  <dd>{equipo.brand}</dd>
+                </>
+              )}
+              {equipo.code && (
+                <>
+                  <dt>Código</dt>
+                  <dd>{equipo.code}</dd>
+                </>
+              )}
+            </dl>
+          )}
+
           <h2>Descripción</h2>
           <p>{equipo.description}</p>
-          <Link className="boton-primario" to="/contacto">
-            Solicitar información
-            <ArrowRight size={18} aria-hidden="true" />
-          </Link>
+
+          <SolicitarCotizacion equipo={equipo} />
+          <p className="aviso-cotizacion">
+            El equipo se instala y configura como parte de la solución. En la cotización se
+            incluye la instalación, la puesta en marcha y el soporte.
+          </p>
         </div>
 
         <aside>

@@ -1,0 +1,1482 @@
+[
+ {
+  "categoria": "CAMARAS",
+  "descripcion": "CAMARA FUJI INSTAX MINI 12 INSTANT MINT GREEN",
+  "costo": 112.0
+ },
+ {
+  "categoria": "CAMARAS",
+  "descripcion": "CAMARA FUJI INSTAX MINI 12 PASTEL BLUE",
+  "costo": 112.0
+ },
+ {
+  "categoria": "CAMARAS",
+  "descripcion": "CAMARA GENIUS FACECAM 2010 FHD USB-C Iron Gray",
+  "costo": 17.9
+ },
+ {
+  "categoria": "CAMARAS",
+  "descripcion": "CAMARA GENIUS FACECAM LIGHT 1080P FHD USB-A USB-C CON CUBIERTA DE PRIVACIDAD BLACK",
+  "costo": 22.0
+ },
+ {
+  "categoria": "CAMARAS",
+  "descripcion": "CAMARA GENIUS FACECAM OPEN 1080P FHD USB-A USB-C REC. FACIAL CON CUBIERTA DE PRIVACIDAD BLACK",
+  "costo": 29.5
+ },
+ {
+  "categoria": "CAMARAS",
+  "descripcion": "CAMARA LOGITECH RALLY BAR GRAFITO SALAS MEDIANAS A GRANDES-IA-15X-6 MICS-2 ALTAVOCES",
+  "costo": 3320.8
+ },
+ {
+  "categoria": "CAMARAS",
+  "descripcion": "CAMARA MERCUSYS WI-Fi PANORAMICA 360grados 2K 3MP Mon. Vertical-Horizontal Segui. Int. Vis. Noct.",
+  "costo": 13.3
+ },
+ {
+  "categoria": "CAMARAS",
+  "descripcion": "CAMARA VIDEO CONFERENCIA LOGITECH Meetup 2 Negro",
+  "costo": 1144.6
+ },
+ {
+  "categoria": "CAMARAS",
+  "descripcion": "CONFERENCE-CAM LOGITECH MEETUP 4K-ZOOM 5X-RIGHTSIGHT-BT-VISION 120-MICS EXPANSION-HASTA 8 PERSONAS",
+  "costo": 786.3
+ },
+ {
+  "categoria": "CAMARAS",
+  "descripcion": "CONFERENCE-CAM LOGITECH RALLY PLUS 4K-ZOOM 15X-RIGHTSENSE-VISION 90 HASTA 24 PERSONAS",
+  "costo": 2279.3
+ },
+ {
+  "categoria": "CAMARAS",
+  "descripcion": "FACECAM CORSAIR El Gato Neo Web Full HD USB-C Autofocus Lens",
+  "costo": 75.6
+ },
+ {
+  "categoria": "CAMARAS",
+  "descripcion": "WEB CAM ARGOM FULL HD 1080P WITH MICROPHONE - LED CAM45",
+  "costo": 15.9
+ },
+ {
+  "categoria": "CAMARAS",
+  "descripcion": "WEB CAM LOGITECH C925E BUSINESS FULL HD 1080P NEGRO",
+  "costo": 86.7
+ },
+ {
+  "categoria": "CAMARAS",
+  "descripcion": "WEB-CAM LOGITECH C930E NEGRO BUSINESS 1920X1080 ZOOM 4X-VISION 90GRADOS",
+  "costo": 96.8
+ },
+ {
+  "categoria": "CAMARAS",
+  "descripcion": "WEBCAM LOGITECH C270 NEGRO USB 1280X720-30FPS-3MP PLUG AND PLAY",
+  "costo": 16.8
+ },
+ {
+  "categoria": "CAMARAS",
+  "descripcion": "WEBCAM LOGITECH C920S PRO 1920X1080-30FPS SONIDO ESTEREO OBTURADOR DE PRIVACIDAD",
+  "costo": 64.6
+ },
+ {
+  "categoria": "CAMARAS",
+  "descripcion": "Webcam Logitech MX BRIO 705 8.5 Megapixel USB Type C Grafito",
+  "costo": 165.9
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "ACCESS POINT TP-Link Omada Wireless Bridge 5Ghz 867 Mbps Longe Range Indorr-Outdoor White",
+  "costo": 119.5
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "1 1-4INC. END CAP 10 PCS-BAG BLANCO 94V-0 LOW VOLTAGE",
+  "costo": 6.3
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "ACCESS POINT ADVANTECK WIRELESS 802.11B LAN",
+  "costo": 60.0
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "ACCESS POINT TP-Link EAP653 AX3000 Wireless Dual-Band Ceiling Mount Wifi 6 Baige",
+  "costo": 83.2
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "Access Point TP-Link EAP668 Outdoor HD Interior-Exterior Wi-Fi 6 hasta 3.6Gps",
+  "costo": 477.7
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "Access Point TP-Link Wi-Fi 7 Montaje en techo BE5000 Puerto Ethernet 2.5G",
+  "costo": 142.6
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "ADAPTADOR DE RED TP-LINK UE200 USB 2.0 ETHERNET 100MBPS",
+  "costo": 6.0
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "MOUSE LOGITECH GAMING G305 NEGRO WIRELESS LIGHTSPEED SENSOR HERO ULTRALIGERO USB",
+  "costo": 34.1
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "MOUSE LOGITECH GAMING G502 NEGRO HERO 16K G-HUB PESO AJUSTABLE RGB LIGHTSYNC USB ALAMBRICO",
+  "costo": 36.7
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "MOUSE LOGITECH GAMING G502 WIRELESS LIGHTSPEED SENSOR HERO 16K RGB LIGHTSYNC RECARGABLE POWERPLAY",
+  "costo": 99.9
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "MOUSE LOGITECH LIFT RIGHT VERTICAL ERGONOMIC ELEVADOR GRAFITO",
+  "costo": 59.8
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "MOUSE LOGITECH M110 WIRED BLACK",
+  "costo": 6.6
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "MOUSE LOGITECH M170 GRIS-NEGRO WIRELESS USB PLUG AND PLAY",
+  "costo": 9.3
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "MOUSE LOGITECH M170 WIRELES BLUE - GRAY",
+  "costo": 9.3
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "MOUSE LOGITECH M170 WIRELES OFF-WHITE",
+  "costo": 9.3
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "MOUSE LOGITECH M185 NEGRO-PLATEADO WIRELESS USB PLUG AND PLAY",
+  "costo": 14.6
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "MOUSE LOGITECH M190 WIRELESS USB FULL SIZE CURVE DESING AZUL",
+  "costo": 10.6
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "MOUSE LOGITECH M190 WIRELESS USB FULL SIZE CURVE DESING CHARCOAL",
+  "costo": 10.6
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "Mouse Logitech M196 Bluetooh Grafito",
+  "costo": 9.1
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "MOUSE LOGITECH M317 NEGRO WIRELESS USB",
+  "costo": 20.0
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "MOUSE LOGITECH M350S PEBBLE 2 BLANCO SILENCIOSO MINIMALISTA BLUETOOH MULTIDISPOSITIVO 4000DPI",
+  "costo": 21.7
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "MOUSE LOGITECH M350S PEBBLE 2 GRAFITO SILENCIOSO MINIMALISTA BLUETOOH MULTIDISPOSITIVO 4000DPI",
+  "costo": 21.7
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "MOUSE LOGITECH M350S PEBBLE 2 ROSADO SILENCIOSO MINIMALISTA BLUETOOH MULTIDISPOSITIVO 4000DPI",
+  "costo": 21.7
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "MOUSE LOGITECH M650 LARGE GRAFITO ZURDO MULTIPLATAFORMAS WIRELESS BT-USB LOGI BOLT",
+  "costo": 33.0
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "MOUSE LOGITECH MX ANYWHERE 3S BLUETOOTH USB DARKFIELD 6BUTTON GRAPHITE RECHARGABLE 8000DPI",
+  "costo": 78.6
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "MOUSE LOGITECH MX ERGO S NEGRO TRACKBALL WIRELESS RECARGABLE BT LOGI BOLT FLOW 20° INCLINACION",
+  "costo": 75.5
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "Mouse Logitech MX Master 4 Wiireless Bluetooth, 8 buttons USB Graphite",
+  "costo": 109.4
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "MOUSE LOGITECH MX VERTICAL NEGRO ERG. EASY SWITCH-FLOW-UNIFYING-BLUETOOTH-USB-RECARGABLE",
+  "costo": 79.8
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "Mouse Logitech Signature Series M850 L Wireless Graphite",
+  "costo": 34.9
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "MOUSE OPTICO 800DPI USB HIGH PRECISION NEGRO",
+  "costo": 2.0
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "MOUSE QUASAD QME-V10 VERTICAL BACKLIGHT ERGONOMIC WIRELESS 10MTS GRIS",
+  "costo": 15.3
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "PUNTERO LOGITECH PROFESIONAL R500S LASER DOBLE CONECT. BT-USB NEGRO",
+  "costo": 36.4
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "PUNTERO LOGITECH PROFESIONAL R800 NEGRO LCD-USB-PLUG AND PLAY-LUZ VERDE-RADIO 30 METROS",
+  "costo": 44.6
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "PUNTERO LOGITECH R400 NEGRO USB-PLUG AND PLAY-LUZ ROJA-RADIO 15 METROS",
+  "costo": 32.2
+ },
+ {
+  "categoria": "ROUTER, ACCESS POINT, SWITCH, NVR",
+  "descripcion": "PUNTERO LOGITECH SPOTLIGHT 2.4GHZ BT RECEPTOR USB LASER DIGITAL 30MTS CRONOMETRO",
+  "costo": 87.9
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "REGULADOR CDP AVR1808 1800VA-1000W 8 Outlets NEMA-15R 120V",
+  "costo": 21.4
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "REGULADOR CDP R-AVR3008 3000VA-1500W-ENTRADA-SALIDA 110VAC-8 NEMA 5-15R",
+  "costo": 36.2
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "UPS APC BE850M2-LM STAND BY 120V 9 TOMAS. 2 USB 450VATIOS-850VA",
+  "costo": 117.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "UPS APC BR1100M2-LM INTERACTIVOS 120V PANTALLA LCD 600VATIOS-1.1KVA",
+  "costo": 185.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "UPS APC BR1350M2-LM INTERACTIVOS 120V PANTALLA LCD 810VATIOS-1.35KVA",
+  "costo": 220.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "UPS APC BR1500M2-LM INTERACTIVOS 120V PANTALLA LCD 900VATIOS-1.5KVA",
+  "costo": 255.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "UPS APC BR700G INTERACTIVO 120V PANTALLA LCD 420VATIOS-700VA",
+  "costo": 137.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "UPS APC BV500 INTERACTIVO EASY UPS 120V 6 TOMAS 300VATIOS-500VA",
+  "costo": 46.2
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "UPS APC BV800 INTERACTIVO EASY UPS 120V 6 TOMAS 450VATIOS-800VA",
+  "costo": 55.7
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "UPS APC BVG1500-LM INTERACTIVOS 120V 4 TOMAS 1500VA-900W",
+  "costo": 110.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "UPS APC BVG700-LM INTERACTIVOS 120V 4 TOMAS 700VA-360W",
+  "costo": 44.2
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "UPS APC BVG900-LM INTERACTIVOS 120V 4 TOMAS 900VA-480W",
+  "costo": 52.7
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "UPS APC BVX700LU-LM INTERACTIVO 120V AVR 4 TOMAS 360W -700VA CARGA USB",
+  "costo": 55.8
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "UPS APC BVX900L-LM INTERACTIVO 120V AVR 6 TOMAS 480W -900VA",
+  "costo": 65.9
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "UPS APC CP12036LI MINI UPS BLANCO INTERACTIVO BATERIA LITIO 120V ROUTERS CAMARAS IP 12VDC 36W",
+  "costo": 51.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "UPS APC SRT1000XLA ON LINE 120V 6 TOMAS. PANTALLA LCD. TOWER-RACK 900VATIOS-1.0KVA",
+  "costo": 746.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "UPS APC SRT1500XLA ON LINE 120V 6 TOMAS. PANTALLA LCD. TOWER-RACK 1.35KILOVATIOS-1.5KVA",
+  "costo": 881.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "UPS APC SRT2200XLA ON LINE 120V 6 TOMAS. PANTALLA LCD. TOWER-RACK 1.8KILOVATIOS-2.2 KVA",
+  "costo": 1099.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "UPS APC SRT3000XLA ON LINE 120V 6 TOMAS. PANTALLA LCD. TOWER-RACK 2.7KILOVATIOS-3.0KVA",
+  "costo": 1341.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "UPS APC SRV10KIL-10KTF ON LINE 230V-120V INCLUYE (SRVPM10KIL - SRV240BP-9A - SRV10KTF)",
+  "costo": 2344.78
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "UPS APC SRV1KA ON LINE 120V EASY UPS 4 TOMAS. PANTALLA LCD. TOWER 800VATIOS-1.0KVA",
+  "costo": 245.3
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "IMAGEN UNIT LEXMARK 150K CS-CX730-735 C-C4352 Color",
+  "costo": 419.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "IMAGING KIT LEXMARK 75K PROGRAMA RETORNO MS531-632-639 MX532-632",
+  "costo": 54.2
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "IMAGING KIT LEXMARK BLACK PROGRAMA RETORNO CS531-632-639 CX532-635-C2335",
+  "costo": 149.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "IMAGING KIT LEXMARK COLOR PROGRAMA RETORNO CS531-632-639 CX532-635-C2335",
+  "costo": 229.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "IMAGING UNIT LEXMARK B220Z00 NEGRO",
+  "costo": 96.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "KIT CAPTURA IMAGEN 40K CS310-410-510 | CX310-410-510",
+  "costo": 314.6
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "KIT DE IMAGEN CMY 150K CS720-725 | CX725",
+  "costo": 304.7
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "KIT IMAGEN NEGRO 150K CS720-725 | CX725",
+  "costo": 91.6
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "KIT TRANSFERENCIA IMAGEN NEGRO 30K C540-543-544-546 | X543-544-546-548",
+  "costo": 183.9
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "PHOTOCONDUCTOR LEXMARK CS943 CX942 165K BLACK",
+  "costo": 161.8
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "PHOTOCONDUCTOR LEXMARK CS943 CX942 165K COLOR",
+  "costo": 492.4
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER AMARILLO 11.5K CS92X-CX92X",
+  "costo": 290.7
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER AMARILLO 15K C782 | X782",
+  "costo": 519.4
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER AMARILLO 16K CX725",
+  "costo": 256.1
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER AMARILLO 1K C540-543-544-546 | X543-544-546-548",
+  "costo": 59.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER AMARILLO 3K C522-524-530-532-534",
+  "costo": 158.4
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER AMARILLO 6.6K C510",
+  "costo": 307.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER AMARILLO 6.7K CS431 - CX431",
+  "costo": 241.4
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER AMARILLO 7K CS521-622 - CX622-625",
+  "costo": 288.5
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER AMARILLO 7K CS720-725 | CX725",
+  "costo": 224.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER BLACK 15.8K CS531 CX532",
+  "costo": 189.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER CIAN 15K C782 | X782",
+  "costo": 519.4
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER CIAN 16K CX725",
+  "costo": 256.1
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER CIAN 1K C540-543-544-546 | X543-544-546-548",
+  "costo": 59.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER CIAN 24K C935",
+  "costo": 582.7
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER CIAN 2K C540-543-544-546 | X543-544-546-548",
+  "costo": 80.2
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER CIAN 4K CS510",
+  "costo": 136.7
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER CIAN 6.7K CS431 - CX431",
+  "costo": 241.5
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER CIAN 7K C746-C748",
+  "costo": 244.4
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER CIAN 7K CS521-622 | CX622-625",
+  "costo": 288.5
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER CIAN 7K CS720-725 | CX725",
+  "costo": 224.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER CIAN 8.8K CS531 CX532",
+  "costo": 172.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER LEXMARK 28.4K PROGRAMA RETORNO FOR MS531 MX532",
+  "costo": 231.3
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER LEXMARK 55B4000 3000K NEGRO",
+  "costo": 81.7
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER LEXMARK 55B4H00 NEGRO 15K",
+  "costo": 114.82
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER LEXMARK 63D0H00 MX931 37PAG.",
+  "costo": 289.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER LEXMARK 72K4XK0 33K NEGRO",
+  "costo": 401.1
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER LEXMARK 86C0HK0 NEGRO 34K",
+  "costo": 138.1
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER LEXMARK AMARILLO ALTO RENDIMIENTO",
+  "costo": 187.6
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER LEXMARK BLACK 20K PROGRAMA RETORNO CS632 CX635",
+  "costo": 261.5
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER LEXMARK BLACK 5K CS-CX730-735",
+  "costo": 100.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER LEXMARK CIAN 11.7K PROGRAMA RETORNO CS632 CX635",
+  "costo": 247.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER LEXMARK CIAN 5K CS-CX730-735",
+  "costo": 100.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER LEXMARK CIAN ALTO RENDIMIENTO",
+  "costo": 187.6
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER LEXMARK CYAN FOR CX942 943 -944 22K",
+  "costo": 499.15
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER LEXMARK HIGH YIELD MS-MX 417 517 617",
+  "costo": 182.4
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER LEXMARK MAGENTA 11.7K PROGRAMA RETORNO CS632 CX635",
+  "costo": 247.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER LEXMARK MAGENTA ALTO RENDIMIENTO",
+  "costo": 187.6
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER LEXMARK MAGENTA FOR CX942 943 944 22000 PAGINAS",
+  "costo": 499.15
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER LEXMARK NEGRO 6000K FOR B2236DW",
+  "costo": 119.7
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER LEXMARK NEGRO ALTO RENDIMIENTO",
+  "costo": 125.3
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER LEXMARK NEGRO FOR CX942 943 944 45000 PAGINAS",
+  "costo": 450.65
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER LEXMARK YELLOW 11.7K PROGRAMA RETORNO CS632 CX635",
+  "costo": 247.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER LEXMARK YELLOW 5K CS-CX730-735",
+  "costo": 100.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER LEXMARK YELLOW FOR CX942 943 944 22000 PAGINAS",
+  "costo": 499.15
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "TONER MAGENTA 15K C782 | X782",
+  "costo": 519.4
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "SSD KINGSTON 2TB SXS1000 PCIE 1050-MB-S USB 3.2 EXTERNAL",
+  "costo": 233.3
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "SSD KINGSTON 2TB SXS1000R ROJO PCIe 1050-MB-S USB 3.2 EXTERNAL",
+  "costo": 233.3
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "SSD KINGSTON 4TB M.2 2280 SNV3S-4000G PCIe 4.0 x 4 NVMe 6000-5000MB-s NAND 3D",
+  "costo": 564.4
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "SSD KINGSTON 500GB M.2 2280 SNV3S-500G PCIe 4.0 x 4 NVMe 5000-3000MB-s NAND 3D",
+  "costo": 104.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "SSD KINGSTON 960GB A400 SATA 3 2.5INC. FOR PC O NOTEBOOK 7MM",
+  "costo": 145.3
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "SSD KINGSTON DC600M 480GB SATA SSDS 2.5INCH 3D TLC SATA III",
+  "costo": 494.2
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "SSD SanDisk 1TB Creator Phone USB 3.2 Gen 2 External",
+  "costo": 285.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "SSD SEAGATE FIRECUDA GAMING STJP500400 500GB USB-C EXTERNO LED RGB 5Y",
+  "costo": 189.0
+ },
+ {
+  "categoria": "UPS, REGULADORES",
+  "descripcion": "Unidad de almacenamiento inteligente ISD",
+  "costo": 111.1
+ },
+ {
+  "categoria": "CASE",
+  "descripcion": "CASE CORSAIR ATX TRIPLE CAMARA AIR 5400 LX-R RGB iCUE LINK Tempered 2USB3.2 HD-Audio Mid-Tower Black",
+  "costo": 225.0
+ },
+ {
+  "categoria": "CASE",
+  "descripcion": "CASE CORSAIR ATX TRIPLE CAMARA AIR 5400 LX-R RGB iCUE LINK Tempered 2USB3.2 HD-Audio Mid-Tower White",
+  "costo": 225.0
+ },
+ {
+  "categoria": "CASE",
+  "descripcion": "CASE CORSAIR ATX TRIPLE CAMARA ARGB AIR 5400 Tempered Glass 2USB3.2 HD-Audio Mid-Tower Black",
+  "costo": 168.0
+ },
+ {
+  "categoria": "CASE",
+  "descripcion": "CASE CORSAIR ATX TRIPLE CAMARA ARGB AIR 5400 Tempered Glass 2USB3.2 HD-Audio Mid-Tower White",
+  "costo": 168.0
+ },
+ {
+  "categoria": "MOTHER BOARDS",
+  "descripcion": "MBO ASROCK B760M PG RIPTIDE 14va. LGA1700 4DDR5 WIFI HDMI DP M.2 13USB 4SATA3 PCIE4.0 mATX",
+  "costo": 126.0
+ },
+ {
+  "categoria": "MOTHER BOARDS",
+  "descripcion": "MBO ASUS PRIME B550M-A AC AMD AM4 RYZEN 4DDR4 WIFI HDMI DVI D-SUB 2M.2 1PCIEX16 3PCIE MATX",
+  "costo": 94.0
+ },
+ {
+  "categoria": "MOTHER BOARDS",
+  "descripcion": "MBO ASUS PRIME B760M-A AX6 LGA-1700 Intel 14va. 4DDR5 Wifi DP HDMI 3M.2 12USB PCIe 4.0 mini-ATX",
+  "costo": 126.0
+ },
+ {
+  "categoria": "MOTHER BOARDS",
+  "descripcion": "MBO ASUS ROG MAXIMUS Z890 HERO Intel Core Ultra LGA1851 DDR5 WIFI HDMI 2TH 11USB 6m.2 PCIe5.0 ATX",
+  "costo": 642.0
+ },
+ {
+  "categoria": "MOTHER BOARDS",
+  "descripcion": "PROYECTOR EPSON Smart Portatil Lifestudio POP EF-61 Full-HD Blanco Calido 150Inch",
+  "costo": 651.0
+ },
+ {
+  "categoria": "MOTHER BOARDS",
+  "descripcion": "PROYECTOR EPSON Smart Portatil Lifestudio POP Plus EF-62 4K PRO UHD 150Inch Negro Metalico",
+  "costo": 830.0
+ },
+ {
+  "categoria": "MOTHER BOARDS",
+  "descripcion": "PROYECTOR BENQ EW800ST 3300 LUMEN WXGA SHORT THROW SMART DLP WHITE",
+  "costo": 1040.0
+ },
+ {
+  "categoria": "MOTHER BOARDS",
+  "descripcion": "Proyector LG PF510Q CineBeam Smart webOS 22 100Inch LED 450Lumenes FHD 1920x1080 White",
+  "costo": 538.0
+ },
+ {
+  "categoria": "ESCANER",
+  "descripcion": "SCANNER EPSON ES-500WII 600-1200dpi WiFi USB. MOD. ROJO. OPC.. ADF 35ppm-Duplex 70ipm",
+  "costo": 557.5
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "IMP. EPSON ECOTANK M1120 MONOCROMATICA 15 PPM USB WIFI",
+  "costo": 174.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "IMP. EPSON ECOTANK M1180 MONOCROMATICA 39PPM DUPLEX RED 10 BASE T USB WIFI DIRECT",
+  "costo": 327.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "IMP. EPSON ECOTANK MULT. L15150 A3 COLOR 25PPM ETHERNET WI-FI NEGRO",
+  "costo": 1045.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "IMP. EPSON L6370 MUL. Duplex Wifi-5 USB Ethernet Black",
+  "costo": 467.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "IMP. EPSON MUL. M2170 ECOTANK MONO. 39PPM USB ETHERNET WIFI DUPLEX",
+  "costo": 324.3
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "IMP. EPSON MULT. ECOTANK L6490 A4 4COLORES WIFI USB ADF 4800X1200DPI",
+  "costo": 521.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "IMP. EPSON MULT. L5590 ALTO DESEMPENO PRECISION-CORE 4CL 33PPM-NG 20PPM-CL WIFI-ETHERNET",
+  "costo": 336.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "IMP. EPSON Mult.. EcoTank L4360 Wifi Duplex 33ppm Pant. 1.44Inch 5760x1440dpi Negra",
+  "costo": 246.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "IMP. EPSON MULTIFUNCIONAL ECOTANK M3170 39PPM NEGRO FAX ADF USB WIFI ETHERNET",
+  "costo": 367.3
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "IMP. EPSON SURECOLOR T3170X SISTEMA TINTA CONTINUA 4 COLORES USB WIFI ETHERNET",
+  "costo": 2008.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "IMP. EPSON TM-P80II PLUS-031 3Inch Portable Receipt Auto Cutter Wifi con bateria",
+  "costo": 397.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "IMP. SAT DIRECT THERMAL Q23T AM 80mm 230mm-s 203DPI BT WIFI USB CORTE AUTOMATICO NEGRO",
+  "costo": 68.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "Impresora Epson EcoTank L1350 a Color con Wi-Fi",
+  "costo": 151.5
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "TV LG 50 Pulg. SMART QNED AI QNED70 4K BT 2HDMI Ethernet webOS 25",
+  "costo": 376.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "TV LG 50 Pulg. SMART QNED AI QNED70 4K BT 2HDMI Ethernet webOS 25",
+  "costo": 376.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "TV LG 50Pulg. Smart TV 4K Ultra HD AI NU85 Wi-Fi BT 2HMDI USB2.0 Ethenet Vesion 2026",
+  "costo": 364.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "TV LG 55 Pulg OLED evo AI C5 4K Smart Wifi BT 2HDMI Ethernet USB webOS 25",
+  "costo": 1287.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "TV LG 55 Pulg. SMART QNED AI QNED70 4K BT 2HDMI Ethernet webOS 25",
+  "costo": 456.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "TV LG 55INC. OLED EVO 4K C3 SMART UHD HDR THINQ AI-PROC ALFA 9 GEN6-MAGIC CONTROL",
+  "costo": 1160.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "TV LG 55INC. OLED EVO C4 4K SMART UHD HDR THINQ AI-PROC ALFA 9 GEN7 MAGIC CONTROL",
+  "costo": 1173.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "TV LG 55Pulg. Smart TV 4K Ultra HD AI NU85 Wi-Fi BT 2HMDI USB2.0 Ethenet Vesion 2026",
+  "costo": 429.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "TV LG 65INC. NANO ALPHA5 AI 4K GEN6 WEBOS 23 WIFI BT HDMI USB 2.1 LAN",
+  "costo": 814.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "TV LG 65INC. OLED EVO 4K C3 SMART UHD HDR THINQ AI-PROC ALFA 9 GEN6-MAGIC CONTROL",
+  "costo": 1584.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "TV LG 65INC. OLED EVO 4K G3 SMART UHD HDR THINQ AI-PROC ALFA 9 GEN6-MAGIC CONTROL",
+  "costo": 1968.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "TV LG 65Pulg. 4K UHD AI UA85 Smart Wifi BT 3HDMI USB WebOs Negro",
+  "costo": 608.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "TV LG 65Pulg. QNED AI Mini LED QNED70 4K Smart-TV Wifi BT 2HDMI USB WebOS 26 Version 2026",
+  "costo": 610.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "TV LG 65Pulg. Smart TV 4K Ultra HD AI NU85 Wi-Fi BT 2HMDI USB2.0 Ethenet Vesion 2026",
+  "costo": 542.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "TV LG 75 Pulg. QNED AI 4K UHD Smart Wifi BT 3HDMI 2USB ThiinQ webOS 23 Negro",
+  "costo": 865.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "TV LG 75 Pulg. QNED AI 4K UHD Smart Wifi BT 3HDMI 2USB ThiinQ webOS 23 Negro",
+  "costo": 849.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "TV LG 75Pulg. Smart TV 4K Ultra HD AI NU85 Wi-Fi BT 2HMDI USB2.0 Ethenet Vesion 2026",
+  "costo": 774.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "TV LG 77 Pulg. QNED AI 4K UHD Smart Wifi BT 3HDMI 2USB ThiinQ webOS 23 Negro",
+  "costo": 2430.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "TV LG 85Pulg. NANO 4K Ultra HD AI NU855 Wi-Fi BT 2HMDI USB2.0 Ethenet Vesion 2026",
+  "costo": 1079.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "TV LG 85Pulg. QNED AI Mini LED QNED70 4K Smart-TV Wifi BT 2HDMI USB WebOS 26 Version 2026",
+  "costo": 1160.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "TV SAMSUNG 32INC. LED SMART-TV UN32H5000FP 2HDMI USB-A HD-TV",
+  "costo": 164.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "TV SAMSUNG 50Inch U8000F Cristal UHD 4k WIFI BT 3HDMI USB-A NEGRO",
+  "costo": 369.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "TV SAMSUNG 55Inch Crystal UHD 4K CU8000 SMART-TV 3HDMI 2USB-A LAN Wifi5 3Lados Sin Bordes",
+  "costo": 410.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "TV SAMSUNG 65Inch Crystal UHD 4K U8000F SMART-TV 3HDMI USB-A LAN Wifi5",
+  "costo": 549.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "TV SAMSUNG 70Inch Crystal UHD 4K CU8000 SMART-TV 3HDMI 2USB-A LAN Wifi5 3Lados Sin Bordes",
+  "costo": 709.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "TV SAMSUNG 75Inch Crystal UHD 4K CU8000 SMART-TV 3HDMI 2USB-A LAN Wifi5 3Lados Sin Bordes",
+  "costo": 849.0
+ },
+ {
+  "categoria": "IMPRESORAS",
+  "descripcion": "TV Stargold 50Pulg. 50A0UG Smart 4K LED Wi-Fi BT Ethernet HDMI Negro 2y",
+  "costo": 299.0
+ },
+ {
+  "categoria": "MOUSE",
+  "descripcion": "MOUSE LOGITECH GAMING G305 BLANCO WIRELESS LIGHTSPEED SENSOR HERO ULTRALIGERO USB",
+  "costo": 34.1
+ },
+ {
+  "categoria": "MOUSE",
+  "descripcion": "KIT DE RIEL APC DE UNIDAD UPS EASY APC SRVRK1",
+  "costo": 13.6
+ },
+ {
+  "categoria": "MOUSE",
+  "descripcion": "Modulo TP-Link para Smart Switch Tapo S112",
+  "costo": 10.7
+ },
+ {
+  "categoria": "MOUSE",
+  "descripcion": "RACK AUTOMATIC TRANSFER SWITCH 2U 30A 200-208V IN 16 C13 2 C19 OUT 50-60Hz",
+  "costo": 1538.85
+ },
+ {
+  "categoria": "MOUSE",
+  "descripcion": "RACK PDU METERED",
+  "costo": 712.0
+ },
+ {
+  "categoria": "MOUSE",
+  "descripcion": "RAIL KIT FOR SMART-UPS RT 19INC. SRT 2.2-3KVA",
+  "costo": 98.7
+ },
+ {
+  "categoria": "MOUSE",
+  "descripcion": "SMART DISPLAY AMAZON ECHO SHOW 5 3RD GEN 2023 DEEPER BASS CLEARER SOUND CHARCOAL",
+  "costo": 87.7
+ },
+ {
+  "categoria": "MOUSE",
+  "descripcion": "SPLITTER TP-LINK POE OMADA ALIMENTACION DE SALIDA AJUSTABLE PLUG AND PLAY TL-POE10R",
+  "costo": 7.9
+ },
+ {
+  "categoria": "MOUSE",
+  "descripcion": "TECLADO MECANICO TENGU RGB BLANCO NEGRO SWITCH ROJO YOKAI WIFI-WIRED GAMER",
+  "costo": 43.2
+ },
+ {
+  "categoria": "MOUSE",
+  "descripcion": "TECLADO MECANICO TENGU RGB NEGRO BLANCO SWITCH ROJO YOKAI WIFI-WIRED GAMER",
+  "costo": 43.2
+ },
+ {
+  "categoria": "MOUSE",
+  "descripcion": "TECLADO MECANICO TENGU RGB OKAMI BLANCO NEGRO SWITCH ROJO WI-FI GAMER",
+  "costo": 43.2
+ },
+ {
+  "categoria": "MOUSE",
+  "descripcion": "TECLADO MECANICO TENGU RGB OKAMI NEGRO BLANCO SWITCH ROJO WI-FI GAMER",
+  "costo": 39.5
+ },
+ {
+  "categoria": "MOUSE",
+  "descripcion": "TIRA LED TP-LINK INTELIGENTE WIFI MULTICOLOR",
+  "costo": 15.9
+ },
+ {
+  "categoria": "MOUSE",
+  "descripcion": "MBO ASUS ROG STRIX B550-F GAMING WIFI II AMD Ryzen 5000 4DDR4 DP HDMI 2M.2 USB3.2 PCIe4.0 ATX",
+  "costo": 172.0
+ },
+ {
+  "categoria": "MOUSE",
+  "descripcion": "MBO ASUS ROG STRIX GAMING B850-A AM5 AMD Ryzen 9000 DDR5-8000Mhz WIFI BT DP HDMI 4M.2 PCIe 5.0",
+  "costo": 292.0
+ },
+ {
+  "categoria": "MOUSE",
+  "descripcion": "MBO ASUS TUF GAMING B760M-PLUS WIFI II 14th LGA1700 DDR5-7800 Wi-Fi HDMI DP 3M.2 USB-C PCIe5.0 mATX",
+  "costo": 196.0
+ },
+ {
+  "categoria": "MOUSE",
+  "descripcion": "MBO ASUS TUF GAMING B850M-Plus WIFI AM5 AMD Ryzen 9000 DDR5-8000Mhz BT DP HDMI 12usb PCIe 5.0 mATX",
+  "costo": 228.0
+ },
+ {
+  "categoria": "MOUSE",
+  "descripcion": "MBO ASUS TUF GAMING B860-Plus WIFI Intel Core Ultra LGA1851 DDR5-8666Mhz BT DP HDMI 3M.2 PCIe5.0 ATX",
+  "costo": 220.0
+ },
+ {
+  "categoria": "MOUSE",
+  "descripcion": "MBO ASUS TUF GAMING X870-Plus WIFI AMD AM5 4DDR5 WIFI HDMI 2USB4 4M.2 10USB PCIe5.0-4.0 ATX",
+  "costo": 292.0
+ },
+ {
+  "categoria": "MOUSE",
+  "descripcion": "MBO ASUS TUF Z790-PLUS GAMING 13VA LGA-1700 DDR5-7200 HDMI DP WIFI BT 4M.2 USB3.2 PCIE4.0 ATX",
+  "costo": 252.0
+ },
+ {
+  "categoria": "MEMORIA RAM",
+  "descripcion": "Impresora EPSON WorkForce C-5810 Color Multifuncional 24ppm ADF Wifi Ethernet Duplex",
+  "costo": 500.0
+ },
+ {
+  "categoria": "TECLADOS",
+  "descripcion": "TECLADO GENIUS SMART KB-100 USB SP NEGRO",
+  "costo": 5.0
+ },
+ {
+  "categoria": "SUMINISTROS LEXMARK",
+  "descripcion": "TRANSFORMADOR APC DE AISLAMIENTO PARA UNIDAD SMART UPS SRT SRT5KTF",
+  "costo": 954.96
+ },
+ {
+  "categoria": "SUMINISTROS LEXMARK",
+  "descripcion": "Wall Mount kit TP-Link for Outdoor Access Point 150grados Ajustable",
+  "costo": 20.1
+ },
+ {
+  "categoria": "MALETAS, MOCHILAS",
+  "descripcion": "ESTUCHE CAMARA SONY LCS-BBE",
+  "costo": 30.0
+ },
+ {
+  "categoria": "UNIDADES DE ESTADO SOLIDO Y DISCOS DUROS",
+  "descripcion": "ADAPTADOR LOGITECH SWITCH PARA SALAS DE REUNION USB USB-C",
+  "costo": 703.5
+ },
+ {
+  "categoria": "UNIDADES DE ESTADO SOLIDO Y DISCOS DUROS",
+  "descripcion": "ADAPTADOR TP-Link Inyector PoE Gigabit Plug and Play",
+  "costo": 12.8
+ },
+ {
+  "categoria": "UNIDADES DE ESTADO SOLIDO Y DISCOS DUROS",
+  "descripcion": "ADAPTADOR TP-Link PoE con Injector 2Gigabit Plug and Play Wall-Mounting Power Supply integrada",
+  "costo": 14.6
+ },
+ {
+  "categoria": "UNIDADES DE ESTADO SOLIDO Y DISCOS DUROS",
+  "descripcion": "ADAPTADOR TP-Link Splitter PoE Gigabit Plug and Play",
+  "costo": 7.9
+ },
+ {
+  "categoria": "UNIDADES DE ESTADO SOLIDO Y DISCOS DUROS",
+  "descripcion": "COTROLADOR DE HARDWARE TP-LINK OMADA POE OC200",
+  "costo": 77.3
+ },
+ {
+  "categoria": "UNIDADES DE ESTADO SOLIDO Y DISCOS DUROS",
+  "descripcion": "DECO TP-LINK X10 WIFI 6 MESH WIFI AX1500 FOR HOME 3 PACK 1500Mbs Blanco",
+  "costo": 93.8
+ },
+ {
+  "categoria": "UNIDADES DE ESTADO SOLIDO Y DISCOS DUROS",
+  "descripcion": "DECO TP-LINK X10 WIFI 6 MESH WIFI AX1500 FOR HOME BLANCO (1 PACK)",
+  "costo": 32.5
+ },
+ {
+  "categoria": "UNIDADES DE ESTADO SOLIDO Y DISCOS DUROS",
+  "descripcion": "DECO TP-LINK X10 WIFI 6 MESH WIFI AX1500 FOR HOME BLANCO (2 PACK)",
+  "costo": 62.6
+ },
+ {
+  "categoria": "UNIDADES DE ESTADO SOLIDO Y DISCOS DUROS",
+  "descripcion": "EXTENSOR DE COBERTURA TP-LINK WI-FI AC750 RE200",
+  "costo": 15.6
+ },
+ {
+  "categoria": "UNIDADES DE ESTADO SOLIDO Y DISCOS DUROS",
+  "descripcion": "EXTENSOR DE COBERTURA TP-Linkl OMADA PoE Plus Outdoor 2x1 Gbps Ports Weatherproof Plug-Play",
+  "costo": 20.3
+ },
+ {
+  "categoria": "UNIDADES DE ESTADO SOLIDO Y DISCOS DUROS",
+  "descripcion": "EXTENSOR DE COBERTURA WI-FI AC1200 RE305",
+  "costo": 19.1
+ },
+ {
+  "categoria": "UNIDADES DE ESTADO SOLIDO Y DISCOS DUROS",
+  "descripcion": "EXTENSOR DE RANGO MERCUSYS MW300RE WI-FI 300MBPS 3 ANTENAS WHITE",
+  "costo": 10.1
+ },
+ {
+  "categoria": "UNIDADES DE ESTADO SOLIDO Y DISCOS DUROS",
+  "descripcion": "EXTENSOR TP-Link WiFi 6 AX3000 Wireless Doble Banda con Puerto Ethernet Hasta 2400 pies 64Disp.",
+  "costo": 41.7
+ },
+ {
+  "categoria": "UNIDADES DE ESTADO SOLIDO Y DISCOS DUROS",
+  "descripcion": "Power Injector TP-Link TL-POE150S Gigabit PoE 48V DC,15.4W",
+  "costo": 12.8
+ },
+ {
+  "categoria": "TABLET",
+  "descripcion": "IPAD APPLE A16 Bionic 6GB 128GB 11Inch Wi-Fi BT USB-C 2Cam iPadOS Blue",
+  "costo": 503.0
+ },
+ {
+  "categoria": "TABLET",
+  "descripcion": "IPAD APPLE A16 Bionic 6GB 128GB 11Inch Wi-Fi BT USB-C 2Cam iPadOS Silver",
+  "costo": 503.0
+ },
+ {
+  "categoria": "TABLET",
+  "descripcion": "TABLET SAMSUNG GALAXY S10 FE Plus 8GB 128GB 13.1Inch Wifi BT And-14 Incl-Case Gray",
+  "costo": 506.0
+ },
+ {
+  "categoria": "TABLET",
+  "descripcion": "TABLET SAMSUNG GALAXY S10 LITE WIFI OC 6GB 128GB 10.9Inch BT SPen And-16 Gray",
+  "costo": 291.0
+ },
+ {
+  "categoria": "NOTEBOOK",
+  "descripcion": "PUNTO DE ACCESO INALAMBRICO TP-LINK EXTERIOR WI-FI 6 AX1800 DOBLE BANDA IP67 EAP610-OUTDOOR",
+  "costo": 101.7
+ },
+ {
+  "categoria": "NOTEBOOK",
+  "descripcion": "PUNTO DE ACCESO INALAMBRICO TP-LINK EXTERIOR WI-FI 6 AX1800 DOBLE BANDA IP67 EAP625-OUTDOOR HD",
+  "costo": 125.6
+ },
+ {
+  "categoria": "NOTEBOOK",
+  "descripcion": "PUNTO DE ACCESO INALAMBRICO TP-LINK MONTAJE EN TECHO WI-FI 6 AX3600 DOBLE BANDA EAP660 HD",
+  "costo": 166.8
+ },
+ {
+  "categoria": "NOTEBOOK",
+  "descripcion": "RACK POWER APC AP7530 24-Outlet Basic Distribution Unit (0 RU)",
+  "costo": 248.0
+ },
+ {
+  "categoria": "NOTEBOOK",
+  "descripcion": "ROUTER HIKVISION Wireless Wifi-4 2-Antentas 300Mbps Gris",
+  "costo": 9.8
+ },
+ {
+  "categoria": "NOTEBOOK",
+  "descripcion": "ROUTER INALAMBRICO N 300MBPS TL-WR840N",
+  "costo": 11.2
+ },
+ {
+  "categoria": "NOTEBOOK",
+  "descripcion": "ROUTER MERCUSYS BY TP-LINK AC1200 DOBLE BANDA WIRELESS 3ANTENAS",
+  "costo": 12.4
+ },
+ {
+  "categoria": "NOTEBOOK",
+  "descripcion": "ROUTER MERCUSYS MW301R WIRELESS N 300MBPS 2ANT.",
+  "costo": 6.7
+ },
+ {
+  "categoria": "NOTEBOOK",
+  "descripcion": "Router TP-Link VPN Omada Multi-Gigabit 1Puerto WAN 5 Puertos Gigabit 1Puerto USB 3.0",
+  "costo": 161.2
+ },
+ {
+  "categoria": "MONITORES Y TELEVISORES",
+  "descripcion": "UPS APC SRV1KRA ON LINE RACK120V 4 TOMAS PANTALLA 800W-1000VA (NO INCLUYE RIEL)",
+  "costo": 303.0
+ },
+ {
+  "categoria": "MONITORES Y TELEVISORES",
+  "descripcion": "UPS APC SRV2KRA Easy UPS SRV RM 2000VA 120V",
+  "costo": 497.0
+ },
+ {
+  "categoria": "MONITORES Y TELEVISORES",
+  "descripcion": "UPS APC SRV3KA ON LINE 120V EASY UPS PANTALLA LCD. TOWER 2.4KILOVATIOS-3.0KVA",
+  "costo": 591.0
+ },
+ {
+  "categoria": "MONITORES Y TELEVISORES",
+  "descripcion": "UPS APC SRV3KRA ON LINE RACK120V 4 TOMAS PANTALLA 2400W-3000VA (NO INCLUYE RIEL)",
+  "costo": 625.0
+ },
+ {
+  "categoria": "MONITORES Y TELEVISORES",
+  "descripcion": "UPS APC SRV6KIL-6KTF ON LINE 230V-120V INCLUYE (SRVPM6KIL - SRV240BP-9A - SRV6KTF)",
+  "costo": 1854.7
+ },
+ {
+  "categoria": "MONITORES Y TELEVISORES",
+  "descripcion": "UPS CDP 15PM 15KVA-12KW 0.9PF ONLINE WITH CASE FOR UPO22-15BC32-79BM - BAT. UPO2215BC",
+  "costo": 3700.93
+ },
+ {
+  "categoria": "MONITORES Y TELEVISORES",
+  "descripcion": "UPS CDP LI-504 500VA-250W LITHIUM BATERY 4 TOMAS 1USB-C NEGRO",
+  "costo": 39.8
+ },
+ {
+  "categoria": "MONITORES Y TELEVISORES",
+  "descripcion": "UPS CDP R-SMART1010 INTERACTIVO 1000VA-500W-ENTRADA-SALIDA 110VAC-10 NEMA 5-15R",
+  "costo": 56.3
+ },
+ {
+  "categoria": "MONITORES Y TELEVISORES",
+  "descripcion": "UPS CDP R-UPR1008 INTERACTIVO 1000VA-500W-ENTRADA-SALIDA 110VAC-8 NEMA 5-15R",
+  "costo": 43.0
+ },
+ {
+  "categoria": "MONITORES Y TELEVISORES",
+  "descripcion": "UPS CDP R-UPR508 INTERACTIVO 500VA-250W-ENTRADA-SALIDA 110VAC-8 NEMA 5-15R",
+  "costo": 30.7
+ },
+ {
+  "categoria": "MONITORES Y TELEVISORES",
+  "descripcion": "UPS CDP UPO11-1AXI ON LINE TORRE 1000VA-1000W-ENTRADA-SALIDA 220VAC-6 IEC-13 USB-SERIAL",
+  "costo": 254.0
+ },
+ {
+  "categoria": "MONITORES Y TELEVISORES",
+  "descripcion": "UPS CDP UPO11-1RT ON LINE 1000VA-900W RACK",
+  "costo": 206.0
+ },
+ {
+  "categoria": "MONITORES Y TELEVISORES",
+  "descripcion": "UPS CDP UPO11-2 ON LINE TORRE 2000VA-1800W-ENTRADA-SALIDA 110VAC-4 NEMA 5-15R O 5-20R",
+  "costo": 340.0
+ },
+ {
+  "categoria": "MONITORES Y TELEVISORES",
+  "descripcion": "UPS CDP UPO11-2AXI ON LINE TORRE 2000VA-2000W-ENTRADA-SALIDA 220VAC-8 NEMA IEC-C 13-14",
+  "costo": 433.0
+ },
+ {
+  "categoria": "MONITORES Y TELEVISORES",
+  "descripcion": "UPS CDP UPO11-2RT ON LINE RACK 2000VA-1800W-ENTRADA-SALIDA 110VAC-8 NEMA 5-15R",
+  "costo": 365.0
+ },
+ {
+  "categoria": "MONITORES Y TELEVISORES",
+  "descripcion": "UPS CDP UPO11-3 ON LINE TORRE 3000VA-2700W-ENTRADA-SALIDA 110VAC-4 NEMA L5-30P",
+  "costo": 505.0
+ },
+ {
+  "categoria": "MONITORES Y TELEVISORES",
+  "descripcion": "UPS CDP UPO11-3AXI ON LINE TORRE 3000VA-3000W-ENTRADA-SALIDA 220VAC-6 NEMA IEC-C 13-14",
+  "costo": 550.0
+ },
+ {
+  "categoria": "MONITORES Y TELEVISORES",
+  "descripcion": "UPS CDP UPO11-3RT ON LINE RACK 3000VA-2700W-ENTRADA-SALIDA 110VAC-8 NEMA 5-15R",
+  "costo": 530.0
+ },
+ {
+  "categoria": "MONITORES Y TELEVISORES",
+  "descripcion": "UPS CDP UPO22-10 ON LINE TIPO TORRE 10000VA-10000W ENTRADA 220VAC-SALIDA 110VAC-220VAC",
+  "costo": 1306.0
+ },
+ {
+  "categoria": "MONITORES Y TELEVISORES",
+  "descripcion": "UPS CDP UPO22-10AX ON LINE TORRE 10000VA-10000W-ENTRADA 220VAC Y SALIDA 110 O 220VAC-TRANSFORMADOR",
+  "costo": 2199.0
+ },
+ {
+  "categoria": "MONITORES Y TELEVISORES",
+  "descripcion": "UPS CDP UPO22-15 ON LINE TORRE 15000VA-12000W-ENTRADA 220VAC Y SALIDA 110 O 220VAC-TRANSFORMADOR",
+  "costo": 3689.0
+ },
+ {
+  "categoria": "MONITORES Y TELEVISORES",
+  "descripcion": "UPS CDP UPO22-6AX ON LINE TORRE 6000VA-6000W-ENTRADA 220VAC Y SALIDA 110 O 220VAC-TRANSFORMADOR",
+  "costo": 1671.0
+ },
+ {
+  "categoria": "MONITORES Y TELEVISORES",
+  "descripcion": "UPS CDP UPO22-6KVA 6000VA-6000W ON LINE-ENTRADA 220 Y SALIDA 110-220 VCA-TORRE",
+  "costo": 1042.0
+ },
+ {
+  "categoria": "PARLANTES",
+  "descripcion": "PARLANTE AMAZON ECHO DOT 5TA. GENERACION SMART CON ALEXA BLUE",
+  "costo": 64.0
+ },
+ {
+  "categoria": "PARLANTES",
+  "descripcion": "PARLANTE AMAZON ECHO DOT 5TA. GENERACION SMART CON ALEXA WHITE",
+  "costo": 64.0
+ },
+ {
+  "categoria": "PARLANTES",
+  "descripcion": "PARLANTE AMAZON ECHO SPOT SMART ALARM CLOCK WITH VIBRANT SOUND AND ALEXA BLACK",
+  "costo": 72.0
+ },
+ {
+  "categoria": "PARLANTES",
+  "descripcion": "PARLANTE ENGLAND ES-EPIC PARTY 210 15Inch App Smart Control MIC.NEGRO",
+  "costo": 159.9
+ },
+ {
+  "categoria": "PARLANTES",
+  "descripcion": "Parlante Samsung con Marco HW-LS60D 120W 2-Channel Music Wi-Fi BT Black Personalizable",
+  "costo": 283.0
+ },
+ {
+  "categoria": "ACCESORIOS",
+  "descripcion": "ACCESS POINT CARD-READER WIRELEES POWER BANK 5000 MAH LECTOR MICRO SD PUERTO USB",
+  "costo": 58.0
+ },
+ {
+  "categoria": "COMPUTADORES DESKTOP, AIO, MINIPC",
+  "descripcion": "COP. APPLE IMAC AIO M4 16GB 256GB-SSD 24INCH BT WIFI CAM. IOS BLUE",
+  "costo": 1546.0
+ },
+ {
+  "categoria": "COMPUTADORES DESKTOP, AIO, MINIPC",
+  "descripcion": "KIOSKO SAT TRANSACCIONAL Intel I5 8GB 256GB 32Inch Wifi RJ45 Imp. Termica Lector Barras WC NFC",
+  "costo": 2041.0
+ },
+ {
+  "categoria": "COMPUTADORES DESKTOP, AIO, MINIPC",
+  "descripcion": "MINI PC SAT Z4125 4GB-DDR3 128GB-SSD Wifi HDMI VGA LAN 8-USB Black",
+  "costo": 225.0
+ },
+ {
+  "categoria": "COMPUTADORES DESKTOP, AIO, MINIPC",
+  "descripcion": "NOT. LENOVO IdeaPad INTEL I3-N305 8GB-DDR5 128GB 15.6Pulg. Wifi BT HDMI 2USB3.0 USB-C W11-H Gris",
+  "costo": 365.0
+ },
+ {
+  "categoria": "COMPUTADORES DESKTOP, AIO, MINIPC",
+  "descripcion": "NOT. LENOVO IdeaPad Slim 3 INTEL N150 8GB 128GB 15.6Pulg. Wifi BT HDMI 2USB-A USB-C W11-H Frost Blue",
+  "costo": 359.0
+ },
+ {
+  "categoria": "COMPUTADORES DESKTOP, AIO, MINIPC",
+  "descripcion": "NUC 15 Pro ASUS INTEL CORE 3 100U M.2 WIFI BT HDMI DDR5-5600Mhz USB3.2 LAN-2.5G Cable Black",
+  "costo": 378.0
+ },
+ {
+  "categoria": "COMPUTADORES DESKTOP, AIO, MINIPC",
+  "descripcion": "NUC 15 Pro ASUS INTEL Core Ultra 5 225H M.2 Wifi BT 2HDMI DDR5-6400Mhz 3USB3.2 LAN-2.5G Cable Black",
+  "costo": 511.0
+ },
+ {
+  "categoria": "COMPUTADORES DESKTOP, AIO, MINIPC",
+  "descripcion": "NUC 15 Pro ASUS INTEL Core Ultra 7 255H M.2 Wifi BT 2HDMI DDR5-6400Mhz 3USB3.2 LAN-2.5G Cable Black",
+  "costo": 657.0
+ },
+ {
+  "categoria": "COMPUTADORES DESKTOP, AIO, MINIPC",
+  "descripcion": "NUC ASUS 14 Essential INTEL N150 EXP-DDR5-4800 A 16GB M.2 or SATA SSD WIFI HDMI LAN USB-C USB-A",
+  "costo": 171.0
+ },
+ {
+  "categoria": "COMPUTADORES DESKTOP, AIO, MINIPC",
+  "descripcion": "POS SYSTEM SAT AIO TOUCH Intel i5 8GB 256GB 15Inch Wifi VGA USB Black",
+  "costo": 896.0
+ },
+ {
+  "categoria": "PROYECTORES",
+  "descripcion": "MONITOR LG 55INCH. IPS COM. DISPLAY UHD LED 24-7 2HDMI DP WIFI 3840X2160 4K",
+  "costo": 1410.0
+ },
+ {
+  "categoria": "PROYECTORES",
+  "descripcion": "MONITOR LG 65INCH DIGITAL SIGNAGE 4K 2HDMI DP WIFI LAN NFC NEGRO",
+  "costo": 1750.0
+ },
+ {
+  "categoria": "PROYECTORES",
+  "descripcion": "Monitor LG StanbyME Go 27inch Briefcase Design Touch Screen ThinQ AI WIFI FHD 60Hz",
+  "costo": 1312.0
+ },
+ {
+  "categoria": "PROYECTORES",
+  "descripcion": "TV LG 100 Pulg. QNED AI miniLED 4K UHD Smart Wifi BT 3HDMI 2USB ThiinQ webOS 26 Negro",
+  "costo": 2010.0
+ },
+ {
+  "categoria": "PROYECTORES",
+  "descripcion": "TV LG 43 Pulg. AI SMART-TV FHD ThinQ BT 2HDMI Ethernet webOS 23",
+  "costo": 235.0
+ },
+ {
+  "categoria": "PROYECTORES",
+  "descripcion": "BATTERY APC EASY UPS SRV 240V",
+  "costo": 566.0
+ },
+ {
+  "categoria": "PROYECTORES",
+  "descripcion": "BRACKET MOUNTING TP-Link for CAMARA VIGI NETWORK",
+  "costo": 9.9
+ },
+ {
+  "categoria": "PROYECTORES",
+  "descripcion": "CAJA DE CONEXIONES PARA CAMARA IP 7.1x5.3x2.3 inch",
+  "costo": 9.2
+ },
+ {
+  "categoria": "PROYECTORES",
+  "descripcion": "CAJA DE CONEXIONES VIGI PARA CAMARA IP 125x130.47X45.7mm",
+  "costo": 11.2
+ },
+ {
+  "categoria": "PROYECTORES",
+  "descripcion": "CARD READER IMEXX USB AND CAMARA FOR IPAD 2-3",
+  "costo": 9.1
+ },
+ {
+  "categoria": "PROYECTORES",
+  "descripcion": "Docking Station Dell Pro Smart Dock SD25 4xUSB-A,2xUSB-C,HDMI,2xDP,RJ45 130W Negro 3Y",
+  "costo": 201.0
+ },
+ {
+  "categoria": "PROYECTORES",
+  "descripcion": "DVB-T WIFI RECEIVER POINT OF VIEW ANDROID-IOS",
+  "costo": 58.0
+ },
+ {
+  "categoria": "PROYECTORES",
+  "descripcion": "EXPANSION LOGITECH FOR MICROFONO DE CAMARA RALLY GRAFITO",
+  "costo": 337.4
+ },
+ {
+  "categoria": "PROYECTORES",
+  "descripcion": "FOCO INTELIGENTE TP-LINK TAPO SMART WIFI LIGHT MULTICOLOR 1055 LUM. CONTROL POR VOZ (1 PACK)",
+  "costo": 6.0
+ }
+]

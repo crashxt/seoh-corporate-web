@@ -5,6 +5,7 @@ import PageHero from '../components/PageHero';
 import Seo from '../components/Seo';
 import { getProducts } from '../services/products';
 import type { Product } from '../types';
+import { formatearPrecio } from '../lib/precio';
 
 const TODAS = 'Todos';
 
@@ -87,6 +88,11 @@ export default function Equipos() {
               <span className="categoria">{equipo.category}</span>
               <h2>{equipo.name}</h2>
               <p>{equipo.summary}</p>
+              <span className="precio-tarjeta">
+                {typeof equipo.price === 'number'
+                  ? formatearPrecio(equipo.price)
+                  : 'Bajo cotización'}
+              </span>
               <Link className="enlace-tarjeta" to={`/equipos/${equipo.slug}`}>
                 Ver equipo
                 <ArrowRight size={15} aria-hidden="true" />
