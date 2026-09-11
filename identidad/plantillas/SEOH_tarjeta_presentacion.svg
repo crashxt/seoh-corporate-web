@@ -6,6 +6,11 @@
     2. Convertir el documento a CMYK. El azul #0057B8 equivale aproximadamente
        a C100 M65 Y0 K0 (Pantone 2935 C).
     3. Sustituir los datos entre corchetes.
+
+  Generado el 2026-09-11 desde el commit 71a82d8.
+  No edite este archivo a mano: se regenera con los scripts del repositorio y
+  cualquier cambio manual se perderia. Si necesita un ajuste permanente, pidalo
+  sobre el generador.
 -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="192mm" height="56mm" viewBox="0 0 192 56">
   <title>SEOH DESIGN TECH — tarjeta de presentación</title>

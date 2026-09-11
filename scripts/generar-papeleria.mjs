@@ -9,6 +9,7 @@
 import sharp from 'sharp';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { CONTACTO } from './datos-contacto.mjs';
+import { SELLO, SELLO_CORTO } from './sello.mjs';
 
 const DESTINO = 'identidad/plantillas';
 
@@ -42,6 +43,8 @@ const tarjeta = `<!--
     2. Convertir el documento a CMYK. El azul #0057B8 equivale aproximadamente
        a C100 M65 Y0 K0 (Pantone 2935 C).
     3. Sustituir los datos entre corchetes.
+
+  ${SELLO}
 -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="192mm" height="56mm" viewBox="0 0 192 56">
   <title>SEOH DESIGN TECH — tarjeta de presentación</title>
@@ -95,6 +98,8 @@ const firma = `<!doctype html>
   los correos ya enviados. Junto a este archivo queda SEOH_firma_marca.png: con
   solo apuntar el src a ese nombre, la imagen viaja incrustada en el mensaje y
   no depende de ningún servidor.
+
+  ${SELLO}
 -->
 <style>
   /* Solo para ver el archivo en el navegador. No forma parte de la firma: al

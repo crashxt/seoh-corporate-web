@@ -39,6 +39,21 @@ sola tinta.
 > una gigantografía o un rótulo grande hay que redibujar el arte en vector; ver
 > la nota al final.
 
+## Cómo saber si un archivo está vigente
+
+Cada archivo generado lleva un sello con su fecha y el commit del que salió.
+En los SVG y HTML está en el comentario de cabecera; en los Word, en las
+propiedades del documento (Archivo → Información → Descripción).
+
+Si alguien copia una plantilla a su escritorio y la renombra, ese sello es la
+única forma de saber si es la vigente. **Ya ocurrió**: circularon tres
+plantillas anteriores a las correcciones del teléfono y de la codificación de
+caracteres.
+
+La regla: **no se editan a mano**. Si hace falta un ajuste permanente —un
+margen, una frase, un dato— se hace sobre el generador y se regenera. Un cambio
+manual sobrevive hasta la siguiente regeneración y luego desaparece.
+
 ## `plantillas/`
 
 | Archivo | Para qué |

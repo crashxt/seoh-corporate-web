@@ -26,6 +26,7 @@ import {
 } from 'docx';
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { CONTACTO } from './datos-contacto.mjs';
+import { SELLO, SELLO_CORTO } from './sello.mjs';
 
 const DESTINO = 'identidad/plantillas';
 // 512 px sobran para el tamano al que se imprime el membrete, y evitan
@@ -129,7 +130,7 @@ const vacio = (after = 160) => new Paragraph({ spacing: { after }, children: [] 
 const membrete = new Document({
   creator: 'SEOH DESIGN TECH S.A.',
   title: 'Hoja membretada SEOH',
-  description: 'Plantilla de hoja con membrete para documentos institucionales.',
+  description: `Plantilla de hoja con membrete. ${SELLO_CORTO}`,
   sections: [
     seccion([
       parrafo('[Ciudad], [día] de [mes] de [año]', { alineacion: AlignmentType.RIGHT, after: 400 }),
@@ -150,7 +151,7 @@ const membrete = new Document({
 const oficio = new Document({
   creator: 'SEOH DESIGN TECH S.A.',
   title: 'Oficio SEOH',
-  description: 'Plantilla de oficio con la estructura formal completa.',
+  description: `Plantilla de oficio con la estructura formal completa. ${SELLO_CORTO}`,
   sections: [
     seccion([
       parrafo('Oficio N.º [000]-[AÑO]-SEOH', { negrita: true, color: AZUL_PROFUNDO, after: 80 }),

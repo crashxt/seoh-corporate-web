@@ -9,6 +9,7 @@
     "images": "node scripts/optimize-images.mjs",
     "formatos": "node scripts/exportar-formatos.mjs",
     "papeleria": "node scripts/generar-papeleria.mjs",
+    "papeleria-toda": "npm run papeleria && npm run plantillas",
     "plantillas": "node scripts/generar-plantillas-docx.mjs",
     "manual": "node scripts/generar-manual.mjs",
     "marca": "node scripts/generar-marca.mjs",
