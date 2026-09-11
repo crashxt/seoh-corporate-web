@@ -84,15 +84,24 @@ npm run deploy
 
 Comprueba antes que `npm run build` pasa y que el CI está en verde.
 
-## Pendiente antes de publicar
+## Pendiente
 
-- [ ] **Teléfono y WhatsApp** en `src/data/empresa.ts`. Ahora están vacíos y por
-      eso no se muestran; no hay ningún marcador de posición visible.
-- [ ] **Confirmar el correo** `info@seohdesigntech.com`.
-- [ ] **Revisión legal** de `/privacidad` y `/terminos`, y completar la
-      identificación fiscal y el domicilio del responsable.
-- [ ] **Dominio definitivo**: si no es `seohdesigntech.com`, actualizar
-      `EMPRESA.dominio`, `index.html`, `public/robots.txt` y
-      `public/sitemap.xml`.
-- [ ] **URL de acceso a las aplicaciones** cuando la plataforma esté publicada,
-      para enlazarla desde la navegación.
+El sitio ya está publicado en `https://seohdesigntech.com`. Estos puntos siguen
+abiertos y se asumieron de forma consciente al publicar:
+
+- [ ] **Revisión legal** de `/privacidad` y `/terminos`. Están redactadas contra
+      la Ley Orgánica de Protección de Datos Personales del Ecuador y describen
+      con precisión lo que el sitio hace, pero no las ha revisado un
+      profesional.
+- [ ] **Identificación fiscal.** `REGISTRO.ruc` y `REGISTRO.direccion` en
+      `src/data/empresa.ts` están vacíos, así que la página los omite en lugar
+      de publicarlos a medias. La LOPDP exige identificar al responsable del
+      tratamiento.
+- [ ] **Estado de las verticales.** «Gestión de procesos (BPM)» figura como
+      *Operativo*. Conviene confirmar que es exacto si todavía no hay clientes
+      usándolo en producción.
+
+Resuelto:
+
+- [x] Teléfono, WhatsApp y correo reales, propagados a web y papelería.
+- [x] Dominio activo y sirviendo el sitio.
