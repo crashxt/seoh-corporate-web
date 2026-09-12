@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { ArrowRight, Cpu, Network, ShieldCheck, Wifi, Zap } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router-dom';
 import BuscadorEquipos from '../components/BuscadorEquipos';
+import ImagenEquipo from '../components/ImagenEquipo';
 import TarjetaSolucion from '../components/TarjetaSolucion';
 import { obtenerSoluciones } from '../services/soluciones';
 import type { Solucion } from '../types';
@@ -168,13 +169,7 @@ export default function Equipos() {
         <div className="catalogo">
           {visibles.map((equipo) => (
             <article className="tarjeta-catalogo" key={equipo.id}>
-              {equipo.image_url ? (
-                <img src={equipo.image_url} alt="" loading="lazy" decoding="async" />
-              ) : (
-                <div className="marcador-imagen" aria-hidden="true">
-                  <Network />
-                </div>
-              )}
+              <ImagenEquipo equipo={equipo} />
               <span className="categoria">{equipo.category}</span>
               <h2>{equipo.name}</h2>
               <p>{equipo.summary}</p>

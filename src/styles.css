@@ -1000,8 +1000,31 @@ p {
 .marcador-imagen {
   display: grid;
   place-items: center;
-  background: var(--fondo-elevado);
+  align-content: center;
+  gap: var(--espacio-xs);
+  /* Trama diagonal suave: se distingue de una foto que no cargo y no compite
+     con las fichas que si la tienen. */
+  background:
+    repeating-linear-gradient(
+      135deg,
+      var(--fondo-hundido) 0 10px,
+      var(--fondo-elevado) 10px 20px
+    );
+  border: 1px dashed var(--borde-fuerte);
   color: var(--texto-tenue);
+}
+
+.marcador-imagen svg {
+  width: 34px;
+  height: 34px;
+  color: var(--acento);
+  opacity: 0.75;
+}
+
+.marcador-imagen span {
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .tarjeta-catalogo .categoria {
