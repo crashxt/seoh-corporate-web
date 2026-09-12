@@ -1,6 +1,12 @@
 import { Check, Minus, Plus } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { COMPLEMENTOS, PLANES, PLAN_TRANSPORTE, precioTransporte } from '../data/planes';
+import {
+  AVISO_PRECIOS,
+  COMPLEMENTOS,
+  PLANES,
+  PLAN_TRANSPORTE,
+  precioTransporte,
+} from '../data/planes';
 
 /**
  * Planes de la plataforma.
@@ -16,6 +22,8 @@ import { COMPLEMENTOS, PLANES, PLAN_TRANSPORTE, precioTransporte } from '../data
 export default function Planes() {
   return (
     <>
+      <p className="aviso-precios">{AVISO_PRECIOS}</p>
+
       <div className="rejilla-planes">
         {PLANES.map((plan) => (
           <article
@@ -85,8 +93,7 @@ export default function Planes() {
             <span className="plan-para">hasta {PLAN_TRANSPORTE.base.unidades} unidades</span>
           </p>
           <p className="nota-bloque">
-            Después, cada {PLAN_TRANSPORTE.bloque.unidades} unidades adicionales suman{' '}
-            {PLAN_TRANSPORTE.bloque.precio} USD.
+            Después, {PLAN_TRANSPORTE.porUnidad.toFixed(2)} USD por cada unidad adicional al mes.
           </p>
           <table>
             <caption>Ejemplos según el tamaño de la flota</caption>

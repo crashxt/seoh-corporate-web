@@ -91,7 +91,15 @@ export const PLANES = [
  */
 export const PLAN_TRANSPORTE = {
   base: { unidades: 100, precio: 25 },
-  bloque: { unidades: 25, precio: 10 },
+  /**
+   * Por unidad adicional, no por bloques.
+   *
+   * Con bloques de 25 a 10 USD el coste por unidad subia con el tamaño de la
+   * flota —de 0,25 a 0,35—, penalizando a las cooperativas grandes, que son
+   * las mejores clientes, y desincentivando crecer. Ademas "25 centavos por
+   * taxi al mes" se entiende de inmediato y se repite solo entre dirigentes.
+   */
+  porUnidad: 0.25,
   incluye: [
     'Despacho y asignación de servicios',
     'Registro de unidades, socios y conductores',
@@ -102,7 +110,17 @@ export const PLAN_TRANSPORTE = {
 
 /** Precio mensual para una flota de N unidades. */
 export const precioTransporte = (unidades: number) => {
-  const { base, bloque } = PLAN_TRANSPORTE;
+  const { base, porUnidad } = PLAN_TRANSPORTE;
   if (unidades <= base.unidades) return base.precio;
-  return base.precio + Math.ceil((unidades - base.unidades) / bloque.unidades) * bloque.precio;
+  return Math.round((base.precio + (unidades - base.unidades) * porUnidad) * 100) / 100;
 };
+
+/**
+ * Aviso de precios de lanzamiento.
+ *
+ * Los clientes anclan en el precio que ven: bajarlo despues es facil, subirlo
+ * quema. Decir de entrada que son de lanzamiento deja margen para ajustar
+ * cuando haya costes reales, sin que parezca una subida a traicion.
+ */
+export const AVISO_PRECIOS =
+  'Precios de lanzamiento. Se mantienen para quien contrate durante esta etapa.';

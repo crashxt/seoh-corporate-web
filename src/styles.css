@@ -764,6 +764,18 @@ p {
   margin-top: 4px;
 }
 
+.aviso-precios {
+  display: inline-block;
+  margin-bottom: var(--espacio-md);
+  padding: var(--espacio-xs) var(--espacio-md);
+  background: var(--acento-tenue);
+  border: 1px solid var(--acento-borde);
+  border-radius: 999px;
+  color: var(--acento-fuerte);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
 .plan-transporte {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
@@ -1113,6 +1125,18 @@ p {
 
 .lista-limites svg {
   margin-top: 4px;
+}
+
+.aviso-precios {
+  display: inline-block;
+  margin-bottom: var(--espacio-md);
+  padding: var(--espacio-xs) var(--espacio-md);
+  background: var(--acento-tenue);
+  border: 1px solid var(--acento-borde);
+  border-radius: 999px;
+  color: var(--acento-fuerte);
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
 .plan-transporte {
