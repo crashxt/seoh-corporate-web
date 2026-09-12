@@ -1,6 +1,6 @@
 import { Check, Minus, Plus } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { COMPLEMENTOS, PLANES } from '../data/planes';
+import { COMPLEMENTOS, PLANES, PLAN_TRANSPORTE, precioTransporte } from '../data/planes';
 
 /**
  * Planes de la plataforma.
@@ -58,6 +58,57 @@ export default function Planes() {
             </Link>
           </article>
         ))}
+      </div>
+
+      <div className="plan-transporte">
+        <div>
+          <span className="antetitulo">COOPERATIVAS DE TRANSPORTE</span>
+          <h3>Se paga por flota, no por módulos</h3>
+          <p>
+            El negocio de una cooperativa es distinto: lo que manda es el número de unidades y la
+            operación no funciona a medias. Por eso aquí no hay versión gratuita, y se incluye
+            todo desde la primera unidad.
+          </p>
+          <ul className="lista-marcada">
+            {PLAN_TRANSPORTE.incluye.map((punto) => (
+              <li key={punto}>
+                <Check size={17} aria-hidden="true" />
+                <span>{punto}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="escala-flota">
+          <p className="plan-precio">
+            {PLAN_TRANSPORTE.base.precio} USD / mes
+            <span className="plan-para">hasta {PLAN_TRANSPORTE.base.unidades} unidades</span>
+          </p>
+          <p className="nota-bloque">
+            Después, cada {PLAN_TRANSPORTE.bloque.unidades} unidades adicionales suman{' '}
+            {PLAN_TRANSPORTE.bloque.precio} USD.
+          </p>
+          <table>
+            <caption>Ejemplos según el tamaño de la flota</caption>
+            <thead>
+              <tr>
+                <th scope="col">Unidades</th>
+                <th scope="col">Al mes</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[100, 150, 200, 300].map((n) => (
+                <tr key={n}>
+                  <td>{n}</td>
+                  <td>{precioTransporte(n)} USD</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <Link className="boton-primario" to="/contacto">
+            Solicitar propuesta
+          </Link>
+        </div>
       </div>
 
       <div className="complementos">

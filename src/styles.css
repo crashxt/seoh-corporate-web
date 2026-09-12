@@ -764,6 +764,68 @@ p {
   margin-top: 4px;
 }
 
+.plan-transporte {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: var(--espacio-lg);
+  margin-top: var(--espacio-lg);
+  padding: var(--espacio-lg);
+  background: var(--fondo-elevado);
+  border: 1px solid var(--acento-borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.plan-transporte h3 {
+  margin: var(--espacio-xs) 0 var(--espacio-sm);
+  font-size: 1.3rem;
+}
+
+.escala-flota {
+  display: grid;
+  gap: var(--espacio-sm);
+  align-content: start;
+}
+
+.escala-flota .plan-para {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.nota-bloque {
+  font-size: 0.9rem;
+}
+
+.escala-flota table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.escala-flota caption {
+  text-align: left;
+  padding-bottom: var(--espacio-xs);
+  font-size: 0.8rem;
+  color: var(--texto-tenue);
+}
+
+.escala-flota th,
+.escala-flota td {
+  text-align: left;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--borde);
+}
+
+.escala-flota th {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--texto-tenue);
+  font-weight: 600;
+}
+
 .complementos {
   margin-top: var(--espacio-lg);
   padding: var(--espacio-lg);
@@ -1051,6 +1113,68 @@ p {
 
 .lista-limites svg {
   margin-top: 4px;
+}
+
+.plan-transporte {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: var(--espacio-lg);
+  margin-top: var(--espacio-lg);
+  padding: var(--espacio-lg);
+  background: var(--fondo-elevado);
+  border: 1px solid var(--acento-borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.plan-transporte h3 {
+  margin: var(--espacio-xs) 0 var(--espacio-sm);
+  font-size: 1.3rem;
+}
+
+.escala-flota {
+  display: grid;
+  gap: var(--espacio-sm);
+  align-content: start;
+}
+
+.escala-flota .plan-para {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.nota-bloque {
+  font-size: 0.9rem;
+}
+
+.escala-flota table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.escala-flota caption {
+  text-align: left;
+  padding-bottom: var(--espacio-xs);
+  font-size: 0.8rem;
+  color: var(--texto-tenue);
+}
+
+.escala-flota th,
+.escala-flota td {
+  text-align: left;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--borde);
+}
+
+.escala-flota th {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--texto-tenue);
+  font-weight: 600;
 }
 
 .complementos {

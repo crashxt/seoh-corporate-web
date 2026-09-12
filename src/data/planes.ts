@@ -4,22 +4,24 @@
  * Es la razon de ser de la arquitectura modular: se cobra por modulo porque el
  * producto se activa por modulo.
  *
- * El plan gratuito no es una version recortada de prueba: cubre la operacion
- * financiera completa de un condominio pequeno. Es deliberado. Una empresa sin
- * cartera necesita que el cliente entre sin riesgo, y el condominio que crece
- * por encima de 50 unidades o necesita WhatsApp ya esta dentro.
+ * NOTA SOBRE ESTAS CIFRAS
+ * Son provisionales. La empresa esta en construccion y aun no hay clientes con
+ * los que medir el coste real de operar. Cuando los haya, es probable que haya
+ * que ajustarlas. Por eso se presentan como precios de lanzamiento.
+ *
+ * Criterio que no cambia: si mañana sube el coste de la infraestructura
+ * —Supabase, Cloudflare, mensajeria—, no se traslada al cliente que ya confio.
+ * Se absorbe repartiendolo entre mas clientes.
  */
 
 export type Complemento = { nombre: string; precio: number; detalle: string };
-
-export const PLAN_COMPLETO = 40;
 
 export const COMPLEMENTOS: Complemento[] = [
   {
     nombre: 'WhatsApp',
     precio: 6,
     detalle:
-      'Avisos y notificaciones por WhatsApp además del correo. Se cobra aparte porque el envío tiene coste por mensaje.',
+      'Avisos por WhatsApp además del correo. Va aparte porque el envío tiene coste por mensaje.',
   },
   {
     nombre: 'Reportería avanzada',
@@ -30,40 +32,77 @@ export const COMPLEMENTOS: Complemento[] = [
 
 export const PLANES = [
   {
-    nombre: 'Gratuito',
+    nombre: 'Free',
     precio: 'Sin costo',
-    para: 'Condominios de hasta 50 unidades',
+    para: 'Condominios de hasta 25 unidades',
     detalle:
-      'La operación financiera completa, sin plazo ni tarjeta. Al superar los límites se pasa al plan completo sin migrar nada.',
+      'La gestión financiera completa, sin plazo ni tarjeta. Al superar los límites se pasa de plan sin migrar nada ni perder el historial.',
     incluye: [
-      'Hasta 50 unidades: casas o departamentos',
+      'Hasta 25 unidades: casas o departamentos',
       'Alícuotas, pagos, ingresos y egresos',
       'Reportes generales y cierre mensual',
       'Hasta 25 incidencias',
       'Avisos por correo electrónico',
     ],
-    limita: [
-      'Los demás módulos quedan en 2 usuarios',
-      'Sin notificaciones por WhatsApp',
-    ],
+    limita: ['Los demás módulos quedan en 2 usuarios', 'Sin notificaciones por WhatsApp'],
     destacado: false,
     accion: 'Empezar sin costo',
   },
   {
-    nombre: 'Completo',
-    precio: `${PLAN_COMPLETO} USD / mes`,
-    para: 'Para operar sin límites de volumen',
+    nombre: 'Pro',
+    precio: '20 USD / mes',
+    para: 'Para activar solo los módulos que use',
     detalle:
-      'Todos los módulos activos y sin los topes del plan gratuito. Los complementos se añaden solo si se necesitan.',
+      'Se encienden los módulos que su operación necesita —condominio, mantenimiento, procesos, inventario— y se paga por ellos. Si mañana hace falta otro, se añade sin rehacer nada.',
     incluye: [
-      'Todos los módulos, sin límite de unidades',
-      'Incidencias, tareas, reservas y visitantes',
-      'Usuarios sin restricción',
+      'Los módulos que decida activar',
+      'Sin los topes del plan gratuito',
+      'Usuarios según su operación',
       'Su identidad visual en la plataforma',
-      'Soporte y acompañamiento',
     ],
     limita: [],
     destacado: true,
     accion: 'Hablemos de su operación',
   },
+  {
+    nombre: 'Enterprise',
+    precio: '40 USD / mes',
+    para: 'Toda la plataforma, sin límites',
+    detalle:
+      'Todos los módulos activos desde el primer día, sin topes de volumen ni de usuarios, con acompañamiento en la puesta en marcha.',
+    incluye: [
+      'Todos los módulos, sin excepción',
+      'Sin límite de unidades ni de usuarios',
+      'Acompañamiento en la implantación',
+      'Soporte prioritario',
+    ],
+    limita: [],
+    destacado: false,
+    accion: 'Solicitar propuesta',
+  },
 ] as const;
+
+/**
+ * Cooperativas de transporte.
+ *
+ * Esquema aparte porque el negocio es distinto: aqui el tamaño se mide en
+ * unidades y la operacion no funciona a medias, asi que no hay version
+ * gratuita. Se paga por flota.
+ */
+export const PLAN_TRANSPORTE = {
+  base: { unidades: 100, precio: 25 },
+  bloque: { unidades: 25, precio: 10 },
+  incluye: [
+    'Despacho y asignación de servicios',
+    'Registro de unidades, socios y conductores',
+    'Encomiendas y seguimiento',
+    'Liquidaciones y control financiero',
+  ],
+};
+
+/** Precio mensual para una flota de N unidades. */
+export const precioTransporte = (unidades: number) => {
+  const { base, bloque } = PLAN_TRANSPORTE;
+  if (unidades <= base.unidades) return base.precio;
+  return base.precio + Math.ceil((unidades - base.unidades) / bloque.unidades) * bloque.precio;
+};
