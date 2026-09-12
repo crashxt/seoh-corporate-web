@@ -13,10 +13,13 @@
  * catalogo-src/, que esta en .gitignore. Este script emite unicamente el
  * precio de venta; el costo se usa para calcularlo y se descarta.
  */
+import sharp from 'sharp';
 import XLSX from 'xlsx';
-import { readFile, readdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 
 const ORIGEN = 'catalogo-src';
+const IMAGENES = 'catalogo-src/imagenes';
+const IMAGENES_WEB = 'public/catalogo';
 const CONFIG = 'catalogo.config.json';
 const SALIDA = 'src/data/products.ts';
 
@@ -68,6 +71,73 @@ const seleccion = crudos.filter((p) => {
   return !excluir.some((t) => p.descripcion.toLowerCase().includes(t));
 });
 
+// --- Emparejar imagenes ------------------------------------------------------
+//
+// El mayorista entrega su paquete de fotografias con el codigo o el nombre del
+// producto en el archivo. En vez de mantener una tabla a mano, se emparejan
+// por coincidencia de texto: basta dejar las imagenes en catalogo-src/imagenes
+// y volver a ejecutar.
+const normalizar = (texto) =>
+  texto
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/\p{Diacritic}/gu, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+
+let archivosImagen = [];
+try {
+  archivosImagen = (await readdir(IMAGENES)).filter((f) => /\.(jpe?g|png|webp)$/i.test(f));
+} catch {
+  // Sin carpeta de imagenes se sigue adelante: el catalogo usa sus marcadores.
+}
+
+const indiceImagenes = archivosImagen.map((archivo) => ({
+  archivo,
+  clave: normalizar(archivo.replace(/\.[^.]+$/, '')),
+}));
+
+/**
+ * Empareja una imagen con un producto.
+ *
+ * Contar palabras en comun no basta: "access point tp-link eap653" comparte
+ * dos palabras con cualquier punto de acceso del catalogo, y una sola imagen
+ * acababa asignada a cinco productos distintos. Lo que identifica de verdad a
+ * un equipo es su codigo de modelo —eap653, bv500, avr1808—, asi que se exige
+ * que coincida al menos uno de esos.
+ *
+ * Ademas cada imagen se usa una sola vez: dos fichas con la misma fotografia
+ * significan que una de las dos esta mal.
+ */
+const usadas = new Set();
+
+const esModelo = (palabra) => /\d/.test(palabra) && palabra.length >= 3;
+
+function buscarImagen(descripcion) {
+  if (indiceImagenes.length === 0) return null;
+  const palabras = normalizar(descripcion).split(' ').filter((p) => p.length > 2);
+  const modelos = palabras.filter(esModelo);
+  if (modelos.length === 0) return null;
+
+  let mejor = null;
+  let mejorPuntos = 0;
+  for (const entrada of indiceImagenes) {
+    if (usadas.has(entrada.archivo)) continue;
+    const tokens = entrada.clave.split(' ');
+    // Coincidencia exacta de token, no subcadena: "bv50" no debe casar con
+    // "bv500", que son dos equipos distintos.
+    const modelosComunes = modelos.filter((m) => tokens.includes(m));
+    if (modelosComunes.length === 0) continue;
+    const puntos = modelosComunes.length * 10 + palabras.filter((p) => tokens.includes(p)).length;
+    if (puntos > mejorPuntos) {
+      mejorPuntos = puntos;
+      mejor = entrada;
+    }
+  }
+  if (mejor) usadas.add(mejor.archivo);
+  return mejor;
+}
+
 // --- Calcular el precio publico ----------------------------------------------
 // El mayorista vende al publico aplicando su propio margen sobre este mismo
 // costo, asi que un margen por encima del suyo deja el catalogo fuera de
@@ -75,8 +145,10 @@ const seleccion = crudos.filter((p) => {
 const { margen, iva } = config;
 const publico = seleccion.map((p, i) => {
   const destino = config.categorias.find((c) => c.origen === p.categoria);
+  const imagen = buscarImagen(p.descripcion);
   return {
     id: `eq-${String(i + 1).padStart(3, '0')}`,
+    imagen: imagen?.archivo ?? null,
     slug: p.descripcion
       .toLowerCase()
       .normalize('NFD')
@@ -102,6 +174,25 @@ const catalogo = publico.filter((p) => {
   return true;
 });
 
+// --- Optimizar las imagenes emparejadas --------------------------------------
+// Las fotografias de fabricante suelen venir a 2000 px y varios cientos de KB.
+// En una ficha se muestran a 400, asi que se reescalan una vez aqui en lugar de
+// enviarlas enteras a cada visitante.
+let imagenesUsadas = 0;
+if (archivosImagen.length > 0) {
+  await mkdir(IMAGENES_WEB, { recursive: true });
+  for (const p of publico) {
+    if (!p.imagen) continue;
+    const destino = `${p.slug}.webp`;
+    await sharp(`${IMAGENES}/${p.imagen}`)
+      .resize({ width: 800, withoutEnlargement: true })
+      .webp({ quality: 80 })
+      .toFile(`${IMAGENES_WEB}/${destino}`);
+    p.image_url = `/catalogo/${destino}`;
+    imagenesUsadas++;
+  }
+}
+
 // --- Emitir ------------------------------------------------------------------
 const cuerpo = catalogo
   .map(
@@ -111,7 +202,8 @@ const cuerpo = catalogo
   name: ${JSON.stringify(p.name)},
   category: ${JSON.stringify(p.category)},
   summary: ${JSON.stringify(p.summary)},
-  description: ${JSON.stringify(p.description)},
+  description: ${JSON.stringify(p.description)},${p.image_url ? `
+  image_url: ${JSON.stringify(p.image_url)},` : ''}
   price: ${p.price},
   is_active: true,
   sort_order: ${p.sort_order},
@@ -154,5 +246,12 @@ for (const [cat, n] of porCategoria) {
   console.log(
     `    ${cat.padEnd(20)}${String(n).padStart(4)}   desde ${Math.min(...precios).toFixed(2).padStart(9)} hasta ${Math.max(...precios).toFixed(2)}`,
   );
+}
+console.log(
+  `
+  imágenes: ${archivosImagen.length} disponibles · ${imagenesUsadas} emparejadas`,
+);
+if (archivosImagen.length === 0) {
+  console.log(`  deje las fotografías del mayorista en ${IMAGENES}/ y vuelva a ejecutar`);
 }
 console.log(`\n  escrito en ${SALIDA}`);
