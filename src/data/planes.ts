@@ -44,7 +44,10 @@ export const PLANES = [
       'Hasta 25 incidencias',
       'Avisos por correo electrónico',
     ],
-    limita: ['Los demás módulos quedan en 2 usuarios', 'Sin notificaciones por WhatsApp'],
+    // El tope de usuarios por modulo es una restriccion de la plataforma, no
+    // un argumento de venta: al cliente le dice poco y solo genera dudas antes
+    // de tiempo. Se conversa en la demostracion, no en la tabla de precios.
+    limita: ['Sin notificaciones por WhatsApp'],
     destacado: false,
     accion: 'Empezar sin costo',
   },

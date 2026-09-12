@@ -13,7 +13,7 @@
  * Uso: npm run images
  */
 import sharp from 'sharp';
-import { mkdir, readFile, stat } from 'node:fs/promises';
+import { mkdir, readFile, stat, writeFile } from 'node:fs/promises';
 
 const LOGOTIPO = 'brand-src/SEOH_logo_4K_4096px_transparente.png';
 // Fuente ya saneada: la del paquete arrastra un resto del eslogan pegado en la
@@ -71,33 +71,88 @@ await emitir(MARCA_S, 'logo-hero', [420, 760]);
 
 // --- Iconos de navegador ----------------------------------------------------
 //
-// A 32 px el logotipo con degradado se convierte en una mancha azul: el escudo,
-// el candado y las trazas se empastan. La silueta calcada —la misma forma, sin
-// modelado y a maximo contraste— si se reconoce. Por eso el favicon pequeno usa
-// el vector y los tamanos grandes el logotipo real.
+// A 32 px el logotipo completo se empasta: el escudo, el candado y las trazas
+// de circuito se convierten en una mancha. Por eso el icono pequeno usa la
+// silueta calcada de la S.
+//
+// La primera version de esa silueta arrastraba tambien las trazas de circuito,
+// que a 32 px no se leen como circuito sino como suciedad, y la rellenaba de
+// blanco plano: en la pestana aparecia una S blanca sobre azul oscuro que no
+// se parecia a la marca. Ahora se conserva unicamente el trazado de la S —el
+// de mayor superficie— y se rellena con el azul de la identidad, el mismo
+// degradado que lleva el logotipo. Asi el icono es reconociblemente SEOH
+// aunque este a un octavo de su tamano.
 const { lado, trazados } = JSON.parse(await readFile('identidad/marcas/_calco.json', 'utf8'));
-const svgSilueta = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${lado} ${lado}" width="512" height="512">
-  <rect width="${lado}" height="${lado}" fill="#0C1A2B"/>
-  <g fill="#FFFFFF" fill-rule="evenodd">${trazados.silueta.map((d) => `<path d="${d}"/>`).join('')}</g>
+
+/** Superficie aproximada del trazado, para quedarnos con la S y descartar las trazas. */
+const superficie = (d) => {
+  const n = d.match(/-?\d+(?:\.\d+)?/g).map(Number);
+  const xs = [];
+  const ys = [];
+  for (let i = 0; i + 1 < n.length; i += 2) {
+    xs.push(n[i]);
+    ys.push(n[i + 1]);
+  }
+  return (Math.max(...xs) - Math.min(...xs)) * (Math.max(...ys) - Math.min(...ys));
+};
+const soloLaS = trazados.silueta.reduce((a, b) => (superficie(b) > superficie(a) ? b : a));
+
+const svgSilueta = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${lado} ${lado}" width="1024" height="1024">
+  <defs>
+    <linearGradient id="azul" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1F7BE8"/>
+      <stop offset="0.55" stop-color="#35A8FF"/>
+      <stop offset="1" stop-color="#63D8FF"/>
+    </linearGradient>
+  </defs>
+  <path d="${soloLaS}" fill="url(#azul)" fill-rule="evenodd"/>
 </svg>`;
 
-for (const medida of [32, 192]) {
-  const salida = `${DESTINO}/favicon-${medida}.png`;
-  await sharp(Buffer.from(svgSilueta), { density: 600 })
-    .resize(medida, medida)
-    .png(PNG_CUANTIZADO)
-    .toFile(salida);
-  await registrar(salida);
-}
+// Se recorta contra el alfa en lugar de calcular la caja a mano: el trazado son
+// curvas de Bezier y sus puntos de control caen fuera de la tinta, asi que una
+// caja deducida de las coordenadas dejaria la S descentrada.
+const marcaPequena = await sharp(Buffer.from(svgSilueta), { density: 600 })
+  .trim()
+  .resize(400, 400, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+  .toBuffer();
 
-// A partir de 180 px el logotipo real ya se lee con todo su detalle.
+const iconoPequeno = await sharp({
+  create: { width: 512, height: 512, channels: 4, background: FONDO_ICONO },
+})
+  .composite([{ input: marcaPequena, gravity: 'center' }])
+  .png()
+  .toBuffer();
+
+const faviconPequeno = `${DESTINO}/favicon-32.png`;
+await sharp(iconoPequeno).resize(32, 32).png(PNG_CUANTIZADO).toFile(faviconPequeno);
+await registrar(faviconPequeno);
+
+// El SVG se sirve tal cual para las pestanas que lo admiten: es nitido a
+// cualquier tamano y pesa menos que el PNG de 32.
+const faviconVector = `${DESTINO}/favicon.svg`;
+await writeFile(
+  faviconVector,
+  svgSilueta.replace(
+    '<defs>',
+    `<rect width="${lado}" height="${lado}" rx="${Math.round(lado * 0.17)}" fill="#0C1A2B"/><defs>`,
+  ),
+  'utf8',
+);
+await registrar(faviconVector);
+
+// A partir de 180 px el logotipo real ya se lee con todo su detalle, escudo y
+// candado incluidos, asi que a esos tamanos se usa la marca de verdad.
 const iconoGrande = await sharp(MARCA_S)
   .resize(440, 440, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
   .flatten({ background: FONDO_ICONO })
   .png()
   .toBuffer();
 
-for (const [nombre, medida] of [['favicon-512.png', 512], ['apple-touch-icon.png', 180]]) {
+for (const [nombre, medida] of [
+  ['favicon-192.png', 192],
+  ['favicon-512.png', 512],
+  ['apple-touch-icon.png', 180],
+]) {
   const salida = `${DESTINO}/${nombre}`;
   await sharp(iconoGrande).resize(medida, medida).png(PNG_CUANTIZADO).toFile(salida);
   await registrar(salida);
