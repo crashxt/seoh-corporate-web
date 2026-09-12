@@ -2,6 +2,8 @@ import { ArrowRight, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import DiagramaModular from '../components/DiagramaModular';
 import PageHero from '../components/PageHero';
+import Planes from '../components/Planes';
+import { usarRevelado } from '../hooks/usarRevelado';
 import Seo from '../components/Seo';
 import { COMO_TRABAJAMOS, NUCLEO } from '../data/plataforma';
 import { VERTICALES } from '../data/verticales';
@@ -15,6 +17,8 @@ const VENTAJAS = [
 ];
 
 export default function Plataforma() {
+  usarRevelado();
+
   return (
     <>
       <Seo
@@ -87,6 +91,18 @@ export default function Plataforma() {
             </li>
           ))}
         </ol>
+      </section>
+
+      <section className="seccion seccion-hundida">
+        <div className="encabezado-seccion">
+          <span className="antetitulo">PLANES</span>
+          <h2>Empiece sin costo y pague solo lo que active</h2>
+          <p>
+            Esa es la razón de que la plataforma sea modular: se cobra por módulo porque el
+            producto se activa por módulo. Ninguna organización paga por lo que no usa.
+          </p>
+        </div>
+        <Planes />
       </section>
 
       <section className="seccion llamada-final">

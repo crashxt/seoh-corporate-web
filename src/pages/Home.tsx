@@ -38,8 +38,8 @@ export default function Home() {
               Cómo funciona
               <ArrowRight size={18} aria-hidden="true" />
             </Link>
-            <Link className="boton-secundario" to="/soluciones">
-              Ver soluciones
+            <Link className="boton-secundario" to="/plataforma">
+              Empezar sin costo
             </Link>
           </div>
         </div>

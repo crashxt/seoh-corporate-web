@@ -696,6 +696,52 @@ p {
   border-bottom: 1px solid var(--borde);
 }
 
+/* --- Planes --- */
+
+.rejilla-planes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: var(--espacio-md);
+  align-items: stretch;
+}
+
+.tarjeta-plan {
+  display: grid;
+  /* La accion queda abajo en las dos tarjetas aunque el contenido difiera. */
+  grid-template-rows: auto auto 1fr auto;
+  gap: var(--espacio-md);
+  padding: var(--espacio-lg);
+  background: var(--fondo-elevado);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+/* El de pago se distingue con el borde de marca, sin empequenecer al
+   gratuito: para una empresa sin cartera, quitar el riesgo vale mas que
+   empujar la venta. */
+.plan-destacado {
+  border-color: var(--acento-borde);
+  box-shadow: var(--sombra-elevada);
+}
+
+.tarjeta-plan header {
+  display: grid;
+  gap: 4px;
+}
+
+.plan-precio {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--acento-fuerte);
+}
+
+.plan-para {
+  font-size: 0.9rem;
+  color: var(--texto-tenue);
+}
+
 /* --- Soluciones --- */
 
 .lista-verticales {
@@ -865,6 +911,52 @@ p {
   background: var(--fondo-tarjeta);
   border: 1px solid var(--borde);
   color: var(--texto-medio);
+}
+
+/* --- Planes --- */
+
+.rejilla-planes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: var(--espacio-md);
+  align-items: stretch;
+}
+
+.tarjeta-plan {
+  display: grid;
+  /* La accion queda abajo en las dos tarjetas aunque el contenido difiera. */
+  grid-template-rows: auto auto 1fr auto;
+  gap: var(--espacio-md);
+  padding: var(--espacio-lg);
+  background: var(--fondo-elevado);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+/* El de pago se distingue con el borde de marca, sin empequenecer al
+   gratuito: para una empresa sin cartera, quitar el riesgo vale mas que
+   empujar la venta. */
+.plan-destacado {
+  border-color: var(--acento-borde);
+  box-shadow: var(--sombra-elevada);
+}
+
+.tarjeta-plan header {
+  display: grid;
+  gap: 4px;
+}
+
+.plan-precio {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--acento-fuerte);
+}
+
+.plan-para {
+  font-size: 0.9rem;
+  color: var(--texto-tenue);
 }
 
 /* --- Soluciones --- */
