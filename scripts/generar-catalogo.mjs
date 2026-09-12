@@ -22,6 +22,7 @@ const IMAGENES = 'catalogo-src/imagenes';
 const IMAGENES_WEB = 'public/catalogo';
 const CONFIG = 'catalogo.config.json';
 const SALIDA = 'src/data/products.ts';
+const SALIDA_CATEGORIAS = 'src/data/categorias-equipos.ts';
 
 const config = JSON.parse(await readFile(CONFIG, 'utf8'));
 
@@ -230,6 +231,40 @@ await writeFile(
 export const fallbackProducts: Product[] = [
 ${cuerpo}
 ];
+`,
+  'utf8',
+);
+
+// --- Emitir las categorias que realmente tienen producto --------------------
+//
+// El menu y la portada listaban tres categorias fijas —Seguridad, Automatizacion,
+// Infraestructura— que no se correspondian con nada: el catalogo solo tiene lo
+// que trae la lista del mayorista. Quien pulsaba cualquiera de las tres llegaba
+// a "No hay equipos publicados en esta categoria" desde un menu del sitio en
+// produccion. Se emiten aqui para que la navegacion no pueda desincronizarse
+// del catalogo: si una categoria se queda sin stock, desaparece del menu sola.
+//
+// Va en su propio modulo, y no leyendo products.ts, porque el catalogo son 32 KB
+// que se cargan solo al entrar a Equipos; el menu esta en todas las paginas.
+const categoriasConProducto = config.categorias.filter((c) =>
+  catalogo.some((p) => p.category === c.publica),
+);
+
+await writeFile(
+  SALIDA_CATEGORIAS,
+  `/**
+ * Categorias de equipo que tienen producto publicado.
+ *
+ * GENERADO AUTOMATICAMENTE — no editar a mano.
+ * Origen: ${lista} · generado el ${new Date().toISOString().slice(0, 10)} · npm run catalogo
+ */
+export const CATEGORIAS_EQUIPOS = [
+${categoriasConProducto.map((c) => `  ${JSON.stringify(c.publica)},`).join('\n')}
+] as const;
+
+export const DESCRIPCION_CATEGORIA: Record<string, string> = {
+${categoriasConProducto.map((c) => `  ${JSON.stringify(c.publica)}: ${JSON.stringify(c.resumen)},`).join('\n')}
+};
 `,
   'utf8',
 );

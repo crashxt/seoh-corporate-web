@@ -1,17 +1,15 @@
 /**
  * Segunda linea de negocio: venta e instalacion de equipos tecnologicos.
  *
- * El catalogo real vive en Supabase (ver services/products.ts) y cae en
- * `fallbackProducts` cuando no hay conexion configurada. Aqui solo se fija el
- * orden en que se presentan las categorias, que no debe depender de como
- * vuelvan ordenadas de la base.
+ * Las categorias ya no se escriben aqui a mano. Antes esta lista decia
+ * "Seguridad, Automatizacion, Infraestructura" mientras el catalogo publicado
+ * solo tenia "Redes" y "Energia": las tres entradas del menu y las tres
+ * tarjetas de la portada llevaban a una pagina vacia, en produccion.
+ *
+ * Ahora salen de categorias-equipos.ts, que escribe `npm run catalogo` con las
+ * categorias que de verdad tienen producto. Si una se queda sin stock el mes
+ * que viene, desaparece del menu sin que nadie tenga que acordarse.
  */
-export const CATEGORIAS_EQUIPOS = ['Seguridad', 'Automatización', 'Infraestructura'] as const;
+export { CATEGORIAS_EQUIPOS, DESCRIPCION_CATEGORIA } from './categorias-equipos';
 
-export type CategoriaEquipo = (typeof CATEGORIAS_EQUIPOS)[number];
-
-export const DESCRIPCION_CATEGORIA: Record<CategoriaEquipo, string> = {
-  Seguridad: 'Videovigilancia, alarmas y control de acceso para hogares, condominios y empresas.',
-  Automatización: 'Domótica e integración de dispositivos para iluminación, clima y accesos.',
-  Infraestructura: 'Redes cableadas, Wi-Fi y equipamiento para sostener la operación.',
-};
+export type CategoriaEquipo = string;

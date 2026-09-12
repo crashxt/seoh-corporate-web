@@ -87,12 +87,12 @@ export default function Equipos() {
     <>
       <Seo
         title="Equipos y domótica"
-        description="Catálogo de equipamiento tecnológico: videovigilancia, alarmas, control de acceso, domótica y redes para hogares, condominios y empresas."
+        description="Catálogo de equipamiento tecnológico: domótica, videovigilancia, redes y respaldo eléctrico para viviendas, condominios y empresas."
       />
 
       <PageHero antetitulo="EQUIPOS Y DOMÓTICA" titulo="Tecnología para proteger, conectar y automatizar">
-        Seleccionamos, instalamos y damos soporte a equipamiento técnico. Consulta las categorías y
-        entra al detalle de cada solución.
+        Seleccionamos, instalamos y damos soporte a equipamiento técnico. Revise las categorías y el
+        detalle de cada solución.
       </PageHero>
 
       {soluciones.length > 0 && (

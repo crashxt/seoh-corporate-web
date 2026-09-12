@@ -114,21 +114,26 @@ export const solucionesRespaldo: Solucion[] = [
     nombre: 'Casa conectada',
     para: 'Viviendas que quieren automatizar lo cotidiano',
     resumen:
-      'Iluminación, tomas y electrodomésticos gobernados por horario, por voz o desde el teléfono.',
+      'Iluminación y puntos de uso gobernados por horario, por voz o desde el teléfono.',
     descripcion:
-      'Interruptores y tomas inteligentes en los puntos que más se usan, con escenas configuradas: encender el ingreso al anochecer, apagar todo al salir, o dejar luces simulando presencia durante un viaje.',
+      'Módulos inteligentes detrás de los interruptores que ya tiene —no hay que picar pared ni cambiar el tablero—, iluminación regulable y una central que los coordina. Se dejan configuradas las escenas de uso diario: encender el ingreso al anochecer, apagar todo al salir, o simular presencia durante un viaje.',
     equipos: [
-      { nombre: 'Interruptor inteligente de pared', cantidad: 4 },
-      { nombre: 'Toma inteligente con medición de consumo', cantidad: 3 },
+      { nombre: 'Módulo de interruptor inteligente', cantidad: 4 },
+      { nombre: 'Foco inteligente multicolor con control por voz', cantidad: 4 },
+      { nombre: 'Tira LED inteligente Wi-Fi', cantidad: 1 },
       { nombre: 'Central de automatización', cantidad: 1 },
     ],
     servicios: [
       'Evaluación del tablero y los circuitos',
-      'Instalación de interruptores y tomas',
+      'Instalación de los módulos y la central',
       'Configuración de escenas y horarios',
       'Capacitación de uso',
     ],
-    precioDesde: null,
+    // Unico de los tres paquetes de vivienda con precio cerrado: todo su equipo
+    // esta en la lista del mes. Los otros dos siguen bajo cotizacion porque no
+    // hay cerradura inteligente ni grabador en stock.
+    // 105,50 de costo + 12% + IVA = 135,88, mas 15 de instalacion.
+    precioDesde: 150.88,
     activa: true,
     orden: 5,
   },
