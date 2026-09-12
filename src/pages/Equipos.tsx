@@ -2,6 +2,10 @@ import { useEffect, useMemo, useState } from 'react';
 import { ArrowRight, Cpu, Network, ShieldCheck, Wifi, Zap } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router-dom';
 import BuscadorEquipos from '../components/BuscadorEquipos';
+import TarjetaSolucion from '../components/TarjetaSolucion';
+import { obtenerSoluciones } from '../services/soluciones';
+import type { Solucion } from '../types';
+import { usarRevelado } from '../hooks/usarRevelado';
 import PageHero from '../components/PageHero';
 import Seo from '../components/Seo';
 import { getProducts } from '../services/products';
@@ -25,8 +29,15 @@ export default function Equipos() {
   const [cargando, setCargando] = useState(true);
   const [params, setParams] = useSearchParams();
   const [busqueda, setBusqueda] = useState('');
+  const [soluciones, setSoluciones] = useState<Solucion[]>([]);
 
   const categoriaActiva = params.get('categoria') ?? TODAS;
+
+  useEffect(() => {
+    obtenerSoluciones().then(setSoluciones).catch(() => setSoluciones([]));
+  }, []);
+
+  usarRevelado(soluciones.length);
 
   useEffect(() => {
     getProducts()
@@ -74,7 +85,30 @@ export default function Equipos() {
         entra al detalle de cada solución.
       </PageHero>
 
+      {soluciones.length > 0 && (
+        <section className="seccion seccion-hundida">
+          <div className="encabezado-seccion">
+            <span className="antetitulo">SOLUCIONES</span>
+            <h2>Instalado y funcionando, no solo el equipo</h2>
+            <p>
+              Cada solución incluye el equipo, el levantamiento, la instalación y la puesta en
+              marcha. Se entrega andando y con su equipo capacitado.
+            </p>
+          </div>
+          <div className="rejilla-soluciones">
+            {soluciones.map((solucion) => (
+              <TarjetaSolucion key={solucion.id} solucion={solucion} />
+            ))}
+          </div>
+        </section>
+      )}
+
       <section className="seccion">
+        <div className="encabezado-seccion">
+          <span className="antetitulo">EQUIPOS SUELTOS</span>
+          <h2>O elija pieza por pieza</h2>
+        </div>
+
         {/* Rejilla de entrada: deja ver de un vistazo que lineas hay y cuantos
             equipos tiene cada una. Se oculta al buscar, que ya es otro modo. */}
         {!termino && categoriaActiva === TODAS && conteo.size > 0 && (

@@ -35,3 +35,28 @@ export type Product = {
    */
   price?: number | null;
 };
+
+/** Equipo incluido en una solucion, con su cantidad. */
+export type EquipoDeSolucion = { nombre: string; cantidad: number };
+
+/**
+ * Solucion: equipo mas servicio, vendido como paquete.
+ *
+ * El precio se publica como "desde" porque el alcance real depende del sitio
+ * —metros, puntos, unidades—, y porque una cifra cerrada invita a comparar
+ * pieza por pieza, que es justo lo que el paquete evita.
+ */
+export type Solucion = {
+  id: string;
+  slug: string;
+  nombre: string;
+  /** A quien va dirigida. Es lo primero que lee un cliente para descartarse. */
+  para: string;
+  resumen: string;
+  descripcion: string;
+  equipos: EquipoDeSolucion[];
+  servicios: string[];
+  precioDesde?: number | null;
+  activa: boolean;
+  orden: number;
+};
