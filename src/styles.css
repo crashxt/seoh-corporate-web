@@ -742,6 +742,78 @@ p {
   color: var(--texto-tenue);
 }
 
+.lista-limites {
+  display: grid;
+  gap: 6px;
+  margin: var(--espacio-sm) 0 0;
+  padding: var(--espacio-sm) 0 0;
+  border-top: 1px dashed var(--borde);
+  list-style: none;
+  font-size: 0.9rem;
+  color: var(--texto-tenue);
+}
+
+.lista-limites li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--espacio-xs);
+  align-items: start;
+}
+
+.lista-limites svg {
+  margin-top: 4px;
+}
+
+.complementos {
+  margin-top: var(--espacio-lg);
+  padding: var(--espacio-lg);
+  background: var(--fondo-elevado);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+}
+
+.complementos h3 {
+  margin-bottom: 4px;
+}
+
+.complementos > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: var(--espacio-md);
+  margin: var(--espacio-md) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.complementos > ul > li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--espacio-sm);
+  align-items: start;
+}
+
+.complementos svg {
+  margin-top: 3px;
+  color: var(--acento);
+}
+
+.complemento-nombre {
+  font-weight: 650;
+  color: var(--texto);
+}
+
+.complemento-precio {
+  display: block;
+  color: var(--acento-fuerte);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.complementos p {
+  margin-top: 2px;
+  font-size: 0.88rem;
+}
+
 /* --- Soluciones --- */
 
 .lista-verticales {
@@ -957,6 +1029,78 @@ p {
 .plan-para {
   font-size: 0.9rem;
   color: var(--texto-tenue);
+}
+
+.lista-limites {
+  display: grid;
+  gap: 6px;
+  margin: var(--espacio-sm) 0 0;
+  padding: var(--espacio-sm) 0 0;
+  border-top: 1px dashed var(--borde);
+  list-style: none;
+  font-size: 0.9rem;
+  color: var(--texto-tenue);
+}
+
+.lista-limites li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--espacio-xs);
+  align-items: start;
+}
+
+.lista-limites svg {
+  margin-top: 4px;
+}
+
+.complementos {
+  margin-top: var(--espacio-lg);
+  padding: var(--espacio-lg);
+  background: var(--fondo-elevado);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+}
+
+.complementos h3 {
+  margin-bottom: 4px;
+}
+
+.complementos > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: var(--espacio-md);
+  margin: var(--espacio-md) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.complementos > ul > li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--espacio-sm);
+  align-items: start;
+}
+
+.complementos svg {
+  margin-top: 3px;
+  color: var(--acento);
+}
+
+.complemento-nombre {
+  font-weight: 650;
+  color: var(--texto);
+}
+
+.complemento-precio {
+  display: block;
+  color: var(--acento-fuerte);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.complementos p {
+  margin-top: 2px;
+  font-size: 0.88rem;
 }
 
 /* --- Soluciones --- */

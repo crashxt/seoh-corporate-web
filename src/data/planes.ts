@@ -2,41 +2,68 @@
  * Modelo comercial de la plataforma.
  *
  * Es la razon de ser de la arquitectura modular: se cobra por modulo porque el
- * producto se activa por modulo. Una organizacion empieza gratis con lo basico
- * y paga solo lo que enciende.
+ * producto se activa por modulo.
  *
- * Las cifras concretas de cada modulo estan por definir. Hasta entonces se
- * comunica lo que si esta decidido —que hay plan gratuito y desde cuanto
- * arranca el de pago— en lugar de inventar una tabla de precios que luego
- * habria que desdecir.
+ * El plan gratuito no es una version recortada de prueba: cubre la operacion
+ * financiera completa de un condominio pequeno. Es deliberado. Una empresa sin
+ * cartera necesita que el cliente entre sin riesgo, y el condominio que crece
+ * por encima de 50 unidades o necesita WhatsApp ya esta dentro.
  */
+
+export type Complemento = { nombre: string; precio: number; detalle: string };
+
+export const PLAN_COMPLETO = 40;
+
+export const COMPLEMENTOS: Complemento[] = [
+  {
+    nombre: 'WhatsApp',
+    precio: 6,
+    detalle:
+      'Avisos y notificaciones por WhatsApp además del correo. Se cobra aparte porque el envío tiene coste por mensaje.',
+  },
+  {
+    nombre: 'Reportería avanzada',
+    precio: 5,
+    detalle: 'Informes detallados y cruces de datos más allá de los reportes incluidos.',
+  },
+];
+
 export const PLANES = [
   {
     nombre: 'Gratuito',
     precio: 'Sin costo',
-    para: 'Para empezar y probar con su propia operación',
+    para: 'Condominios de hasta 50 unidades',
     detalle:
-      'Acceso a las aplicaciones con límites de uso. Sin tarjeta, sin plazo y sin compromiso de permanencia.',
+      'La operación financiera completa, sin plazo ni tarjeta. Al superar los límites se pasa al plan completo sin migrar nada.',
     incluye: [
-      'Su propia organización, aislada del resto',
-      'Identidad, roles y permisos',
-      'Tareas, archivos y notificaciones',
-      'Límites de volumen y de usuarios',
+      'Hasta 50 unidades: casas o departamentos',
+      'Alícuotas, pagos, ingresos y egresos',
+      'Reportes generales y cierre mensual',
+      'Hasta 25 incidencias',
+      'Avisos por correo electrónico',
+    ],
+    limita: [
+      'Los demás módulos quedan en 2 usuarios',
+      'Sin notificaciones por WhatsApp',
     ],
     destacado: false,
+    accion: 'Empezar sin costo',
   },
   {
-    nombre: 'Por módulos',
-    precio: 'Desde 20 USD / mes',
-    para: 'Para operar de verdad, activando solo lo que usa',
+    nombre: 'Completo',
+    precio: `${PLAN_COMPLETO} USD / mes`,
+    para: 'Para operar sin límites de volumen',
     detalle:
-      'Se activa el módulo que su operación necesita y se paga por él. Si mañana hace falta otro, se enciende sin rehacer nada.',
+      'Todos los módulos activos y sin los topes del plan gratuito. Los complementos se añaden solo si se necesitan.',
     incluye: [
-      'Todo lo del plan gratuito, sin límites',
-      'Los módulos que decida activar',
+      'Todos los módulos, sin límite de unidades',
+      'Incidencias, tareas, reservas y visitantes',
+      'Usuarios sin restricción',
       'Su identidad visual en la plataforma',
       'Soporte y acompañamiento',
     ],
+    limita: [],
     destacado: true,
+    accion: 'Hablemos de su operación',
   },
 ] as const;
