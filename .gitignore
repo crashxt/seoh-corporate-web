@@ -8,3 +8,8 @@ dist/
 .env
 .env.*
 !.env.example
+
+# Listas de precios del mayorista. El repositorio es publico: publicar los
+# costos revelaria el margen a clientes y competencia. Solo sale de aqui el
+# precio de venta, ya calculado, dentro de src/data/products.ts.
+catalogo-src/

@@ -1,0 +1,29 @@
+{
+  "_lee": "Qué se publica y a qué precio. Edite este archivo y ejecute 'npm run catalogo'.",
+
+  "_margen": "Sobre el costo del mayorista. TecnoMega vende al público aplicando 15% sobre este mismo costo, así que por encima de 0.15 el catálogo queda fuera de mercado. El negocio está en las soluciones, no en el equipo suelto.",
+  "margen": 0.12,
+
+  "_iva": "IVA vigente en Ecuador.",
+  "iva": 0.15,
+
+  "_costoMinimo": "Por debajo de este costo no se publica: son accesorios que no se venden sueltos y solo ensucian el catálogo.",
+  "costoMinimo": 15,
+
+  "_categorias": "origen = como se llama en el Excel del mayorista. publica = como se muestra en la web. Añada o quite líneas para cambiar qué se publica.",
+  "categorias": [
+    {
+      "origen": "ROUTER, ACCESS POINT, SWITCH, NVR",
+      "publica": "Redes",
+      "resumen": "Conectividad cableada e inalámbrica para oficinas, conjuntos y comercios."
+    },
+    {
+      "origen": "UPS, REGULADORES",
+      "publica": "Energía",
+      "resumen": "Respaldo y regulación eléctrica para equipos críticos."
+    }
+  ],
+
+  "_excluir": "Referencias que contengan cualquiera de estos textos no se publican, aunque estén en una categoría incluida.",
+  "excluir": ["mouse", "teclado", "end cap", "faceplate", "bezel"]
+}
