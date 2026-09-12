@@ -26,7 +26,7 @@ export const COMPLEMENTOS: Complemento[] = [
   {
     nombre: 'Reportería avanzada',
     precio: 5,
-    detalle: 'Informes detallados y cruces de datos más allá de los reportes incluidos.',
+    detalle: 'Informes detallados y cruce de datos, más allá de los reportes incluidos.',
   },
 ];
 

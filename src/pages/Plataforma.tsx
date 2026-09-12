@@ -107,7 +107,7 @@ export default function Plataforma() {
 
       <section className="seccion llamada-final">
         <h2>{VERTICALES.length} verticales listas para adaptarse a su operación</h2>
-        <p>Y si la tuya no está entre ellas, se diseña sobre el mismo núcleo.</p>
+        <p>Y si la suya no está entre ellas, se diseña sobre el mismo núcleo.</p>
         <Link className="boton-primario" to="/soluciones">
           Ver soluciones
           <ArrowRight size={18} aria-hidden="true" />

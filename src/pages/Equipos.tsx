@@ -92,7 +92,7 @@ export default function Equipos() {
             <span className="antetitulo">SOLUCIONES</span>
             <h2>Instalado y funcionando, no solo el equipo</h2>
             <p>
-              Cada solución incluye el equipo, el levantamiento, la instalación y la puesta en
+              Cada solución incluye el equipo, la evaluación técnica, la instalación y la puesta en
               marcha. Se entrega en funcionamiento y con su personal capacitado.
             </p>
           </div>
@@ -107,7 +107,7 @@ export default function Equipos() {
       <section className="seccion">
         <div className="encabezado-seccion">
           <span className="antetitulo">EQUIPOS SUELTOS</span>
-          <h2>O elija pieza por pieza</h2>
+          <h2>O seleccione equipo por equipo</h2>
         </div>
 
         {/* Rejilla de entrada: deja ver de un vistazo que lineas hay y cuantos
