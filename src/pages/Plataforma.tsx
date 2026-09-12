@@ -64,7 +64,7 @@ export default function Plataforma() {
         <div className="bloque-ventajas">
           <div className="encabezado-seccion">
             <span className="antetitulo">POR QUÉ MODULAR</span>
-            <h2>Qué gana tu organización con este modelo</h2>
+            <h2>Qué gana su organización con este modelo</h2>
           </div>
           <ul className="lista-marcada">
             {VENTAJAS.map((ventaja) => (
@@ -106,7 +106,7 @@ export default function Plataforma() {
       </section>
 
       <section className="seccion llamada-final">
-        <h2>{VERTICALES.length} verticales listas para adaptarse a tu operación</h2>
+        <h2>{VERTICALES.length} verticales listas para adaptarse a su operación</h2>
         <p>Y si la tuya no está entre ellas, se diseña sobre el mismo núcleo.</p>
         <Link className="boton-primario" to="/soluciones">
           Ver soluciones

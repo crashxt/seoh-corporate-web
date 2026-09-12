@@ -37,28 +37,28 @@ const CONTENIDO: Record<
         titulo: 'Responsable del tratamiento',
         parrafos: [
           `${identificacion()}, es responsable del tratamiento de los datos personales recogidos a través de este sitio web.`,
-          `Para cualquier consulta relativa a esta política puedes escribir a ${CONTACTO.correo}${telefonoLegible ? ` o llamar al ${telefonoLegible}` : ''}.`,
+          `Para cualquier consulta relativa a esta política puede escribir a ${CONTACTO.correo}${telefonoLegible ? ` o llamar al ${telefonoLegible}` : ''}.`,
         ],
       },
       {
         titulo: 'Qué datos recogemos',
         parrafos: [
           'Este sitio no incorpora formularios de registro ni herramientas de analítica o publicidad. No recogemos datos de navegación con fines de seguimiento ni elaboramos perfiles.',
-          'Solo tratamos los datos personales que nos facilitas voluntariamente cuando te comunicas con nosotros por los canales publicados: tu nombre, tu dirección de correo o teléfono y el contenido de tu mensaje.',
+          'Solo tratamos los datos personales que usted nos facilita voluntariamente al comunicarse con nosotros por los canales publicados: su nombre, su dirección de correo o teléfono y el contenido de su mensaje.',
         ],
       },
       {
         titulo: 'Con qué finalidad',
         parrafos: [
-          'Utilizamos esos datos únicamente para responder a tu consulta, elaborar una propuesta si la solicitas y mantener el seguimiento comercial derivado de ese contacto.',
-          'No cedemos tus datos a terceros ni los utilizamos para enviarte comunicaciones distintas de las relacionadas con tu solicitud.',
+          'Utilizamos esos datos únicamente para responder a su consulta, elaborar una propuesta si la solicita y mantener el seguimiento comercial derivado de ese contacto.',
+          'No cedemos sus datos a terceros ni los utilizamos para enviarle comunicaciones distintas de las relacionadas con su solicitud.',
         ],
       },
       {
         titulo: 'Con qué base legal',
         parrafos: [
-          'Tratamos tus datos sobre la base de tu consentimiento, que otorgas al escribirnos voluntariamente, y del interés legítimo en atender y dar seguimiento a la relación comercial que tú mismo inicias.',
-          'Puedes retirar ese consentimiento en cualquier momento, sin que ello afecte a la licitud del tratamiento anterior.',
+          'Tratamos sus datos sobre la base de su consentimiento, que otorga al escribirnos voluntariamente, y del interés legítimo en atender y dar seguimiento a la relación comercial que tú mismo inicias.',
+          'Puede retirar ese consentimiento en cualquier momento, sin que ello afecte a la licitud del tratamiento anterior.',
         ],
       },
       {
@@ -70,16 +70,16 @@ const CONTENIDO: Record<
       {
         titulo: 'Tus derechos',
         parrafos: [
-          'La Ley Orgánica de Protección de Datos Personales del Ecuador te reconoce los derechos de acceso, rectificación, actualización, eliminación, oposición, portabilidad y a no ser objeto de decisiones automatizadas.',
-          `Para ejercer cualquiera de ellos escribe a ${CONTACTO.correo} indicando el derecho que invocas. Responderemos en el plazo que fija la normativa.`,
-          'Si consideras que no hemos atendido correctamente tu solicitud, puedes presentar un reclamo ante la autoridad de protección de datos personales del Ecuador.',
+          'La Ley Orgánica de Protección de Datos Personales del Ecuador le reconoce los derechos de acceso, rectificación, actualización, eliminación, oposición, portabilidad y a no ser objeto de decisiones automatizadas.',
+          `Para ejercer cualquiera de ellos escriba a ${CONTACTO.correo} indicando el derecho que invoca. Responderemos en el plazo que fija la normativa.`,
+          'Si considera que no hemos atendido correctamente su solicitud, puede presentar un reclamo ante la autoridad de protección de datos personales del Ecuador.',
         ],
       },
       {
         titulo: 'Seguridad de la información',
         parrafos: [
           'Aplicamos medidas técnicas y organizativas para proteger la información frente a accesos no autorizados, pérdida o alteración, incluyendo control de accesos por rol, cifrado en tránsito y registro de actividad.',
-          'Si llegara a producirse una vulneración que afecte a tus datos, te lo comunicaremos y lo notificaremos a la autoridad competente conforme exige la normativa.',
+          'Si llegara a producirse una vulneración que afecte a sus datos, se lo comunicaremos y lo notificaremos a la autoridad competente conforme exige la normativa.',
         ],
       },
       {

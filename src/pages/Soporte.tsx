@@ -21,7 +21,7 @@ const VIAS = [
     icono: LifeBuoy,
     titulo: 'Consultas de alcance',
     texto:
-      'Si necesitas algo que hoy la plataforma no hace, cuéntanos el caso: puede ser configuración, un módulo existente o desarrollo nuevo.',
+      'Si necesita algo que hoy la plataforma no hace, cuéntenos el caso: puede ser configuración, un módulo existente o desarrollo nuevo.',
   },
 ];
 
@@ -33,7 +33,7 @@ export default function Soporte() {
         description="Acompañamiento técnico para las aplicaciones y el equipamiento implementados por SEOH DESIGN TECH."
       />
 
-      <PageHero antetitulo="SOPORTE" titulo="Acompañamiento cuando lo necesitas">
+      <PageHero antetitulo="SOPORTE" titulo="Acompañamiento cuando lo necesita">
         Atendemos las soluciones que hemos desarrollado o implementado. Escríbenos indicando tu
         organización y el módulo o equipo afectado.
       </PageHero>
@@ -57,7 +57,7 @@ export default function Soporte() {
         <h2>Abrir una solicitud</h2>
         <p>
           Escríbenos a <a href={`mailto:${CONTACTO.correo}`}>{CONTACTO.correo}</a> con el nombre de
-          tu organización, el módulo o equipo afectado y una descripción de lo que ocurre.
+          su organización, el módulo o equipo afectado y una descripción de lo que ocurre.
         </p>
         <Link className="boton-primario" to="/contacto">
           Ver canales de contacto

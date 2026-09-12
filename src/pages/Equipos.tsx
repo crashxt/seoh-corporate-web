@@ -93,7 +93,7 @@ export default function Equipos() {
             <h2>Instalado y funcionando, no solo el equipo</h2>
             <p>
               Cada solución incluye el equipo, el levantamiento, la instalación y la puesta en
-              marcha. Se entrega andando y con su equipo capacitado.
+              marcha. Se entrega en funcionamiento y con su personal capacitado.
             </p>
           </div>
           <div className="rejilla-soluciones">

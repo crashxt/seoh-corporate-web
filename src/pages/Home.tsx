@@ -26,11 +26,11 @@ export default function Home() {
           <h1>
             Una plataforma.
             <br />
-            <span>Las aplicaciones que tu organización necesita.</span>
+            <span>Las aplicaciones que su organización necesita.</span>
           </h1>
           <p>
             No empezamos de cero en cada proyecto. Construimos sobre un núcleo probado —identidad,
-            permisos, tareas, archivos y auditoría— y activamos sobre él los módulos que tu operación
+            permisos, tareas, archivos y auditoría— y activamos sobre él los módulos que su operación
             realmente usa.
           </p>
           <div className="portada-acciones">
@@ -87,7 +87,7 @@ export default function Home() {
           <span className="antetitulo">SOLUCIONES</span>
           <h2>Un módulo para cada operación</h2>
           <p>
-            Cinco verticales sobre el mismo núcleo. Si tu sector no está aquí, se diseña — esa es
+            Cinco verticales sobre el mismo núcleo. Si su sector no está aquí, se diseña — esa es
             exactamente la ventaja de trabajar con módulos.
           </p>
         </div>
@@ -184,9 +184,9 @@ export default function Home() {
       {/* Cierre ------------------------------------------------------------ */}
       <section className="seccion llamada-final">
         <ShieldCheck aria-hidden="true" />
-        <h2>Cuéntanos cómo opera tu organización</h2>
+        <h2>Cuéntenos cómo opera su organización</h2>
         <p>
-          Revisamos tu caso y te decimos con franqueza qué se resuelve con lo que ya existe y qué
+          Revisamos su caso y le decimos con franqueza qué se resuelve con lo que ya existe y qué
           necesita desarrollo. Sin compromiso.
         </p>
         <Link className="boton-primario" to="/contacto">

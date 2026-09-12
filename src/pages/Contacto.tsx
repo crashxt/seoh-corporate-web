@@ -20,11 +20,11 @@ export default function Contacto() {
     <>
       <Seo
         title="Contacto"
-        description="Conversemos sobre la solución adecuada para tu organización: plataforma modular, desarrollo por vertical o equipamiento tecnológico."
+        description="Conversemos sobre la solución adecuada para su organización: plataforma modular, desarrollo por vertical o equipamiento tecnológico."
       />
 
       <PageHero antetitulo="HABLEMOS DE TU PROYECTO" titulo="Construyamos la solución adecuada">
-        Cuéntanos cómo opera tu organización y qué quieres mejorar. Revisamos el caso y te decimos
+        Cuéntenos cómo opera su organización y qué desea mejorar. Revisamos el caso y le decimos
         con franqueza qué se resuelve con lo que ya existe y qué requiere desarrollo.
       </PageHero>
 
@@ -74,10 +74,10 @@ export default function Contacto() {
         <div className="nota-contacto">
           <h2>¿Qué nos ayuda a responderte mejor?</h2>
           <ul>
-            <li>Qué tipo de organización eres y a cuántas personas atiende.</li>
-            <li>Qué proceso concreto quieres resolver primero.</li>
+            <li>Qué tipo de organización es y a cuántas personas atiende.</li>
+            <li>Qué proceso concreto desea resolver primero.</li>
             <li>Con qué herramientas trabajan hoy, aunque sean hojas de cálculo.</li>
-            <li>Si además necesitas equipamiento técnico o solo software.</li>
+            <li>Si además necesita equipamiento técnico o solo software.</li>
           </ul>
         </div>
       </section>

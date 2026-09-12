@@ -47,10 +47,10 @@ export default function Soluciones() {
         <h2>¿Tu sector no está en la lista?</h2>
         <p>
           El núcleo no conoce de verticales: sirve igual a un condominio que a una cooperativa. Lo
-          específico de tu operación se diseña encima.
+          específico de su operación se diseña encima.
         </p>
         <Link className="boton-primario" to="/contacto">
-          Conversemos tu caso
+          Conversemos su caso
           <ArrowRight size={18} aria-hidden="true" />
         </Link>
       </section>
