@@ -5,7 +5,7 @@ import BuscadorEquipos from '../components/BuscadorEquipos';
 import ImagenEquipo from '../components/ImagenEquipo';
 import TarjetaSolucion from '../components/TarjetaSolucion';
 import { obtenerSoluciones } from '../services/soluciones';
-import type { Solucion } from '../types';
+import type { AmbitoSolucion, Solucion } from '../types';
 import { usarRevelado } from '../hooks/usarRevelado';
 import PageHero from '../components/PageHero';
 import Seo from '../components/Seo';
@@ -14,6 +14,14 @@ import type { Product } from '../types';
 import { formatearPrecio } from '../lib/precio';
 
 const TODAS = 'Todos';
+
+/** Ambitos de las soluciones, en el orden en que se ofrecen. */
+const AMBITOS: [AmbitoSolucion | 'todas', string][] = [
+  ['todas', 'Todas'],
+  ['vivienda', 'Para su casa'],
+  ['conjunto', 'Para conjuntos'],
+  ['empresa', 'Para empresas'],
+];
 
 /** Icono por categoria. Las que no esten aqui caen en el generico. */
 const ICONOS: Record<string, typeof Network> = {
@@ -31,6 +39,7 @@ export default function Equipos() {
   const [params, setParams] = useSearchParams();
   const [busqueda, setBusqueda] = useState('');
   const [soluciones, setSoluciones] = useState<Solucion[]>([]);
+  const [ambito, setAmbito] = useState<AmbitoSolucion | 'todas'>('todas');
 
   const categoriaActiva = params.get('categoria') ?? TODAS;
 
@@ -96,10 +105,37 @@ export default function Equipos() {
               marcha. Se entrega en funcionamiento y con su personal capacitado.
             </p>
           </div>
+
+          {/* Una casa y un conjunto son clientes distintos: quien busca una
+              cerradura para su vivienda no debe tener que leer sobre áreas
+              comunes para encontrarla. */}
+          <div className="filtros" role="group" aria-label="Filtrar soluciones por tipo de cliente">
+            {AMBITOS.map(([clave, etiqueta]) => {
+              const total =
+                clave === 'todas'
+                  ? soluciones.length
+                  : soluciones.filter((s) => s.ambito === clave).length;
+              if (total === 0) return null;
+              return (
+                <button
+                  type="button"
+                  key={clave}
+                  className={clave === ambito ? 'activo' : ''}
+                  aria-pressed={clave === ambito}
+                  onClick={() => setAmbito(clave)}
+                >
+                  {etiqueta} <span className="conteo-filtro">{total}</span>
+                </button>
+              );
+            })}
+          </div>
+
           <div className="rejilla-soluciones">
-            {soluciones.map((solucion) => (
-              <TarjetaSolucion key={solucion.id} solucion={solucion} />
-            ))}
+            {soluciones
+              .filter((s) => ambito === 'todas' || s.ambito === ambito)
+              .map((solucion) => (
+                <TarjetaSolucion key={solucion.id} solucion={solucion} />
+              ))}
           </div>
         </section>
       )}

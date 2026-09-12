@@ -1386,6 +1386,45 @@ p {
   font-variant-numeric: tabular-nums;
 }
 
+.ver-detalle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: var(--espacio-md);
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--acento);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.ver-detalle svg {
+  transition: transform var(--transicion);
+}
+
+.ver-detalle .girado {
+  transform: rotate(180deg);
+}
+
+.detalle-solucion {
+  margin-bottom: var(--espacio-md);
+  padding: var(--espacio-sm) var(--espacio-md);
+  background: var(--fondo-hundido);
+  border-radius: var(--radio-sm);
+  font-size: 0.92rem;
+}
+
+.cifra.sin-precio {
+  font-size: 1.25rem;
+  color: var(--acento-fuerte);
+}
+
+.conteo-filtro {
+  opacity: 0.65;
+  font-variant-numeric: tabular-nums;
+}
+
 /* --- Rejilla de categorias y buscador --- */
 
 .rejilla-categorias {

@@ -46,8 +46,12 @@ export type EquipoDeSolucion = { nombre: string; cantidad: number };
  * —metros, puntos, unidades—, y porque una cifra cerrada invita a comparar
  * pieza por pieza, que es justo lo que el paquete evita.
  */
+/** A quien va dirigida la solucion. Una casa y un conjunto son clientes distintos. */
+export type AmbitoSolucion = 'vivienda' | 'conjunto' | 'empresa';
+
 export type Solucion = {
   id: string;
+  ambito: AmbitoSolucion;
   slug: string;
   nombre: string;
   /** A quien va dirigida. Es lo primero que lee un cliente para descartarse. */

@@ -1,4 +1,5 @@
-import { Check, MessageCircle, Package } from 'lucide-react';
+import { useState } from 'react';
+import { Check, ChevronDown, MessageCircle, Package } from 'lucide-react';
 import { CONTACTO, enlaceWhatsapp } from '../data/empresa';
 import { formatearPrecio } from '../lib/precio';
 import type { Solucion } from '../types';
@@ -13,6 +14,7 @@ import type { Solucion } from '../types';
  * justo lo que el paquete evita.
  */
 export default function TarjetaSolucion({ solucion }: { solucion: Solucion }) {
+  const [abierto, setAbierto] = useState(false);
   const mensaje = `Hola, me interesa la solución «${solucion.nombre}».`;
   const whatsapp = enlaceWhatsapp ? `${enlaceWhatsapp}?text=${encodeURIComponent(mensaje)}` : null;
   const correo = `mailto:${CONTACTO.correo}?subject=${encodeURIComponent(
@@ -39,6 +41,20 @@ export default function TarjetaSolucion({ solucion }: { solucion: Solucion }) {
           ))}
         </ul>
 
+        {/* El detalle completo va plegado: la tarjeta debe poder compararse de
+            un golpe de vista, y quien quiera profundizar lo abre. */}
+        <button
+          type="button"
+          className="ver-detalle"
+          onClick={() => setAbierto((previo) => !previo)}
+          aria-expanded={abierto}
+        >
+          {abierto ? 'Ocultar detalle' : 'Ver qué incluye en detalle'}
+          <ChevronDown size={15} aria-hidden="true" className={abierto ? 'girado' : ''} />
+        </button>
+
+        {abierto && <p className="detalle-solucion">{solucion.descripcion}</p>}
+
         <h4>Trabajo incluido</h4>
         <ul className="solucion-servicios">
           {solucion.servicios.map((servicio) => (
@@ -51,11 +67,16 @@ export default function TarjetaSolucion({ solucion }: { solucion: Solucion }) {
       </div>
 
       <footer>
-        {typeof solucion.precioDesde === 'number' && (
+        {typeof solucion.precioDesde === 'number' ? (
           <p className="solucion-precio">
             <span className="etiqueta-desde">Desde</span>
             <span className="cifra">{formatearPrecio(solucion.precioDesde)}</span>
             <span className="precio-nota">IVA incluido · instalación incluida</span>
+          </p>
+        ) : (
+          <p className="solucion-precio">
+            <span className="cifra sin-precio">Bajo cotización</span>
+            <span className="precio-nota">El precio depende del tamaño y los accesos</span>
           </p>
         )}
         <div className="acciones-cotizacion">

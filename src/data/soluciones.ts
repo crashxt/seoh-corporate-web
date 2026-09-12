@@ -15,6 +15,7 @@ import type { Solucion } from '../types';
 export const solucionesRespaldo: Solucion[] = [
   {
     id: 'wifi-areas-comunes',
+    ambito: 'conjunto',
     slug: 'wifi-areas-comunes',
     nombre: 'Wi-Fi para áreas comunes',
     para: 'Conjuntos residenciales de hasta 60 unidades',
@@ -37,6 +38,7 @@ export const solucionesRespaldo: Solucion[] = [
   },
   {
     id: 'proteccion-electrica',
+    ambito: 'conjunto',
     slug: 'proteccion-electrica-cuarto-equipos',
     nombre: 'Protección eléctrica del cuarto de equipos',
     para: 'Conserjerías, cuartos de rack y puntos de control',
@@ -58,6 +60,7 @@ export const solucionesRespaldo: Solucion[] = [
   },
   {
     id: 'conectividad-oficina',
+    ambito: 'empresa',
     slug: 'conectividad-oficina-pequena',
     nombre: 'Conectividad para oficina pequeña',
     para: 'Cooperativas y pymes de hasta 15 puestos',
@@ -78,5 +81,79 @@ export const solucionesRespaldo: Solucion[] = [
     precioDesde: 784.3,
     activa: true,
     orden: 3,
+  },
+  {
+    id: 'casa-segura',
+    ambito: 'vivienda',
+    slug: 'casa-segura',
+    nombre: 'Casa segura',
+    para: 'Viviendas unifamiliares',
+    resumen:
+      'Control de quién entra y qué ocurre en casa, desde el teléfono y sin depender de estar presente.',
+    descripcion:
+      'Cerradura inteligente en la puerta principal, cámaras en los accesos y videoportero. Se administra desde el teléfono: abrir a una visita, revisar quién llegó o recibir aviso cuando alguien se acerca, esté o no en casa.',
+    equipos: [
+      { nombre: 'Cerradura inteligente con código y huella', cantidad: 1 },
+      { nombre: 'Cámara de exterior con visión nocturna', cantidad: 2 },
+      { nombre: 'Videoportero con apertura remota', cantidad: 1 },
+    ],
+    servicios: [
+      'Evaluación de accesos y puntos ciegos',
+      'Instalación de cerradura y cámaras',
+      'Configuración en el teléfono de la familia',
+      'Capacitación de uso',
+    ],
+    precioDesde: null,
+    activa: true,
+    orden: 4,
+  },
+  {
+    id: 'casa-conectada',
+    ambito: 'vivienda',
+    slug: 'casa-conectada',
+    nombre: 'Casa conectada',
+    para: 'Viviendas que quieren automatizar lo cotidiano',
+    resumen:
+      'Iluminación, tomas y electrodomésticos gobernados por horario, por voz o desde el teléfono.',
+    descripcion:
+      'Interruptores y tomas inteligentes en los puntos que más se usan, con escenas configuradas: encender el ingreso al anochecer, apagar todo al salir, o dejar luces simulando presencia durante un viaje.',
+    equipos: [
+      { nombre: 'Interruptor inteligente de pared', cantidad: 4 },
+      { nombre: 'Toma inteligente con medición de consumo', cantidad: 3 },
+      { nombre: 'Central de automatización', cantidad: 1 },
+    ],
+    servicios: [
+      'Evaluación del tablero y los circuitos',
+      'Instalación de interruptores y tomas',
+      'Configuración de escenas y horarios',
+      'Capacitación de uso',
+    ],
+    precioDesde: null,
+    activa: true,
+    orden: 5,
+  },
+  {
+    id: 'vigilancia-vivienda',
+    ambito: 'vivienda',
+    slug: 'vigilancia-para-vivienda',
+    nombre: 'Vigilancia para vivienda',
+    para: 'Casas, locales y consultorios',
+    resumen: 'Cámaras con grabación propia, revisables desde cualquier lugar.',
+    descripcion:
+      'Cámaras en los puntos que importan, con grabador y almacenamiento en el domicilio: la grabación no depende de una suscripción en la nube ni de que haya internet en ese momento. Se revisa desde el teléfono.',
+    equipos: [
+      { nombre: 'Cámara de vigilancia con visión nocturna', cantidad: 4 },
+      { nombre: 'Grabador con disco de almacenamiento', cantidad: 1 },
+      { nombre: 'Respaldo eléctrico para el grabador', cantidad: 1 },
+    ],
+    servicios: [
+      'Evaluación de cobertura y puntos ciegos',
+      'Instalación y cableado de las cámaras',
+      'Configuración de grabación y acceso remoto',
+      'Capacitación de uso',
+    ],
+    precioDesde: null,
+    activa: true,
+    orden: 6,
   },
 ];
