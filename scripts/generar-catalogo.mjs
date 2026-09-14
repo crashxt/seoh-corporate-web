@@ -271,8 +271,57 @@ if (archivosImagen.length > 0) {
 const CACHE_REMOTA = `${ORIGEN}/imagenes-remotas`;
 await mkdir(CACHE_REMOTA, { recursive: true });
 
+/**
+ * Nombres alternativos de mayor resolucion para una miniatura.
+ *
+ * El portal sirve la misma fotografia en varios tamanos y los distingue con un
+ * sufijo en el nombre del archivo: "ES213HIK49 M.jpg" tiene hermanas " L" y
+ * " XL". El listado enlaza siempre la M, que son 200 px: suficiente para una
+ * rejilla de miniaturas suya, corto para una ficha de producto nuestra.
+ *
+ * El sufijo no es uniforme —" M", "M", "m", "med", "-200"— asi que no se puede
+ * derivar con una sola regla. Se prueban los candidatos y se elige el archivo
+ * mas pesado que responda, que es el de mas resolucion.
+ */
+function candidatosGrandes(nombre) {
+  const punto = nombre.lastIndexOf('.');
+  const ext = nombre.slice(punto);
+  const raiz = nombre.slice(0, punto);
+  const limpia = raiz.replace(/(\s*[Mm]ed|\s*[Mm]|[-_]\s*200(x200)?)$/, '').trim();
+
+  const salida = [];
+  for (const base of [limpia, raiz]) {
+    for (const sufijo of [' XL', ' L', 'XL', 'L', '-XL', '-L']) salida.push(base + sufijo + ext);
+  }
+  for (const sufijo of ['-800', '-500', '-400']) salida.push(limpia + sufijo + ext);
+  return [...new Set(salida)].filter((c) => c !== nombre);
+}
+
+const urlDe = (base, nombre) => base + encodeURIComponent(nombre).replace(/%2F/g, '/');
+
+/** El candidato mas pesado que exista, o el original si ninguno responde. */
+async function mejorResolucion(base, nombre) {
+  let elegido = nombre;
+  let mayor = 0;
+  for (const candidato of candidatosGrandes(nombre)) {
+    try {
+      const r = await fetch(urlDe(base, candidato), { method: 'HEAD' });
+      if (!r.ok) continue;
+      const bytes = Number(r.headers.get('content-length') ?? 0);
+      if (bytes > mayor) {
+        mayor = bytes;
+        elegido = candidato;
+      }
+    } catch {
+      // candidato inexistente: se ignora y se prueba el siguiente
+    }
+  }
+  return elegido;
+}
+
 let descargadas = 0;
 let fallidas = 0;
+let mejoradas = 0;
 for (const p of publico) {
   if (!p.imagenRemota || p.image_url) continue;
   const fuente = config.fuentes?.find((f) => f.publica === p.category);
@@ -282,8 +331,9 @@ for (const p of publico) {
   try {
     await stat(local);
   } catch {
-    const url = fuente.imagenBase + encodeURIComponent(p.imagenRemota).replace(/%2F/g, '/');
-    const respuesta = await fetch(url);
+    const grande = await mejorResolucion(fuente.imagenBase, p.imagenRemota);
+    if (grande !== p.imagenRemota) mejoradas++;
+    const respuesta = await fetch(urlDe(fuente.imagenBase, grande));
     if (!respuesta.ok) {
       fallidas++;
       continue;

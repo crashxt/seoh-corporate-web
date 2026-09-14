@@ -2136,3 +2136,49 @@ textarea {
     align-items: flex-start;
   }
 }
+
+/* Ficha tecnica dentro del detalle de un paquete.
+   Pares etiqueta/valor en dos columnas: se lee en diagonal y permite comparar
+   dos paquetes sin releer parrafos. */
+.equipo-modelo {
+  display: block;
+  color: var(--texto-tenue);
+  font-size: 0.82rem;
+}
+
+.ficha-equipo {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--borde);
+}
+
+.ficha-equipo h5 {
+  margin: 0 0 8px;
+  font-size: 0.86rem;
+  font-weight: 650;
+}
+
+.ficha-equipo h5 span {
+  color: var(--texto-tenue);
+  font-weight: 400;
+}
+
+.ficha-equipo dl {
+  display: grid;
+  grid-template-columns: minmax(7rem, auto) 1fr;
+  gap: 4px 14px;
+  margin: 0;
+  font-size: 0.84rem;
+}
+
+.ficha-equipo dl > div {
+  display: contents;
+}
+
+.ficha-equipo dt {
+  color: var(--texto-tenue);
+}
+
+.ficha-equipo dd {
+  margin: 0;
+}

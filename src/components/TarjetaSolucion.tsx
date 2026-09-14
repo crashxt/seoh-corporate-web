@@ -36,7 +36,16 @@ export default function TarjetaSolucion({ solucion }: { solucion: Solucion }) {
           {solucion.equipos.map((equipo) => (
             <li key={equipo.nombre}>
               <span className="cantidad">{equipo.cantidad}&times;</span>
-              {equipo.nombre}
+              <span>
+                {equipo.nombre}
+                {/* Marca y modelo van en la lista corta, no escondidos en el
+                    detalle: son lo que el cliente busca para comparar. */}
+                {(equipo.marca || equipo.modelo) && (
+                  <span className="equipo-modelo">
+                    {[equipo.marca, equipo.modelo].filter(Boolean).join(' ')}
+                  </span>
+                )}
+              </span>
             </li>
           ))}
         </ul>
@@ -53,7 +62,29 @@ export default function TarjetaSolucion({ solucion }: { solucion: Solucion }) {
           <ChevronDown size={15} aria-hidden="true" className={abierto ? 'girado' : ''} />
         </button>
 
-        {abierto && <p className="detalle-solucion">{solucion.descripcion}</p>}
+        {abierto && (
+          <div className="detalle-solucion">
+            <p>{solucion.descripcion}</p>
+            {solucion.equipos
+              .filter((equipo) => equipo.especificaciones?.length)
+              .map((equipo) => (
+                <div className="ficha-equipo" key={`ficha-${equipo.nombre}`}>
+                  <h5>
+                    {equipo.nombre}
+                    {equipo.modelo && <span> &middot; {equipo.modelo}</span>}
+                  </h5>
+                  <dl>
+                    {equipo.especificaciones?.map((caracteristica) => (
+                      <div key={caracteristica.etiqueta}>
+                        <dt>{caracteristica.etiqueta}</dt>
+                        <dd>{caracteristica.valor}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+              ))}
+          </div>
+        )}
 
         <h4>Trabajo incluido</h4>
         <ul className="solucion-servicios">

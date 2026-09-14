@@ -93,9 +93,29 @@ export const solucionesRespaldo: Solucion[] = [
     descripcion:
       'Cerradura inteligente en la puerta principal, cámaras en los accesos y videoportero. Se administra desde el teléfono: abrir a una visita, revisar quién llegó o recibir aviso cuando alguien se acerca, esté o no en casa.',
     equipos: [
-      { nombre: 'Cerradura inteligente con código y huella', cantidad: 1 },
-      { nombre: 'Cámara exterior con visión nocturna a color', cantidad: 2 },
-      { nombre: 'Monitor interior para videoportero', cantidad: 1 },
+      {
+        nombre: 'Cerradura inteligente con código y huella',
+        cantidad: 1,
+        marca: 'EZVIZ',
+        modelo: 'CS-L2S-11FCP',
+      },
+      {
+        nombre: 'Cámara exterior con visión nocturna a color',
+        cantidad: 2,
+        marca: 'Hikvision',
+        modelo: 'ColorVu DS-2CE10DF0T-LFS',
+        especificaciones: [
+          { etiqueta: 'Resolución', valor: '1080p' },
+          { etiqueta: 'Visión nocturna', valor: 'A color, no en blanco y negro' },
+          { etiqueta: 'Instalación', valor: 'Interior y exterior' },
+        ],
+      },
+      {
+        nombre: 'Monitor interior para videoportero',
+        cantidad: 1,
+        marca: 'Hikvision',
+        modelo: 'DS-KH6000-E1',
+      },
     ],
     servicios: [
       'Evaluación de accesos y puntos ciegos',
@@ -148,9 +168,38 @@ export const solucionesRespaldo: Solucion[] = [
     descripcion:
       'Cámaras en los puntos que importan, con grabador y almacenamiento en el domicilio: la grabación no depende de una suscripción en la nube ni de que haya internet en ese momento. Se revisa desde el teléfono.',
     equipos: [
-      { nombre: 'Cámara exterior con visión nocturna a color', cantidad: 4 },
-      { nombre: 'Grabador de ocho canales con detección inteligente', cantidad: 1 },
-      { nombre: 'Disco de vigilancia de 1 TB para grabación continua', cantidad: 1 },
+      {
+        nombre: 'Cámara exterior con visión nocturna a color',
+        cantidad: 4,
+        marca: 'Hikvision',
+        modelo: 'ColorVu DS-2CE10DF0T-LFS',
+        especificaciones: [
+          { etiqueta: 'Resolución', valor: '1080p' },
+          { etiqueta: 'Visión nocturna', valor: 'A color, no en blanco y negro' },
+          { etiqueta: 'Instalación', valor: 'Interior y exterior' },
+        ],
+      },
+      {
+        nombre: 'Grabador de ocho canales',
+        cantidad: 1,
+        marca: 'Hikvision',
+        modelo: 'iDS-7208HQHI-M1/XT',
+        especificaciones: [
+          { etiqueta: 'Canales', valor: 'Ocho' },
+          { etiqueta: 'Resolución', valor: '1080p, compresión H.265' },
+          { etiqueta: 'Detección', valor: 'AcuSense: distingue personas y vehículos' },
+        ],
+      },
+      {
+        nombre: 'Disco de vigilancia para grabación continua',
+        cantidad: 1,
+        marca: 'Western Digital',
+        modelo: 'Purple WD11PURZ',
+        especificaciones: [
+          { etiqueta: 'Capacidad', valor: '1 TB' },
+          { etiqueta: 'Uso', valor: 'Diseñado para grabar las 24 horas' },
+        ],
+      },
     ],
     servicios: [
       'Evaluación de cobertura y puntos ciegos',
@@ -176,10 +225,30 @@ export const solucionesRespaldo: Solucion[] = [
     descripcion:
       'Central de alarma inalámbrica con detectores de movimiento en las áreas de paso y sensores en las puertas de acceso. No requiere obra: los equipos se fijan sin cablear. Incluye botón de pánico portátil.',
     equipos: [
-      { nombre: 'Central de alarma inalámbrica', cantidad: 1 },
-      { nombre: 'Detector de movimiento', cantidad: 2 },
-      { nombre: 'Sensor de apertura de puerta o ventana', cantidad: 3 },
-      { nombre: 'Botón de pánico portátil', cantidad: 1 },
+      {
+        nombre: 'Central de alarma inalámbrica',
+        cantidad: 1,
+        marca: 'Hikvision',
+        modelo: 'AX Pro DS-PWA48-Kit-WB',
+      },
+      {
+        nombre: 'Detector de movimiento',
+        cantidad: 2,
+        marca: 'Hikvision',
+        modelo: 'DS-PDP15P-EG2-WB',
+      },
+      {
+        nombre: 'Sensor de apertura de puerta o ventana',
+        cantidad: 3,
+        marca: 'EZVIZ',
+        modelo: 'CS-T6-A',
+      },
+      {
+        nombre: 'Botón de pánico portátil',
+        cantidad: 1,
+        marca: 'Hikvision',
+        modelo: 'DS-PDEBP1-EG2-WB',
+      },
     ],
     servicios: [
       'Evaluación de accesos y zonas de paso',
@@ -198,13 +267,46 @@ export const solucionesRespaldo: Solucion[] = [
     slug: 'equipo-para-estudiar',
     nombre: 'Equipo para estudiar',
     para: 'Colegio y universidad',
-    resumen: 'Portátil, mochila y ratón, entregado configurado y listo para la primera clase.',
+    resumen:
+      'HP de 15,6" con Ryzen 5, 8 GB y SSD de 512 GB, más mochila y ratón, entregado configurado.',
     descripcion:
-      'Portátil de 15,6 pulgadas con procesador Ryzen 5, mochila acolchada del mismo tamaño y ratón inalámbrico. Se entrega con el sistema actualizado, las cuentas creadas y el paquete de ofimática instalado: se enciende y se trabaja.',
+      'HP 15-fc0250la de 15,6 pulgadas, con Ryzen 5, 8 GB de memoria y disco sólido de 512 GB, acompañado de mochila Klip Xtreme del mismo tamaño y ratón inalámbrico. Llega con Windows 11 Home actualizado, las cuentas creadas y la ofimática instalada: se enciende y se trabaja.',
     equipos: [
-      { nombre: 'Portátil 15,6" Ryzen 5 con Windows', cantidad: 1 },
-      { nombre: 'Mochila acolchada para portátil', cantidad: 1 },
-      { nombre: 'Ratón inalámbrico', cantidad: 1 },
+      {
+        nombre: 'Portátil 15,6"',
+        cantidad: 1,
+        marca: 'HP',
+        modelo: '15-fc0250la',
+        especificaciones: [
+          { etiqueta: 'Pantalla', valor: '15,6 pulgadas' },
+          { etiqueta: 'Procesador', valor: 'AMD Ryzen 5 7520U, hasta 4,3 GHz' },
+          { etiqueta: 'Memoria', valor: '8 GB DDR5' },
+          { etiqueta: 'Almacenamiento', valor: 'SSD de 512 GB' },
+          { etiqueta: 'Gráficos', valor: 'AMD Radeon integrados, sin tarjeta dedicada' },
+          { etiqueta: 'Sistema', valor: 'Windows 11 Home' },
+          { etiqueta: 'Garantía', valor: '1 año del fabricante' },
+        ],
+      },
+      {
+        nombre: 'Mochila para portátil',
+        cantidad: 1,
+        marca: 'Klip Xtreme',
+        modelo: 'KNB-467',
+        especificaciones: [
+          { etiqueta: 'Capacidad', valor: 'Portátiles de hasta 15,6 pulgadas' },
+          { etiqueta: 'Material', valor: 'Nylon 1200D' },
+        ],
+      },
+      {
+        nombre: 'Ratón inalámbrico',
+        cantidad: 1,
+        marca: 'Klip Xtreme',
+        modelo: 'KMW-330 Vector',
+        especificaciones: [
+          { etiqueta: 'Conexión', valor: 'Inalámbrica 2,4 GHz' },
+          { etiqueta: 'Sensor', valor: 'Óptico, seis botones' },
+        ],
+      },
     ],
     servicios: [
       'Sistema actualizado y cuentas configuradas',
@@ -223,22 +325,55 @@ export const solucionesRespaldo: Solucion[] = [
     slug: 'equipo-para-trabajar',
     nombre: 'Equipo para trabajar',
     para: 'Profesionales y trabajo desde casa',
-    resumen: 'Portátil de ocho núcleos con 16 GB, funda y ratón, listo para jornada completa.',
+    resumen:
+      'HP de 15,6" con Ryzen 7, 16 GB y SSD de 512 GB, con Windows 11 Pro, funda y ratón.',
     descripcion:
-      'Portátil con procesador Ryzen 7 y 16 GB de memoria, para quien tiene muchas ventanas abiertas a la vez: hojas de cálculo grandes, videollamada y navegador sin que se arrastre. Incluye funda de transporte y ratón inalámbrico.',
+      'HP 15-fc0371la con Ryzen 7, 16 GB de memoria y disco sólido de 512 GB, para quien tiene muchas ventanas abiertas a la vez: hojas de cálculo grandes, videollamada y navegador sin que se arrastre. Se entrega con Windows 11 Pro instalado y licenciado, más funda de transporte y ratón inalámbrico.',
     equipos: [
-      { nombre: 'Portátil 15,6" Ryzen 7 con 16 GB de memoria', cantidad: 1 },
-      { nombre: 'Funda de transporte para portátil', cantidad: 1 },
-      { nombre: 'Ratón inalámbrico', cantidad: 1 },
+      {
+        nombre: 'Portátil 15,6"',
+        cantidad: 1,
+        marca: 'HP',
+        modelo: '15-fc0371la',
+        especificaciones: [
+          { etiqueta: 'Pantalla', valor: '15,6 pulgadas' },
+          { etiqueta: 'Procesador', valor: 'AMD Ryzen 7 7730U, hasta 4,5 GHz' },
+          { etiqueta: 'Memoria', valor: '16 GB DDR4' },
+          { etiqueta: 'Almacenamiento', valor: 'SSD de 512 GB' },
+          { etiqueta: 'Gráficos', valor: 'AMD Radeon integrados, sin tarjeta dedicada' },
+          { etiqueta: 'Sistema', valor: 'Windows 11 Pro' },
+          { etiqueta: 'Garantía', valor: '1 año del fabricante' },
+        ],
+      },
+      {
+        nombre: 'Funda de transporte',
+        cantidad: 1,
+        marca: 'Klip Xtreme',
+        modelo: 'SquareShield KNS-220',
+        especificaciones: [
+          { etiqueta: 'Capacidad', valor: 'Portátiles de hasta 15,6 pulgadas' },
+        ],
+      },
+      {
+        nombre: 'Ratón inalámbrico',
+        cantidad: 1,
+        marca: 'Klip Xtreme',
+        modelo: 'KMW-330 Vector',
+        especificaciones: [
+          { etiqueta: 'Conexión', valor: 'Inalámbrica 2,4 GHz' },
+          { etiqueta: 'Sensor', valor: 'Óptico, seis botones' },
+        ],
+      },
     ],
     servicios: [
-      'Sistema actualizado y cuentas configuradas',
+      'Windows 11 Pro instalado, licenciado y actualizado',
       'Ofimática, correo y navegador instalados',
       'Configuración de respaldo en la nube',
       'Traslado de archivos desde el equipo anterior',
     ],
-    // 635,44 de costo mas 12% y IVA, mas 15 de puesta a punto.
-    precioDesde: 833.45,
+    // 833,44 de costo —incluida la licencia de Windows 11 Pro, que el equipo no
+    // trae de fabrica— mas 12% y IVA, mas 15 de puesta a punto.
+    precioDesde: 1088.47,
     activa: true,
     orden: 9,
   },

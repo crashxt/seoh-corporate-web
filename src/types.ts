@@ -37,7 +37,25 @@ export type Product = {
 };
 
 /** Equipo incluido en una solucion, con su cantidad. */
-export type EquipoDeSolucion = { nombre: string; cantidad: number };
+/**
+ * Una caracteristica declarada de un equipo.
+ *
+ * Va como pares etiqueta/valor y no como prosa para que todas las fichas digan
+ * lo mismo en el mismo orden. Un cliente que compara dos paquetes necesita
+ * encontrar "Memoria" en el mismo sitio en los dos.
+ */
+export type EspecificacionEquipo = { etiqueta: string; valor: string };
+
+export type EquipoDeSolucion = {
+  nombre: string;
+  cantidad: number;
+  /** Fabricante. Se muestra siempre: es lo primero que un cliente reconoce. */
+  marca?: string;
+  /** Modelo exacto, para que el cliente pueda verificarlo por su cuenta. */
+  modelo?: string;
+  /** Caracteristicas tecnicas, en el orden estandar del catalogo. */
+  especificaciones?: EspecificacionEquipo[];
+};
 
 /**
  * Solucion: equipo mas servicio, vendido como paquete.
