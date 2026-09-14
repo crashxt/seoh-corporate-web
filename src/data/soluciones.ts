@@ -94,8 +94,8 @@ export const solucionesRespaldo: Solucion[] = [
       'Cerradura inteligente en la puerta principal, cámaras en los accesos y videoportero. Se administra desde el teléfono: abrir a una visita, revisar quién llegó o recibir aviso cuando alguien se acerca, esté o no en casa.',
     equipos: [
       { nombre: 'Cerradura inteligente con código y huella', cantidad: 1 },
-      { nombre: 'Cámara de exterior con visión nocturna', cantidad: 2 },
-      { nombre: 'Videoportero con apertura remota', cantidad: 1 },
+      { nombre: 'Cámara exterior con visión nocturna a color', cantidad: 2 },
+      { nombre: 'Monitor interior para videoportero', cantidad: 1 },
     ],
     servicios: [
       'Evaluación de accesos y puntos ciegos',
@@ -103,7 +103,8 @@ export const solucionesRespaldo: Solucion[] = [
       'Configuración en el teléfono de la familia',
       'Capacitación de uso',
     ],
-    precioDesde: null,
+    // 250,62 de costo mas 25% y IVA, mas 15 de instalacion.
+    precioDesde: 375.27,
     activa: true,
     orden: 4,
   },
@@ -147,9 +148,9 @@ export const solucionesRespaldo: Solucion[] = [
     descripcion:
       'Cámaras en los puntos que importan, con grabador y almacenamiento en el domicilio: la grabación no depende de una suscripción en la nube ni de que haya internet en ese momento. Se revisa desde el teléfono.',
     equipos: [
-      { nombre: 'Cámara de vigilancia con visión nocturna', cantidad: 4 },
-      { nombre: 'Grabador con disco de almacenamiento', cantidad: 1 },
-      { nombre: 'Respaldo eléctrico para el grabador', cantidad: 1 },
+      { nombre: 'Cámara exterior con visión nocturna a color', cantidad: 4 },
+      { nombre: 'Grabador de ocho canales con detección inteligente', cantidad: 1 },
+      { nombre: 'Disco de vigilancia de 1 TB para grabación continua', cantidad: 1 },
     ],
     servicios: [
       'Evaluación de cobertura y puntos ciegos',
@@ -157,8 +158,38 @@ export const solucionesRespaldo: Solucion[] = [
       'Configuración de grabación y acceso remoto',
       'Capacitación de uso',
     ],
-    precioDesde: null,
+    // 258,45 de costo mas 25% y IVA, mas 15 de instalacion.
+    //
+    // El disco va dentro del precio a proposito: un grabador sin disco no
+    // graba, y cobrarlo aparte es la sorpresa que arruina una instalacion.
+    precioDesde: 386.52,
     activa: true,
     orden: 6,
+  },
+  {
+    id: 'casa-con-alarma',
+    ambito: 'vivienda',
+    slug: 'casa-con-alarma',
+    nombre: 'Casa con alarma',
+    para: 'Viviendas que quieren aviso inmediato',
+    resumen: 'Aviso al teléfono en cuanto alguien abre una puerta o se mueve dentro de la casa vacía.',
+    descripcion:
+      'Central de alarma inalámbrica con detectores de movimiento en las áreas de paso y sensores en las puertas de acceso. No requiere obra: los equipos se fijan sin cablear. Incluye botón de pánico portátil.',
+    equipos: [
+      { nombre: 'Central de alarma inalámbrica', cantidad: 1 },
+      { nombre: 'Detector de movimiento', cantidad: 2 },
+      { nombre: 'Sensor de apertura de puerta o ventana', cantidad: 3 },
+      { nombre: 'Botón de pánico portátil', cantidad: 1 },
+    ],
+    servicios: [
+      'Evaluación de accesos y zonas de paso',
+      'Instalación sin obra ni cableado',
+      'Configuración de avisos en el teléfono',
+      'Capacitación de uso',
+    ],
+    // 212,81 de costo mas 25% y IVA, mas 15 de instalacion.
+    precioDesde: 320.91,
+    activa: true,
+    orden: 7,
   },
 ];

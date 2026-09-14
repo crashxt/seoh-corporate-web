@@ -20,7 +20,7 @@ import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 const ORIGEN = 'catalogo-src';
 const IMAGENES = 'catalogo-src/imagenes';
 const IMAGENES_WEB = 'public/catalogo';
-const CONFIG = 'catalogo.config.json';
+const CONFIG = 'catalogo-src/catalogo.config.json';
 const SALIDA = 'src/data/products.ts';
 const SALIDA_CATEGORIAS = 'src/data/categorias-equipos.ts';
 
@@ -59,6 +59,39 @@ for (let c = 0; c < 10; c += 2) {
       continue;
     }
     crudos.push({ categoria, descripcion, costo: precio });
+  }
+}
+
+// --- Listas adicionales en TSV -----------------------------------------------
+//
+// El Excel de TecnoMega cubre redes y energia. La linea de seguridad viene de
+// otro distribuidor y llega como TSV: sku, mpn, marca, nombre, costo, imagen.
+// Se trata igual que el Excel —costo dentro, precio de venta fuera— y no toca
+// el control de versiones, porque vive en catalogo-src/.
+const extras = [];
+for (const fuente of config.fuentes ?? []) {
+  let texto;
+  try {
+    texto = await readFile(`${ORIGEN}/${fuente.archivo}`, 'utf8');
+  } catch {
+    console.warn(`  aviso: no se encontro ${ORIGEN}/${fuente.archivo}, se omite`);
+    continue;
+  }
+  const [cabecera, ...cuerpo] = texto.trim().split(/\r?\n/);
+  const cols = cabecera.split('\t').map((c) => c.trim());
+  for (const linea of cuerpo) {
+    const v = linea.split('\t');
+    const fila = Object.fromEntries(cols.map((c, i) => [c, (v[i] ?? '').trim()]));
+    const costo = Number.parseFloat(fila.costo);
+    if (!Number.isFinite(costo) || costo <= 0) continue;
+    extras.push({
+      fuente,
+      descripcion: fila.nombre || `${fila.marca} ${fila.mpn}`.trim(),
+      marca: fila.marca,
+      codigo: fila.mpn || fila.sku,
+      imagenRemota: fila.imagen || null,
+      costo,
+    });
   }
 }
 
@@ -140,10 +173,17 @@ function buscarImagen(descripcion) {
 }
 
 // --- Calcular el precio publico ----------------------------------------------
-// El mayorista vende al publico aplicando su propio margen sobre este mismo
-// costo, asi que un margen por encima del suyo deja el catalogo fuera de
-// mercado. Se publica por debajo, y el negocio se hace en las soluciones.
-const { margen, iva } = config;
+//
+// El margen NO es uno solo: va por categoria, porque no en todas se compite
+// contra lo mismo. Cada uno esta medido y justificado en
+// catalogo-src/metodo-de-precios.md, junto a la configuracion que lo fija.
+//
+// Ese documento y la configuracion viven fuera del control de versiones a
+// proposito: este repositorio es publico, y tanto los costos de distribuidor
+// como los margenes propios son informacion comercial.
+const { iva } = config;
+const precioVenta = (costo, margen) => Math.round(costo * (1 + margen) * (1 + iva) * 100) / 100;
+
 const publico = seleccion.map((p, i) => {
   const destino = config.categorias.find((c) => c.origen === p.categoria);
   const imagen = buscarImagen(p.descripcion);
@@ -161,11 +201,34 @@ const publico = seleccion.map((p, i) => {
     category: destino.publica,
     summary: destino.resumen,
     description: p.descripcion,
-    price: Math.round(p.costo * (1 + margen) * (1 + iva) * 100) / 100,
+    price: precioVenta(p.costo, destino.margen),
     is_active: true,
     sort_order: i + 1,
   };
 });
+
+// Las fuentes TSV se anaden despues, con su propio margen.
+publico.push(
+  ...extras.map((p, i) => ({
+    id: `eq-x${String(i + 1).padStart(3, '0')}`,
+    imagen: null,
+    imagenRemota: p.imagenRemota,
+    slug: `${p.descripcion} ${p.codigo}`
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/\p{Diacritic}/gu, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '')
+      .slice(0, 60),
+    name: p.descripcion,
+    category: p.fuente.publica,
+    summary: p.fuente.resumen,
+    description: p.descripcion,
+    price: precioVenta(p.costo, p.fuente.margen),
+    is_active: true,
+    sort_order: seleccion.length + i + 1,
+  })),
+);
 
 // Un slug repetido haria que dos fichas distintas compartan direccion.
 const vistos = new Set();
@@ -246,7 +309,7 @@ ${cuerpo}
 //
 // Va en su propio modulo, y no leyendo products.ts, porque el catalogo son 32 KB
 // que se cargan solo al entrar a Equipos; el menu esta en todas las paginas.
-const categoriasConProducto = config.categorias.filter((c) =>
+const categoriasConProducto = [...config.categorias, ...(config.fuentes ?? [])].filter((c) =>
   catalogo.some((p) => p.category === c.publica),
 );
 
