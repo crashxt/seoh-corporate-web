@@ -47,7 +47,7 @@ export type EquipoDeSolucion = { nombre: string; cantidad: number };
  * pieza por pieza, que es justo lo que el paquete evita.
  */
 /** A quien va dirigida la solucion. Una casa y un conjunto son clientes distintos. */
-export type AmbitoSolucion = 'vivienda' | 'conjunto' | 'empresa';
+export type AmbitoSolucion = 'personal' | 'vivienda' | 'conjunto' | 'empresa';
 
 export type Solucion = {
   id: string;

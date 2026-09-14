@@ -15,7 +15,7 @@
  */
 import sharp from 'sharp';
 import XLSX from 'xlsx';
-import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, readdir, stat, writeFile } from 'node:fs/promises';
 
 const ORIGEN = 'catalogo-src';
 const IMAGENES = 'catalogo-src/imagenes';
@@ -243,8 +243,9 @@ const catalogo = publico.filter((p) => {
 // En una ficha se muestran a 400, asi que se reescalan una vez aqui en lugar de
 // enviarlas enteras a cada visitante.
 let imagenesUsadas = 0;
+await mkdir(IMAGENES_WEB, { recursive: true });
+
 if (archivosImagen.length > 0) {
-  await mkdir(IMAGENES_WEB, { recursive: true });
   for (const p of publico) {
     if (!p.imagen) continue;
     const destino = `${p.slug}.webp`;
@@ -254,6 +255,53 @@ if (archivosImagen.length > 0) {
       .toFile(`${IMAGENES_WEB}/${destino}`);
     p.image_url = `/catalogo/${destino}`;
     imagenesUsadas++;
+  }
+}
+
+// --- Descargar las fotografias del portal de distribuidor --------------------
+//
+// Las fuentes TSV traen el nombre del archivo tal como lo sirve el portal. Se
+// descarga una sola vez y se guarda en catalogo-src/imagenes-remotas/, que no
+// va al control de versiones: en ejecuciones siguientes se usa la copia local
+// en lugar de volver a pedirsela al proveedor.
+//
+// No se enlazan directamente desde el sitio. Servir imagenes desde el dominio
+// del distribuidor dejaria el catalogo a merced de que el las mueva, y le
+// cargaria trafico que no le corresponde.
+const CACHE_REMOTA = `${ORIGEN}/imagenes-remotas`;
+await mkdir(CACHE_REMOTA, { recursive: true });
+
+let descargadas = 0;
+let fallidas = 0;
+for (const p of publico) {
+  if (!p.imagenRemota || p.image_url) continue;
+  const fuente = config.fuentes?.find((f) => f.publica === p.category);
+  if (!fuente?.imagenBase) continue;
+
+  const local = `${CACHE_REMOTA}/${p.imagenRemota.replace(/[^\w.-]/g, '_')}`;
+  try {
+    await stat(local);
+  } catch {
+    const url = fuente.imagenBase + encodeURIComponent(p.imagenRemota).replace(/%2F/g, '/');
+    const respuesta = await fetch(url);
+    if (!respuesta.ok) {
+      fallidas++;
+      continue;
+    }
+    await writeFile(local, Buffer.from(await respuesta.arrayBuffer()));
+    descargadas++;
+  }
+
+  const destino = `${p.slug}.webp`;
+  try {
+    await sharp(local)
+      .resize({ width: 800, withoutEnlargement: true })
+      .webp({ quality: 80 })
+      .toFile(`${IMAGENES_WEB}/${destino}`);
+    p.image_url = `/catalogo/${destino}`;
+    imagenesUsadas++;
+  } catch {
+    fallidas++; // archivo corrupto o formato no soportado
   }
 }
 

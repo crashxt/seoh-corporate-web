@@ -192,4 +192,54 @@ export const solucionesRespaldo: Solucion[] = [
     activa: true,
     orden: 7,
   },
+  {
+    id: 'equipo-para-estudiar',
+    ambito: 'personal',
+    slug: 'equipo-para-estudiar',
+    nombre: 'Equipo para estudiar',
+    para: 'Colegio y universidad',
+    resumen: 'Portátil, mochila y ratón, entregado configurado y listo para la primera clase.',
+    descripcion:
+      'Portátil de 15,6 pulgadas con procesador Ryzen 5, mochila acolchada del mismo tamaño y ratón inalámbrico. Se entrega con el sistema actualizado, las cuentas creadas y el paquete de ofimática instalado: se enciende y se trabaja.',
+    equipos: [
+      { nombre: 'Portátil 15,6" Ryzen 5 con Windows', cantidad: 1 },
+      { nombre: 'Mochila acolchada para portátil', cantidad: 1 },
+      { nombre: 'Ratón inalámbrico', cantidad: 1 },
+    ],
+    servicios: [
+      'Sistema actualizado y cuentas configuradas',
+      'Ofimática y navegador instalados',
+      'Configuración de respaldo en la nube',
+      'Explicación de uso y cuidados',
+    ],
+    // 541,71 de costo mas 12% y IVA, mas 15 de puesta a punto.
+    precioDesde: 712.72,
+    activa: true,
+    orden: 8,
+  },
+  {
+    id: 'equipo-para-trabajar',
+    ambito: 'personal',
+    slug: 'equipo-para-trabajar',
+    nombre: 'Equipo para trabajar',
+    para: 'Profesionales y trabajo desde casa',
+    resumen: 'Portátil de ocho núcleos con 16 GB, funda y ratón, listo para jornada completa.',
+    descripcion:
+      'Portátil con procesador Ryzen 7 y 16 GB de memoria, para quien tiene muchas ventanas abiertas a la vez: hojas de cálculo grandes, videollamada y navegador sin que se arrastre. Incluye funda de transporte y ratón inalámbrico.',
+    equipos: [
+      { nombre: 'Portátil 15,6" Ryzen 7 con 16 GB de memoria', cantidad: 1 },
+      { nombre: 'Funda de transporte para portátil', cantidad: 1 },
+      { nombre: 'Ratón inalámbrico', cantidad: 1 },
+    ],
+    servicios: [
+      'Sistema actualizado y cuentas configuradas',
+      'Ofimática, correo y navegador instalados',
+      'Configuración de respaldo en la nube',
+      'Traslado de archivos desde el equipo anterior',
+    ],
+    // 635,44 de costo mas 12% y IVA, mas 15 de puesta a punto.
+    precioDesde: 833.45,
+    activa: true,
+    orden: 9,
+  },
 ];

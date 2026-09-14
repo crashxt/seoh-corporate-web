@@ -18,6 +18,7 @@ const TODAS = 'Todos';
 /** Ambitos de las soluciones, en el orden en que se ofrecen. */
 const AMBITOS: [AmbitoSolucion | 'todas', string][] = [
   ['todas', 'Todas'],
+  ['personal', 'Para usted'],
   ['vivienda', 'Para su casa'],
   ['conjunto', 'Para conjuntos'],
   ['empresa', 'Para empresas'],

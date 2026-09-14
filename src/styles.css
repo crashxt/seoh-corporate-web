@@ -994,7 +994,14 @@ p {
   width: 100%;
   aspect-ratio: 16 / 10;
   border-radius: var(--radio-sm);
-  object-fit: cover;
+  /* contain, no cover: una fotografía de producto recortada pierde justo lo que
+     el cliente quiere mirar. El fondo blanco sostiene las del fabricante, que
+     vienen recortadas sobre blanco, sin que se note el borde. */
+  object-fit: contain;
+}
+
+.tarjeta-catalogo img {
+  background: #fff;
 }
 
 .marcador-imagen {
