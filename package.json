@@ -17,7 +17,8 @@
     "build": "tsc --noEmit && vite build",
     "typecheck": "tsc --noEmit",
     "preview": "vite preview",
-    "deploy": "npm run build && wrangler deploy"
+    "deploy": "npm run build && wrangler deploy",
+    "verificar-assets": "node scripts/verificar-assets.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.112.3",

@@ -27,17 +27,16 @@ jobs:
         run: npm run build
 
       # Los assets de marca se generan con scripts. Si alguien edita un script y
-      # olvida regenerar, el sitio publicaria una version antigua del logotipo
+      # olvida regenerar, el sitio publicaría una versión antigua del logotipo
       # sin que nadie lo note.
+      #
+      # La comprobación mira dimensiones y peso con tolerancia, no los bytes.
+      # Compararlos byte a byte hacía fallar esta rama sin que nada estuviera
+      # mal: favicon-192.png es un PNG de paleta, y libimagequant no produce los
+      # mismos bytes compilado en Windows que compilado en Ubuntu. Misma imagen,
+      # mismo peso, bytes distintos. El razonamiento completo está en el script.
       - name: Comprobar que los assets estén regenerados
-        run: |
-          npm run images
-          if [ -n "$(git status --porcelain public/brand)" ]; then
-            echo "::error::Los assets de public/brand no coinciden con lo que produce el script."
-            echo "Ejecute 'npm run images' y confirme el resultado."
-            git status --porcelain public/brand
-            exit 1
-          fi
+        run: npm run verificar-assets
 
       # Un enlace roto a un icono o al logotipo da un 404 en cada visita y pasa
       # desapercibido con facilidad: ya ocurrió una vez.
