@@ -315,7 +315,12 @@ export const solucionesRespaldo: Solucion[] = [
       'Explicación de uso y cuidados',
     ],
     // 541,71 de costo mas 12% y IVA, mas 15 de puesta a punto.
+    //
+    // El portatil entra con precio promocional del distribuidor: 524 frente a
+    // 584 de lista. Al vencer la promocion este paquete sube a unos 789, de ahi
+    // el aviso.
     precioDesde: 712.72,
+    aviso: 'Precio promocional. Confirme disponibilidad antes de cerrar la compra.',
     activa: true,
     orden: 8,
   },
@@ -328,7 +333,7 @@ export const solucionesRespaldo: Solucion[] = [
     resumen:
       'HP de 15,6" con Ryzen 7, 16 GB y SSD de 512 GB, con Windows 11 Pro, funda y ratón.',
     descripcion:
-      'HP 15-fc0371la con Ryzen 7, 16 GB de memoria y disco sólido de 512 GB, para quien tiene muchas ventanas abiertas a la vez: hojas de cálculo grandes, videollamada y navegador sin que se arrastre. Se entrega con Windows 11 Pro instalado y licenciado, más funda de transporte y ratón inalámbrico.',
+      'HP 15-fc0371la con Ryzen 7, 16 GB de memoria y disco sólido de 512 GB, para quien tiene muchas ventanas abiertas a la vez: hojas de cálculo grandes, videollamada y navegador sin que se arrastre. Se entrega con Windows 11 Pro instalado, más funda de transporte y ratón inalámbrico.',
     equipos: [
       {
         nombre: 'Portátil 15,6"',
@@ -366,14 +371,18 @@ export const solucionesRespaldo: Solucion[] = [
       },
     ],
     servicios: [
-      'Windows 11 Pro instalado, licenciado y actualizado',
+      'Windows 11 Pro instalado y actualizado',
       'Ofimática, correo y navegador instalados',
       'Configuración de respaldo en la nube',
       'Traslado de archivos desde el equipo anterior',
     ],
-    // 833,44 de costo —incluida la licencia de Windows 11 Pro, que el equipo no
-    // trae de fabrica— mas 12% y IVA, mas 15 de puesta a punto.
-    precioDesde: 1088.47,
+    // 683,44 de costo mas 12% y IVA, mas 15 de puesta a punto.
+    //
+    // El equipo sale de fabrica sin sistema operativo y el precio NO incluye una
+    // licencia comprada: se instala con la imagen propia que el acuerdo vigente
+    // con el proveedor permite usar. Es tiempo de trabajo, no costo de material.
+    // Si ese acuerdo cambiara, hay que volver a sumar la licencia aqui.
+    precioDesde: 895.27,
     activa: true,
     orden: 9,
   },

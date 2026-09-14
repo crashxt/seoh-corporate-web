@@ -79,6 +79,14 @@ export type Solucion = {
   equipos: EquipoDeSolucion[];
   servicios: string[];
   precioDesde?: number | null;
+  /**
+   * Advertencia que acompana al precio.
+   *
+   * Existe porque algunos equipos entran al paquete con precio promocional del
+   * distribuidor. Publicar esa cifra sin decirlo convierte una promocion que
+   * vence en un compromiso que no se puede sostener.
+   */
+  aviso?: string;
   activa: boolean;
   orden: number;
 };

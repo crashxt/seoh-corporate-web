@@ -2182,3 +2182,27 @@ textarea {
 .ficha-equipo dd {
   margin: 0;
 }
+
+/* Aviso de precio promocional.
+   Ambar y no rojo: no es un error ni un peligro, es una condicion de la oferta.
+   Va pegado al precio porque es donde el ojo ya esta mirando cuando decide. */
+.aviso-precio {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0 0 var(--espacio-sm);
+  padding: 9px 12px;
+  border: 1px solid #E8A317;
+  border-left-width: 4px;
+  border-radius: var(--radio-sm);
+  background: #FDF6E3;
+  color: #6B4A05;
+  font-size: 0.83rem;
+  line-height: 1.45;
+  font-weight: 550;
+}
+
+.aviso-precio svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}

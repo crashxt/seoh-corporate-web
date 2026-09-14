@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Check, ChevronDown, MessageCircle, Package } from 'lucide-react';
+import { AlertTriangle, Check, ChevronDown, MessageCircle, Package } from 'lucide-react';
 import { CONTACTO, enlaceWhatsapp } from '../data/empresa';
 import { formatearPrecio } from '../lib/precio';
 import type { Solucion } from '../types';
@@ -108,6 +108,12 @@ export default function TarjetaSolucion({ solucion }: { solucion: Solucion }) {
           <p className="solucion-precio">
             <span className="cifra sin-precio">Bajo cotización</span>
             <span className="precio-nota">El precio depende del tamaño y los accesos</span>
+          </p>
+        )}
+        {solucion.aviso && (
+          <p className="aviso-precio" role="note">
+            <AlertTriangle size={15} aria-hidden="true" />
+            {solucion.aviso}
           </p>
         )}
         <div className="acciones-cotizacion">
