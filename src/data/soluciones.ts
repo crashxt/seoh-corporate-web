@@ -88,43 +88,47 @@ export const solucionesRespaldo: Solucion[] = [
     slug: 'casa-segura',
     nombre: 'Casa segura',
     para: 'Viviendas unifamiliares',
-    resumen:
-      'Control de quién entra y qué ocurre en casa, desde el teléfono y sin depender de estar presente.',
+    resumen: 'Control de quién entra: abrir desde el teléfono y ver quién toca antes de abrir.',
     descripcion:
-      'Cerradura inteligente en la puerta principal, cámaras en los accesos y videoportero. Se administra desde el teléfono: abrir a una visita, revisar quién llegó o recibir aviso cuando alguien se acerca, esté o no en casa.',
+      'Cerradura inteligente en la puerta principal y timbre con cámara en la entrada. Se administra desde el teléfono: abrir a una visita, ver quién toca antes de abrir y recibir aviso cuando alguien se acerca, esté o no en casa. Ninguno de los dos requiere obra: el timbre funciona con batería.',
     equipos: [
       {
         nombre: 'Cerradura inteligente con código y huella',
         cantidad: 1,
         marca: 'EZVIZ',
         modelo: 'CS-L2S-11FCP',
-      },
-      {
-        nombre: 'Cámara exterior con visión nocturna a color',
-        cantidad: 2,
-        marca: 'Hikvision',
-        modelo: 'ColorVu DS-2CE10DF0T-LFS',
         especificaciones: [
-          { etiqueta: 'Resolución', valor: '1080p' },
-          { etiqueta: 'Visión nocturna', valor: 'A color, no en blanco y negro' },
-          { etiqueta: 'Instalación', valor: 'Interior y exterior' },
+          { etiqueta: 'Apertura', valor: 'Código, huella y aplicación' },
+          { etiqueta: 'Conexión', valor: 'Wi-Fi, con su propia aplicación' },
         ],
       },
       {
-        nombre: 'Monitor interior para videoportero',
+        nombre: 'Timbre de video con batería',
         cantidad: 1,
-        marca: 'Hikvision',
-        modelo: 'DS-KH6000-E1',
+        marca: 'TP-Link',
+        modelo: 'Tapo',
+        especificaciones: [
+          { etiqueta: 'Resolución', valor: '2K, 5 MP' },
+          { etiqueta: 'Visión nocturna', valor: 'A color' },
+          { etiqueta: 'Detección', valor: 'Distingue personas de movimiento cualquiera' },
+          { etiqueta: 'Alimentación', valor: 'Batería extraíble, sin obra ni cableado' },
+        ],
       },
     ],
     servicios: [
-      'Evaluación de accesos y puntos ciegos',
-      'Instalación de cerradura y cámaras',
+      'Evaluación de la puerta y el punto de entrada',
+      'Instalación de cerradura y timbre',
       'Configuración en el teléfono de la familia',
       'Capacitación de uso',
     ],
-    // 250,62 de costo mas 25% y IVA, mas 15 de instalacion.
-    precioDesde: 375.27,
+    // 270,72 de costo mas 25% y IVA, mas 15 de instalacion.
+    //
+    // Antes llevaba dos camaras analogicas y un monitor interior. Ninguna de las
+    // dos cosas funcionaba: las camaras Turbo HD no graban sin un DVR, y un
+    // monitor sin placa de calle no es un videoportero. Se sustituyen por un
+    // timbre con camara, que es un producto completo por si solo, y la
+    // vigilancia queda donde corresponde: en su propio paquete, con grabador.
+    precioDesde: 404.16,
     activa: true,
     orden: 4,
   },
@@ -221,9 +225,9 @@ export const solucionesRespaldo: Solucion[] = [
     slug: 'casa-con-alarma',
     nombre: 'Casa con alarma',
     para: 'Viviendas que quieren aviso inmediato',
-    resumen: 'Aviso al teléfono en cuanto alguien abre una puerta o se mueve dentro de la casa vacía.',
+    resumen: 'Aviso al teléfono y sirena en la calle en cuanto alguien se mueve dentro de la casa vacía.',
     descripcion:
-      'Central de alarma inalámbrica con detectores de movimiento en las áreas de paso y sensores en las puertas de acceso. No requiere obra: los equipos se fijan sin cablear. Incluye botón de pánico portátil.',
+      'Central de alarma inalámbrica con detectores de movimiento en las áreas de paso y sirena exterior. Todos los equipos son de la misma familia AX Pro y hablan el protocolo del propio panel, que es lo que garantiza que se comuniquen. No requiere obra: se fijan sin cablear. Incluye botón de pánico portátil.',
     equipos: [
       {
         nombre: 'Central de alarma inalámbrica',
@@ -233,21 +237,25 @@ export const solucionesRespaldo: Solucion[] = [
       },
       {
         nombre: 'Detector de movimiento',
-        cantidad: 2,
+        cantidad: 3,
         marca: 'Hikvision',
-        modelo: 'DS-PDP15P-EG2-WB',
+        modelo: 'AX Pro DS-PDP15P-EG2-WB',
+        especificaciones: [
+          { etiqueta: 'Conexión', valor: 'Inalámbrica, protocolo Tri-X del propio panel' },
+          { etiqueta: 'Instalación', valor: 'Sin obra ni cableado' },
+        ],
       },
       {
-        nombre: 'Sensor de apertura de puerta o ventana',
-        cantidad: 3,
-        marca: 'EZVIZ',
-        modelo: 'CS-T6-A',
+        nombre: 'Sirena exterior',
+        cantidad: 1,
+        marca: 'Hikvision',
+        modelo: 'AX Pro DS-PS1-E-WB',
       },
       {
         nombre: 'Botón de pánico portátil',
         cantidad: 1,
         marca: 'Hikvision',
-        modelo: 'DS-PDEBP1-EG2-WB',
+        modelo: 'AX Pro DS-PDEBP1-EG2-WB',
       },
     ],
     servicios: [
@@ -256,8 +264,16 @@ export const solucionesRespaldo: Solucion[] = [
       'Configuración de avisos en el teléfono',
       'Capacitación de uso',
     ],
-    // 212,81 de costo mas 25% y IVA, mas 15 de instalacion.
-    precioDesde: 320.91,
+    // 232,86 de costo mas 25% y IVA, mas 15 de instalacion.
+    //
+    // Llevaba tres sensores de apertura EZVIZ que NO se integran con este panel:
+    // AX Pro usa el protocolo propietario Tri-X y EZVIZ es otro ecosistema. No
+    // hay contacto magnetico AX Pro disponible en el distribuidor, asi que la
+    // cobertura se resuelve con un detector de movimiento mas, y se anade sirena
+    // exterior, que es lo que de verdad disuade.
+    //
+    // Al componer un paquete: comprobar que todo comparta familia y protocolo.
+    precioDesde: 349.74,
     activa: true,
     orden: 7,
   },
