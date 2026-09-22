@@ -18,7 +18,8 @@
     "typecheck": "tsc --noEmit",
     "preview": "vite preview",
     "deploy": "npm run build && wrangler deploy",
-    "verificar-assets": "node scripts/verificar-assets.mjs"
+    "verificar-assets": "node scripts/verificar-assets.mjs",
+    "indexar-imagenes": "node scripts/indexar-imagenes.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.112.3",

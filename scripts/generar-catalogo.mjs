@@ -209,12 +209,44 @@ function buscarImagen(descripcion) {
 const { iva } = config;
 const precioVenta = (costo, margen) => Math.round(costo * (1 + margen) * (1 + iva) * 100) / 100;
 
+// --- Fotografias por codigo de modelo ----------------------------------------
+//
+// La lista de TecnoMega no trae fotografias. El indice que produce
+// `npm run indexar-imagenes` empareja numero de parte con archivo de imagen a
+// partir del catalogo publico de un distribuidor que vende las mismas marcas.
+//
+// Aqui se busca al reves: el numero de parte viene dentro de la descripcion
+// —"UPS APC BVG900-LM INTERACTIVOS 120V"— asi que se comprueba si alguna clave
+// del indice aparece como palabra completa en ella.
+let indiceModelos = {};
+try {
+  indiceModelos = JSON.parse(await readFile(`${ORIGEN}/imagenes-por-modelo.json`, 'utf8'));
+} catch {
+  // Sin indice se sigue adelante: las fichas usan sus marcadores dibujados.
+}
+
+// De mas largo a mas corto: entre "BV500" y "BV500-LM" gana el especifico.
+const modelosIndexados = Object.keys(indiceModelos)
+  .filter((m) => m.length >= 4) // por debajo de cuatro caracteres casan con cualquier cosa
+  .sort((a, b) => b.length - a.length);
+
+const normalizarModelo = (t) => ` ${t.toUpperCase().replace(/[^A-Z0-9]+/g, ' ')} `;
+
+function imagenPorModelo(descripcion) {
+  const texto = normalizarModelo(descripcion);
+  for (const modelo of modelosIndexados) {
+    if (texto.includes(normalizarModelo(modelo))) return indiceModelos[modelo];
+  }
+  return null;
+}
+
 const publico = seleccion.map((p, i) => {
   const destino = config.categorias.find((c) => c.origen === p.categoria);
   const imagen = buscarImagen(p.descripcion);
   return {
     id: `eq-${String(i + 1).padStart(3, '0')}`,
     imagen: imagen?.archivo ?? null,
+    imagenRemota: imagen ? null : imagenPorModelo(p.descripcion),
     slug: p.descripcion
       .toLowerCase()
       .normalize('NFD')
@@ -347,18 +379,34 @@ async function mejorResolucion(base, nombre) {
 let descargadas = 0;
 let fallidas = 0;
 let mejoradas = 0;
+// Las fuentes TSV declaran de donde bajar sus fotografias; los productos del
+// Excel las obtienen del indice por modelo, que apunta al mismo servidor.
+const BASE_POR_DEFECTO = 'https://store.intcomex.com/images/products/';
+
 for (const p of publico) {
   if (!p.imagenRemota || p.image_url) continue;
   const fuente = config.fuentes?.find((f) => f.publica === p.category);
-  if (!fuente?.imagenBase) continue;
+  const base = fuente?.imagenBase ?? BASE_POR_DEFECTO;
 
-  const local = `${CACHE_REMOTA}/${p.imagenRemota.replace(/[^\w.-]/g, '_')}`;
+  // El indice guarda o bien el nombre de archivo tal como lo sirve el
+  // distribuidor, o bien una direccion completa cuando la fotografia viene del
+  // fabricante. Solo en el primer caso tiene sentido buscar una resolucion
+  // mayor: el sufijo de tamano es una convencion de ese servidor, no del otro.
+  const esAbsoluta = /^https?:/i.test(p.imagenRemota);
+  const local = `${CACHE_REMOTA}/${p.imagenRemota.replace(/[^\w.-]/g, '_').slice(-110)}`;
+
   try {
     await stat(local);
   } catch {
-    const grande = await mejorResolucion(fuente.imagenBase, p.imagenRemota);
-    if (grande !== p.imagenRemota) mejoradas++;
-    const respuesta = await fetch(urlDe(fuente.imagenBase, grande));
+    let url = p.imagenRemota;
+    if (!esAbsoluta) {
+      const grande = await mejorResolucion(base, p.imagenRemota);
+      if (grande !== p.imagenRemota) mejoradas++;
+      url = urlDe(base, grande);
+    }
+    const respuesta = await fetch(url, {
+      headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/131 Safari/537.36' },
+    });
     if (!respuesta.ok) {
       fallidas++;
       continue;
