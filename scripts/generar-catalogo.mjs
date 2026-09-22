@@ -36,29 +36,54 @@ if (archivos.length === 0) {
 const lista = archivos.at(-1);
 
 // --- Leer la rejilla ---------------------------------------------------------
-// El listado viene en cinco pares de columnas (descripcion, precio) dispuestos
-// en paralelo. Cada columna es una lista independiente con sus propias
-// cabeceras de categoria; lo que aparece por encima de la primera cabecera de
-// una columna continua la ultima categoria de la columna anterior.
+//
+// La hoja es un catalogo maquetado para imprimir: PAGINAS apiladas, separadas
+// por una franja de filas vacias, y dentro de cada pagina cinco pares de
+// columnas (descripcion, precio). El listado fluye como un periodico: se lee la
+// primera columna de la pagina de arriba abajo, luego la segunda, y asi. La
+// categoria la fija una fila sin precio y se arrastra de una columna a la
+// siguiente, incluso al pasar de pagina.
+//
+// La version anterior recorria cada columna a lo largo de TODA la hoja, lo que
+// mezclaba paginas: la columna 4 terminaba la pagina 3 con "UPS, REGULADORES" y
+// seguia en la pagina 4 con toner Lexmark, que heredaba esa categoria. El
+// resultado eran 65 cartuchos y discos publicados como equipos de energia.
 const libro = XLSX.readFile(`${ORIGEN}/${lista}`);
 const filas = XLSX.utils.sheet_to_json(libro.Sheets[libro.SheetNames[0]], {
   header: 1,
   defval: null,
 });
 
+const COLUMNAS = [0, 2, 4, 6, 8];
+const filaVacia = (fila) => COLUMNAS.every((c) => typeof fila?.[c] !== 'string' || !fila[c].trim());
+
+/** Tramos de filas con contenido, separados por las franjas en blanco. */
+const paginas = [];
+let inicio = null;
+for (let i = 0; i <= filas.length; i += 1) {
+  const vacia = i === filas.length || filaVacia(filas[i]);
+  if (!vacia && inicio === null) inicio = i;
+  if (vacia && inicio !== null) {
+    paginas.push([inicio, i - 1]);
+    inicio = null;
+  }
+}
+
 const crudos = [];
 let categoria = null;
-for (let c = 0; c < 10; c += 2) {
-  for (const fila of filas) {
-    const desc = fila?.[c];
-    const precio = fila?.[c + 1];
-    if (typeof desc !== 'string' || !desc.trim()) continue;
-    const descripcion = desc.replace(/\s+/g, ' ').trim();
-    if (typeof precio !== 'number') {
-      categoria = descripcion; // fila sin precio = cabecera
-      continue;
+for (const [desde, hasta] of paginas) {
+  for (const c of COLUMNAS) {
+    for (let i = desde; i <= hasta; i += 1) {
+      const desc = filas[i]?.[c];
+      const precio = filas[i]?.[c + 1];
+      if (typeof desc !== 'string' || !desc.trim()) continue;
+      const descripcion = desc.replace(/\s+/g, ' ').trim();
+      if (typeof precio !== 'number') {
+        categoria = descripcion; // fila sin precio = cabecera
+        continue;
+      }
+      crudos.push({ categoria, descripcion, costo: precio });
     }
-    crudos.push({ categoria, descripcion, costo: precio });
   }
 }
 
