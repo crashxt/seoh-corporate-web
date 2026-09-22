@@ -2206,3 +2206,48 @@ textarea {
   flex-shrink: 0;
   margin-top: 2px;
 }
+
+/* Mejoras opcionales de un paquete.
+   Se separan del equipo incluido con un fondo propio para que nadie confunda
+   lo que ya paga con lo que puede añadir. El precio va a la derecha, con signo
+   de suma delante: se lee como incremento, no como precio del paquete. */
+.solucion-complementos {
+  margin: 0 0 var(--espacio-sm);
+  padding: var(--espacio-sm);
+  list-style: none;
+  border: 1px dashed var(--borde-fuerte);
+  border-radius: var(--radio-sm);
+  background: var(--fondo-hundido);
+}
+
+.solucion-complementos li + li {
+  margin-top: var(--espacio-sm);
+  padding-top: var(--espacio-sm);
+  border-top: 1px solid var(--borde);
+}
+
+.complemento-cabecera {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  /* Con el texto ampliado, un nombre largo empujaria el precio fuera del
+     recuadro. Que envuelva antes de desbordar. */
+  flex-wrap: wrap;
+  gap: var(--espacio-sm);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.complemento-precio {
+  flex-shrink: 0;
+  color: var(--acento);
+  font-variant-numeric: tabular-nums;
+}
+
+.complemento-detalle {
+  display: block;
+  margin-top: 3px;
+  color: var(--texto-medio);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}

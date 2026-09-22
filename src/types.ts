@@ -65,6 +65,22 @@ export type EquipoDeSolucion = {
  * pieza por pieza, que es justo lo que el paquete evita.
  */
 /** A quien va dirigida la solucion. Una casa y un conjunto son clientes distintos. */
+/**
+ * Equipo opcional que se ofrece sobre un paquete ya armado.
+ *
+ * No entra en el precio base: se cotiza aparte. Existe para que un paquete
+ * pueda crecer sin duplicarlo —el mismo timbre con o sin repetidor de sonido
+ * son un producto, no dos— y para que el cliente vea la mejora en el momento en
+ * que esta decidiendo, que es cuando le interesa.
+ */
+export type ComplementoSolucion = {
+  nombre: string;
+  marca?: string;
+  modelo?: string;
+  precio: number;
+  detalle: string;
+};
+
 export type AmbitoSolucion = 'personal' | 'vivienda' | 'conjunto' | 'empresa';
 
 export type Solucion = {
@@ -78,6 +94,8 @@ export type Solucion = {
   descripcion: string;
   equipos: EquipoDeSolucion[];
   servicios: string[];
+  /** Mejoras opcionales, cotizadas aparte del precio base. */
+  complementos?: ComplementoSolucion[];
   precioDesde?: number | null;
   /**
    * Advertencia que acompana al precio.

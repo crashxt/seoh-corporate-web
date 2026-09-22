@@ -83,6 +83,56 @@ export const solucionesRespaldo: Solucion[] = [
     orden: 3,
   },
   {
+    id: 'timbre-instalado',
+    ambito: 'vivienda',
+    slug: 'timbre-inteligente-instalado',
+    nombre: 'Timbre inteligente instalado',
+    para: 'Cualquier vivienda, sin obra',
+    resumen: 'Vea y hable con quien toca la puerta desde el teléfono, esté donde esté.',
+    descripcion:
+      'Timbre con cámara de 2K y batería: no necesita cable ni obra, se fija en la entrada y funciona. Cuando alguien toca, el teléfono muestra quién es y permite hablar con esa persona, esté usted en casa o fuera. Distingue una persona de una rama que se mueve, así que no avisa por cualquier cosa.',
+    equipos: [
+      {
+        nombre: 'Timbre de video con batería',
+        cantidad: 1,
+        marca: 'TP-Link',
+        modelo: 'Tapo',
+        especificaciones: [
+          { etiqueta: 'Resolución', valor: '2K, 5 MP' },
+          { etiqueta: 'Visión nocturna', valor: 'A color' },
+          { etiqueta: 'Detección', valor: 'Distingue personas de movimiento cualquiera' },
+          { etiqueta: 'Alimentación', valor: 'Batería extraíble, sin obra ni cableado' },
+          { etiqueta: 'Audio', valor: 'Conversación en dos sentidos' },
+        ],
+      },
+    ],
+    servicios: [
+      'Instalación inalámbrica sin costo',
+      'Configuración en el teléfono de la familia',
+      'Ajuste de zonas y sensibilidad de aviso',
+      'Capacitación de uso',
+    ],
+    complementos: [
+      {
+        nombre: 'Central con timbre interior',
+        marca: 'TP-Link',
+        modelo: 'Tapo H200',
+        // 22,80 de costo mas 25% y IVA. En las listas no hay H100; el H200 hace
+        // lo mismo y ademas graba en microSD, asi que no depende de la nube.
+        precio: 32.78,
+        detalle:
+          'Suena dentro de la casa cuando alguien toca, para no depender de tener el teléfono a mano. Además guarda la grabación en memoria propia, sin suscripción a la nube.',
+      },
+    ],
+    // 72,00 de costo mas 25% y IVA. Sin cargo de instalacion: el timbre va con
+    // bateria y adhesivo, son quince minutos. Regalarla es mas barato que el
+    // descuento que habria que hacer para vender lo mismo sin ella, y es el
+    // producto de entrada mas facil de cerrar del catalogo.
+    precioDesde: 103.5,
+    activa: true,
+    orden: 4,
+  },
+  {
     id: 'casa-segura',
     ambito: 'vivienda',
     slug: 'casa-segura',
@@ -130,7 +180,7 @@ export const solucionesRespaldo: Solucion[] = [
     // vigilancia queda donde corresponde: en su propio paquete, con grabador.
     precioDesde: 404.16,
     activa: true,
-    orden: 4,
+    orden: 5,
   },
   {
     id: 'casa-conectada',
@@ -160,7 +210,7 @@ export const solucionesRespaldo: Solucion[] = [
     // 105,50 de costo + 12% + IVA = 135,88, mas 15 de instalacion.
     precioDesde: 150.88,
     activa: true,
-    orden: 5,
+    orden: 6,
   },
   {
     id: 'vigilancia-vivienda',
@@ -217,7 +267,7 @@ export const solucionesRespaldo: Solucion[] = [
     // graba, y cobrarlo aparte es la sorpresa que arruina una instalacion.
     precioDesde: 386.52,
     activa: true,
-    orden: 6,
+    orden: 7,
   },
   {
     id: 'casa-con-alarma',
@@ -258,6 +308,17 @@ export const solucionesRespaldo: Solucion[] = [
         modelo: 'AX Pro DS-PDEBP1-EG2-WB',
       },
     ],
+    complementos: [
+      {
+        nombre: 'Detector de fuga de agua',
+        marca: 'Hikvision',
+        modelo: 'AX Pro DS-PDWL-E-WB',
+        // 24,33 de costo mas 25% y IVA.
+        precio: 34.97,
+        detalle:
+          'Avisa al teléfono en cuanto detecta agua en el piso. Se coloca junto a la cisterna, el calefón o la lavadora, donde una fuga puede pasar días sin que nadie la vea.',
+      },
+    ],
     servicios: [
       'Evaluación de accesos y zonas de paso',
       'Instalación sin obra ni cableado',
@@ -275,7 +336,7 @@ export const solucionesRespaldo: Solucion[] = [
     // Al componer un paquete: comprobar que todo comparta familia y protocolo.
     precioDesde: 349.74,
     activa: true,
-    orden: 7,
+    orden: 8,
   },
   {
     id: 'equipo-para-estudiar',
@@ -338,7 +399,7 @@ export const solucionesRespaldo: Solucion[] = [
     precioDesde: 712.72,
     aviso: 'Precio promocional. Confirme disponibilidad antes de cerrar la compra.',
     activa: true,
-    orden: 8,
+    orden: 9,
   },
   {
     id: 'equipo-para-trabajar',
@@ -400,6 +461,6 @@ export const solucionesRespaldo: Solucion[] = [
     // Si ese acuerdo cambiara, hay que volver a sumar la licencia aqui.
     precioDesde: 895.27,
     activa: true,
-    orden: 9,
+    orden: 10,
   },
 ];

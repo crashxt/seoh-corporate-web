@@ -95,6 +95,31 @@ export default function TarjetaSolucion({ solucion }: { solucion: Solucion }) {
             </li>
           ))}
         </ul>
+        {solucion.complementos?.length ? (
+          <>
+            <h4>Se le puede añadir</h4>
+            <ul className="solucion-complementos">
+              {solucion.complementos.map((complemento) => (
+                <li key={complemento.nombre}>
+                  <span className="complemento-cabecera">
+                    <span>
+                      {complemento.nombre}
+                      {(complemento.marca || complemento.modelo) && (
+                        <span className="equipo-modelo">
+                          {[complemento.marca, complemento.modelo].filter(Boolean).join(' ')}
+                        </span>
+                      )}
+                    </span>
+                    <span className="complemento-precio">
+                      +{formatearPrecio(complemento.precio)}
+                    </span>
+                  </span>
+                  <span className="complemento-detalle">{complemento.detalle}</span>
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : null}
       </div>
 
       <footer>
