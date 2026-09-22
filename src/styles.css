@@ -263,7 +263,10 @@ p {
 }
 
 .marca img {
-  width: 300px;
+  /* max-width y no width: en una pantalla de 375 px con el texto ampliado,
+     300 px fijos empujan la barra entera fuera del viewport. */
+  width: 100%;
+  max-width: 300px;
 }
 
 .nav-escritorio {
@@ -608,27 +611,27 @@ p {
 }
 
 .rejilla-verticales {
-  grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(265px, 100%), 1fr));
 }
 
 .rejilla-nucleo {
-  grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(245px, 100%), 1fr));
 }
 
 .rejilla-equipos,
 .rejilla-contacto {
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
 }
 
 .catalogo {
-  grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(275px, 100%), 1fr));
 }
 
 /* --- Pasos --- */
 
 .pasos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr));
   gap: var(--espacio-md);
   margin: 0;
   padding: 0;
@@ -675,7 +678,7 @@ p {
 
 .bloque-ventajas {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: var(--espacio-xl);
   align-items: start;
 }
@@ -700,7 +703,7 @@ p {
 
 .rejilla-planes {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr));
   gap: var(--espacio-md);
   align-items: stretch;
 }
@@ -778,7 +781,7 @@ p {
 
 .plan-transporte {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr));
   gap: var(--espacio-lg);
   margin-top: var(--espacio-lg);
   padding: var(--espacio-lg);
@@ -852,7 +855,7 @@ p {
 
 .complementos > ul {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(270px, 100%), 1fr));
   gap: var(--espacio-md);
   margin: var(--espacio-md) 0 0;
   padding: 0;
@@ -1093,7 +1096,7 @@ p {
 
 .rejilla-planes {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr));
   gap: var(--espacio-md);
   align-items: stretch;
 }
@@ -1171,7 +1174,7 @@ p {
 
 .plan-transporte {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr));
   gap: var(--espacio-lg);
   margin-top: var(--espacio-lg);
   padding: var(--espacio-lg);
@@ -1245,7 +1248,7 @@ p {
 
 .complementos > ul {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(270px, 100%), 1fr));
   gap: var(--espacio-md);
   margin: var(--espacio-md) 0 0;
   padding: 0;
@@ -1285,7 +1288,7 @@ p {
 
 .rejilla-soluciones {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: var(--espacio-md);
   align-items: start;
 }
@@ -1436,7 +1439,7 @@ p {
 
 .rejilla-categorias {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr));
   gap: var(--espacio-md);
   margin-bottom: var(--espacio-lg);
 }
@@ -1719,7 +1722,7 @@ p {
 .formulario-admin,
 .gestor-archivos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
   gap: var(--espacio-md);
   padding: var(--espacio-lg);
   background: var(--fondo-elevado);

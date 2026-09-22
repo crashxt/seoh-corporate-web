@@ -133,6 +133,71 @@ export const solucionesRespaldo: Solucion[] = [
     orden: 4,
   },
   {
+    id: 'luz-por-voz',
+    ambito: 'vivienda',
+    slug: 'luz-por-voz',
+    nombre: 'Luz por voz',
+    para: 'Primer paso en domótica, sin obra',
+    resumen: 'Encienda y apague la luz hablando, o desde el teléfono cuando no está en casa.',
+    descripcion:
+      'Tres focos inteligentes en los puntos que más se usan y un altavoz con Alexa. Los focos se enroscan donde ya hay lámpara —no hay que tocar el tablero ni cambiar interruptores— y responden por voz, por horario o desde el teléfono. Es la forma más barata de probar domótica en casa, y todo lo que se añada después funciona con el mismo altavoz.',
+    equipos: [
+      {
+        nombre: 'Altavoz con Alexa',
+        cantidad: 1,
+        marca: 'Amazon',
+        modelo: 'Echo Dot 5.ª generación',
+        especificaciones: [
+          { etiqueta: 'Control', valor: 'Por voz, sin tocar nada' },
+          { etiqueta: 'Además', valor: 'Música, alarmas, preguntas y recordatorios' },
+        ],
+      },
+      {
+        nombre: 'Foco inteligente multicolor',
+        cantidad: 3,
+        marca: 'TP-Link',
+        modelo: 'Tapo',
+        especificaciones: [
+          { etiqueta: 'Brillo', valor: '1.055 lúmenes' },
+          { etiqueta: 'Color', valor: 'Blanco regulable y multicolor' },
+          { etiqueta: 'Conexión', valor: 'Wi-Fi directo, sin central adicional' },
+          { etiqueta: 'Instalación', valor: 'Se enrosca en la lámpara existente' },
+        ],
+      },
+    ],
+    servicios: [
+      'Configuración del altavoz y la cuenta',
+      'Vinculación de los focos por voz',
+      'Escenas y horarios según su rutina',
+      'Capacitación de uso a la familia',
+    ],
+    complementos: [
+      {
+        nombre: 'Tira LED inteligente',
+        marca: 'TP-Link',
+        modelo: 'Tapo',
+        // 15,90 de costo mas 25% y IVA.
+        precio: 22.86,
+        detalle:
+          'Luz indirecta bajo un mueble, tras el televisor o en una escalera. Mismo control por voz y misma aplicación.',
+      },
+      {
+        nombre: 'Foco adicional',
+        marca: 'TP-Link',
+        modelo: 'Tapo',
+        // 6,00 de costo mas 25% y IVA.
+        precio: 8.63,
+        detalle: 'Para sumar una habitación más al mismo sistema.',
+      },
+    ],
+    // 82,00 de costo mas 25% y IVA. Sin cargo de instalacion: no hay obra, solo
+    // enroscar focos y configurar. Es el punto de entrada mas barato del
+    // catalogo y la puerta natural a Casa conectada.
+    precioDesde: 117.88,
+    activa: true,
+    orden: 5,
+  },
+  {
     id: 'casa-segura',
     ambito: 'vivienda',
     slug: 'casa-segura',
@@ -165,6 +230,17 @@ export const solucionesRespaldo: Solucion[] = [
         ],
       },
     ],
+    complementos: [
+      {
+        nombre: 'Central con timbre interior',
+        marca: 'TP-Link',
+        modelo: 'Tapo H200',
+        // 22,80 de costo mas 25% y IVA.
+        precio: 32.78,
+        detalle:
+          'Suena dentro de la casa cuando alguien toca, para no depender de tener el teléfono a mano. Además guarda la grabación en memoria propia, sin suscripción a la nube.',
+      },
+    ],
     servicios: [
       'Evaluación de la puerta y el punto de entrada',
       'Instalación de cerradura y timbre',
@@ -180,7 +256,7 @@ export const solucionesRespaldo: Solucion[] = [
     // vigilancia queda donde corresponde: en su propio paquete, con grabador.
     precioDesde: 404.16,
     activa: true,
-    orden: 5,
+    orden: 9,
   },
   {
     id: 'casa-conectada',
@@ -197,6 +273,17 @@ export const solucionesRespaldo: Solucion[] = [
       { nombre: 'Foco inteligente multicolor con control por voz', cantidad: 4 },
       { nombre: 'Tira LED inteligente Wi-Fi', cantidad: 1 },
       { nombre: 'Central de automatización', cantidad: 1 },
+    ],
+    complementos: [
+      {
+        nombre: 'Altavoz con Alexa',
+        marca: 'Amazon',
+        modelo: 'Echo Dot 5.ª generación',
+        // 64,00 de costo mas 25% y IVA.
+        precio: 92.0,
+        detalle:
+          'Enciende y apaga por voz lo que el paquete ya controla desde el teléfono: «Alexa, apaga la sala». Útil cuando se tienen las manos ocupadas o se está saliendo.',
+      },
     ],
     servicios: [
       'Evaluación del tablero y los circuitos',
@@ -267,7 +354,7 @@ export const solucionesRespaldo: Solucion[] = [
     // graba, y cobrarlo aparte es la sorpresa que arruina una instalacion.
     precioDesde: 386.52,
     activa: true,
-    orden: 7,
+    orden: 8,
   },
   {
     id: 'casa-con-alarma',
@@ -336,7 +423,7 @@ export const solucionesRespaldo: Solucion[] = [
     // Al componer un paquete: comprobar que todo comparta familia y protocolo.
     precioDesde: 349.74,
     activa: true,
-    orden: 8,
+    orden: 7,
   },
   {
     id: 'equipo-para-estudiar',
@@ -399,7 +486,7 @@ export const solucionesRespaldo: Solucion[] = [
     precioDesde: 712.72,
     aviso: 'Precio promocional. Confirme disponibilidad antes de cerrar la compra.',
     activa: true,
-    orden: 9,
+    orden: 10,
   },
   {
     id: 'equipo-para-trabajar',
@@ -461,6 +548,6 @@ export const solucionesRespaldo: Solucion[] = [
     // Si ese acuerdo cambiara, hay que volver a sumar la licencia aqui.
     precioDesde: 895.27,
     activa: true,
-    orden: 10,
+    orden: 11,
   },
 ];
