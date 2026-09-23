@@ -2314,3 +2314,194 @@ textarea {
 .limpiar-refinado:hover {
   background: var(--acento-tenue);
 }
+
+/* Asistente SEOH ==========================================================
+   Flotante abajo a la derecha, que es donde el ojo lo busca y donde no tapa
+   contenido. El panel no usa position:fixed con alto completo: en un teléfono
+   con el teclado abierto, eso deja la conversación fuera de la pantalla. */
+
+.asistente-disparador {
+  position: fixed;
+  right: var(--espacio-md);
+  bottom: var(--espacio-md);
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.7rem 1.1rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--acento);
+  color: var(--texto-inverso);
+  font-size: 0.94rem;
+  font-weight: 600;
+  box-shadow: var(--sombra-elevada);
+  transition: background var(--transicion), transform var(--transicion);
+}
+
+.asistente-disparador:hover {
+  background: var(--acento-fuerte);
+  transform: translateY(-1px);
+}
+
+.asistente-panel {
+  position: fixed;
+  right: var(--espacio-md);
+  bottom: calc(var(--espacio-md) + 3.6rem);
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  width: min(24rem, calc(100vw - 2 * var(--espacio-md)));
+  max-height: min(32rem, calc(100vh - 8rem));
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  background: var(--fondo-tarjeta);
+  box-shadow: var(--sombra-elevada);
+  overflow: hidden;
+}
+
+.asistente-panel > header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--espacio-sm) var(--espacio-md);
+  background: var(--acento);
+  color: var(--texto-inverso);
+}
+
+.asistente-marca {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+/* Decirlo de entrada evita la decepción de esperar un oráculo. */
+.asistente-estado {
+  font-size: 0.76rem;
+  opacity: 0.85;
+}
+
+.asistente-conversacion {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-sm);
+  padding: var(--espacio-md);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.asistente-mensaje {
+  max-width: 92%;
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radio-sm);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.asistente-mensaje p {
+  margin: 0;
+  max-width: none;
+  /* Las respuestas traen saltos de línea reales: listas de planes y de
+     categorías se leen mucho mejor así que en un párrafo corrido. */
+  white-space: pre-line;
+}
+
+.asistente-mensaje.seoh {
+  align-self: flex-start;
+  background: var(--fondo-hundido);
+  color: var(--texto);
+}
+
+.asistente-mensaje.seoh p {
+  color: var(--texto);
+}
+
+.asistente-mensaje.visitante {
+  align-self: flex-end;
+  background: var(--acento);
+  color: var(--texto-inverso);
+}
+
+.asistente-mensaje.visitante p {
+  color: var(--texto-inverso);
+}
+
+.asistente-mensaje a {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.asistente-sugerencias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.asistente-sugerencias button {
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--acento-borde);
+  border-radius: 999px;
+  background: none;
+  color: var(--acento);
+  font-size: 0.83rem;
+  font-weight: 500;
+}
+
+.asistente-sugerencias button:hover {
+  background: var(--acento-tenue);
+}
+
+.asistente-entrada {
+  display: flex;
+  gap: 6px;
+  padding: var(--espacio-sm);
+  border-top: 1px solid var(--borde);
+}
+
+.asistente-entrada input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--borde-fuerte);
+  border-radius: var(--radio-sm);
+  font: inherit;
+  font-size: 0.92rem;
+}
+
+.asistente-entrada button {
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  border: 0;
+  border-radius: var(--radio-sm);
+  background: var(--acento);
+  color: var(--texto-inverso);
+}
+
+.asistente-entrada button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* En pantallas pequeñas el panel ocupa el ancho disponible y el botón se
+   reduce al icono, para no competir con el contenido. */
+@media (max-width: 560px) {
+  .asistente-disparador span {
+    display: none;
+  }
+
+  .asistente-disparador {
+    padding: 0.85rem;
+  }
+
+  .asistente-panel {
+    right: var(--espacio-sm);
+    left: var(--espacio-sm);
+    width: auto;
+    bottom: calc(var(--espacio-sm) + 4rem);
+    max-height: calc(100vh - 10rem);
+  }
+}

@@ -1,3 +1,4 @@
+import AsistenteSeoh from './AsistenteSeoh';
 import { useEffect, useRef, useState } from 'react';
 import { ChevronDown, Mail, MapPin, Menu, Phone, X } from 'lucide-react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
@@ -208,6 +209,11 @@ export default function Layout() {
           </div>
         </div>
       </footer>
+
+      {/* Va en el Layout y no en cada página: el visitante puede tener una duda
+          en cualquier punto del recorrido, y la más cara de perder es la que
+          surge justo antes de cerrar la pestaña. */}
+      <AsistenteSeoh />
     </div>
   );
 }
