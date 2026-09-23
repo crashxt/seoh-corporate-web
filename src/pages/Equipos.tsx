@@ -14,6 +14,38 @@ import type { Product } from '../types';
 import { formatearPrecio } from '../lib/precio';
 
 const TODAS = 'Todos';
+const TODAS_LAS_MARCAS = 'Todas las marcas';
+
+/**
+ * Criterios de orden del catalogo.
+ *
+ * El primero conserva el orden del proveedor, que agrupa por familia y deja
+ * juntos los equipos que se comparan entre si. Los demas existen para quien
+ * llega con una idea fija: un presupuesto, o una marca.
+ */
+const ORDENES = {
+  catalogo: { etiqueta: 'Orden del catálogo', comparar: null },
+  'precio-asc': {
+    etiqueta: 'Precio: de menor a mayor',
+    comparar: (a: Product, b: Product) => (a.price ?? 0) - (b.price ?? 0),
+  },
+  'precio-desc': {
+    etiqueta: 'Precio: de mayor a menor',
+    comparar: (a: Product, b: Product) => (b.price ?? 0) - (a.price ?? 0),
+  },
+  marca: {
+    etiqueta: 'Marca (A–Z)',
+    comparar: (a: Product, b: Product) =>
+      (a.brand ?? 'zzz').localeCompare(b.brand ?? 'zzz', 'es') ||
+      (a.price ?? 0) - (b.price ?? 0),
+  },
+  nombre: {
+    etiqueta: 'Nombre (A–Z)',
+    comparar: (a: Product, b: Product) => a.name.localeCompare(b.name, 'es'),
+  },
+} as const;
+
+type ClaveOrden = keyof typeof ORDENES;
 
 /** Ambitos de las soluciones, en el orden en que se ofrecen. */
 const AMBITOS: [AmbitoSolucion | 'todas', string][] = [
@@ -41,6 +73,8 @@ export default function Equipos() {
   const [busqueda, setBusqueda] = useState('');
   const [soluciones, setSoluciones] = useState<Solucion[]>([]);
   const [ambito, setAmbito] = useState<AmbitoSolucion | 'todas'>('todas');
+  const [marca, setMarca] = useState(TODAS_LAS_MARCAS);
+  const [orden, setOrden] = useState<ClaveOrden>('catalogo');
 
   const categoriaActiva = params.get('categoria') ?? TODAS;
 
@@ -53,7 +87,7 @@ export default function Equipos() {
   useEffect(() => {
     getProducts()
       .then(setEquipos)
-      .catch(() => setError('No fue posible cargar el catálogo. Inténtalo de nuevo más tarde.'))
+      .catch(() => setError('No fue posible cargar el catálogo. Vuelva a intentarlo en unos minutos.'))
       .finally(() => setCargando(false));
   }, []);
 
@@ -64,18 +98,45 @@ export default function Equipos() {
     [equipos],
   );
 
+  // Las marcas salen del catalogo filtrado por categoria, no del catalogo
+  // entero: ofrecer una marca que en esa categoria no tiene nada deja al
+  // visitante frente a una lista vacia sin entender por que.
+  const marcasDisponibles = useMemo(() => {
+    const enCategoria = equipos.filter(
+      (equipo) => categoriaActiva === TODAS || equipo.category === categoriaActiva,
+    );
+    return [
+      TODAS_LAS_MARCAS,
+      ...[...new Set(enCategoria.map((equipo) => equipo.brand).filter(Boolean))].sort((a, b) =>
+        String(a).localeCompare(String(b), 'es'),
+      ),
+    ] as string[];
+  }, [equipos, categoriaActiva]);
+
+  // Si la marca elegida no existe en la categoria nueva, se vuelve a todas.
+  useEffect(() => {
+    if (!marcasDisponibles.includes(marca)) setMarca(TODAS_LAS_MARCAS);
+  }, [marcasDisponibles, marca]);
+
   // Se busca sobre nombre, resumen, marca y codigo: un cliente que llega con
   // la referencia del proveedor en la mano debe encontrarla.
   const termino = busqueda.trim().toLowerCase();
-  const visibles = equipos
-    .filter((equipo) => categoriaActiva === TODAS || equipo.category === categoriaActiva)
-    .filter((equipo) =>
-      !termino
-        ? true
-        : [equipo.name, equipo.summary, equipo.brand, equipo.code]
-            .filter(Boolean)
-            .some((campo) => String(campo).toLowerCase().includes(termino)),
-    );
+  const visibles = useMemo(() => {
+    const filtrados = equipos
+      .filter((equipo) => categoriaActiva === TODAS || equipo.category === categoriaActiva)
+      .filter((equipo) => marca === TODAS_LAS_MARCAS || equipo.brand === marca)
+      .filter((equipo) =>
+        !termino
+          ? true
+          : [equipo.name, equipo.summary, equipo.brand, equipo.code]
+              .filter(Boolean)
+              .some((campo) => String(campo).toLowerCase().includes(termino)),
+      );
+
+    const comparar = ORDENES[orden].comparar;
+    // Copia antes de ordenar: `sort` muta, y `equipos` es el estado.
+    return comparar ? [...filtrados].sort(comparar) : filtrados;
+  }, [equipos, categoriaActiva, marca, termino, orden]);
 
   // Recuento por categoria, para la rejilla de entrada.
   const conteo = useMemo(() => {
@@ -143,7 +204,7 @@ export default function Equipos() {
 
       <section className="seccion">
         <div className="encabezado-seccion">
-          <span className="antetitulo">EQUIPOS SUELTOS</span>
+          <span className="antetitulo">EQUIPOS INDIVIDUALES</span>
           <h2>O seleccione equipo por equipo</h2>
         </div>
 
@@ -185,6 +246,47 @@ export default function Equipos() {
               {categoria}
             </button>
           ))}
+        </div>
+
+        {/* Marca y orden van en desplegables y no en pastillas como la
+            categoria: trece marcas en pastillas ocupan media pantalla en un
+            telefono, y el orden es una eleccion entre alternativas, no un
+            interruptor. */}
+        <div className="refinar-catalogo">
+          <label>
+            <span>Marca</span>
+            <select value={marca} onChange={(e) => setMarca(e.target.value)}>
+              {marcasDisponibles.map((nombre) => (
+                <option key={nombre} value={nombre}>
+                  {nombre}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <label>
+            <span>Ordenar por</span>
+            <select value={orden} onChange={(e) => setOrden(e.target.value as ClaveOrden)}>
+              {Object.entries(ORDENES).map(([clave, { etiqueta }]) => (
+                <option key={clave} value={clave}>
+                  {etiqueta}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          {(marca !== TODAS_LAS_MARCAS || orden !== 'catalogo') && (
+            <button
+              type="button"
+              className="limpiar-refinado"
+              onClick={() => {
+                setMarca(TODAS_LAS_MARCAS);
+                setOrden('catalogo');
+              }}
+            >
+              Quitar filtros
+            </button>
+          )}
         </div>
 
         {error && (

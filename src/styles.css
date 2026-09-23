@@ -2254,3 +2254,63 @@ textarea {
   font-size: 0.85rem;
   line-height: 1.5;
 }
+
+/* Refinado del catálogo: marca y orden.
+   Van en desplegables y no en pastillas como la categoría: trece marcas en
+   pastillas ocupan media pantalla en un teléfono, y el orden es una elección
+   entre alternativas excluyentes, no un interruptor. */
+.refinar-catalogo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--espacio-sm);
+  margin-bottom: var(--espacio-md);
+}
+
+.refinar-catalogo label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  flex: 1 1 13rem;
+}
+
+.refinar-catalogo label > span {
+  color: var(--texto-tenue);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.refinar-catalogo select {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--borde-fuerte);
+  border-radius: var(--radio-sm);
+  background: var(--fondo-tarjeta);
+  color: var(--texto);
+  font: inherit;
+  font-size: 0.94rem;
+  cursor: pointer;
+}
+
+.refinar-catalogo select:hover {
+  border-color: var(--acento-borde);
+}
+
+/* Solo aparece cuando hay algo que quitar, para no ofrecer una acción que no
+   haría nada. */
+.limpiar-refinado {
+  padding: 0.6rem 0.9rem;
+  border: 1px solid transparent;
+  border-radius: var(--radio-sm);
+  background: none;
+  color: var(--acento);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.limpiar-refinado:hover {
+  background: var(--acento-tenue);
+}

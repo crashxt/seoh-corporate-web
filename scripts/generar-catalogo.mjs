@@ -240,6 +240,26 @@ function imagenPorModelo(descripcion) {
   return null;
 }
 
+// --- Marca ------------------------------------------------------------------
+//
+// El Excel del mayorista no trae columna de marca: viene dentro de la
+// descripcion —"UPS APC BVG900-LM..."—. Se detecta contra la lista declarada en
+// la configuracion. Sin marca no se puede filtrar ni ordenar por ella, que es
+// lo primero que mira un cliente que ya sabe lo que quiere.
+const marcasConocidas = (config.marcas ?? []).map((m) => ({
+  nombre: m,
+  clave: m.toUpperCase().replace(/[^A-Z0-9]/g, ''),
+}));
+
+function detectarMarca(descripcion) {
+  const texto = descripcion.toUpperCase().replace(/[^A-Z0-9]/g, '');
+  // De mas larga a mas corta: "Tripp Lite" antes que cualquier prefijo suyo.
+  const hallada = [...marcasConocidas]
+    .sort((a, b) => b.clave.length - a.clave.length)
+    .find((m) => texto.includes(m.clave));
+  return hallada?.nombre ?? null;
+}
+
 const publico = seleccion.map((p, i) => {
   const destino = config.categorias.find((c) => c.origen === p.categoria);
   const imagen = buscarImagen(p.descripcion);
@@ -247,6 +267,7 @@ const publico = seleccion.map((p, i) => {
     id: `eq-${String(i + 1).padStart(3, '0')}`,
     imagen: imagen?.archivo ?? null,
     imagenRemota: imagen ? null : imagenPorModelo(p.descripcion),
+    brand: detectarMarca(p.descripcion),
     slug: p.descripcion
       .toLowerCase()
       .normalize('NFD')
@@ -268,6 +289,7 @@ const publico = seleccion.map((p, i) => {
 publico.push(
   ...extras.map((p, i) => ({
     id: `eq-x${String(i + 1).padStart(3, '0')}`,
+    brand: p.marca || null,
     imagen: null,
     imagenRemota: p.imagenRemota,
     slug: `${p.descripcion} ${p.codigo}`
@@ -435,7 +457,8 @@ const cuerpo = catalogo
   id: ${JSON.stringify(p.id)},
   slug: ${JSON.stringify(p.slug)},
   name: ${JSON.stringify(p.name)},
-  category: ${JSON.stringify(p.category)},
+  category: ${JSON.stringify(p.category)},${p.brand ? `
+  brand: ${JSON.stringify(p.brand)},` : ''}
   summary: ${JSON.stringify(p.summary)},
   description: ${JSON.stringify(p.description)},${p.image_url ? `
   image_url: ${JSON.stringify(p.image_url)},` : ''}

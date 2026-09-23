@@ -2,7 +2,7 @@
  * Categorias de equipo que tienen producto publicado.
  *
  * GENERADO AUTOMATICAMENTE — no editar a mano.
- * Origen: LISTA-PRECIOS202609.xls · generado el 2026-09-22 · npm run catalogo
+ * Origen: LISTA-PRECIOS202609.xls · generado el 2026-09-23 · npm run catalogo
  */
 export const CATEGORIAS_EQUIPOS = [
   "Redes",
