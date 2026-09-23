@@ -1,0 +1,53 @@
+# Cabeceras de seguridad.
+#
+# Cloudflare sirve este archivo junto a los assets estáticos; no hace falta un
+# Worker. El sitio no servía ninguna de estas cabeceras: cualquiera podía
+# embeberlo en un iframe, el navegador adivinaba tipos MIME y la URL completa
+# viajaba como referente a cualquier destino externo.
+#
+# La política se deriva de lo que el sitio usa de verdad, no de una plantilla:
+# todo el JavaScript y el CSS son archivos propios —el build no genera nada en
+# línea— y la única llamada externa es a Supabase.
+
+/*
+  # Un año de HTTPS obligatorio. Sin `preload`: esa lista es difícil de
+  # revertir y no compensa mientras el dominio sea joven.
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+  # Sin esto el navegador adivina el tipo de un archivo por su contenido, y un
+  # archivo subido como imagen puede acabar ejecutándose como script.
+  X-Content-Type-Options: nosniff
+
+  # Nadie debe poder embeber el sitio: un iframe invisible sobre un botón real
+  # es como se roba un clic.
+  X-Frame-Options: DENY
+
+  # La ruta completa no viaja a destinos externos, solo el origen. Importa
+  # porque las fichas de producto llevan el modelo en la URL.
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # El sitio no usa cámara, micrófono ni ubicación. Declararlo cierra la puerta
+  # a que lo haga un script inyectado.
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+
+  # Ni script-src ni style-src llevan 'unsafe-inline'. Se comprobó sirviendo el
+  # build con esta política exacta: el sitio funciona entero sin ella, porque el
+  # build no genera estilos ni scripts en línea y ningún componente usa el
+  # atributo style. Añadirla "por si acaso" habría desarmado la mitad de la
+  # protección sin necesitarlo.
+  #
+  # connect-src incluye Supabase porque el catálogo se lee de ahí cuando está
+  # configurado; hoy cae en los datos de respaldo, pero la política debe cubrir
+  # el día en que se conecte.
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://*.supabase.co wss://*.supabase.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
+
+# Los assets llevan huella en el nombre: nunca cambian sin cambiar de nombre,
+# así que se pueden guardar para siempre.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/catalogo/*
+  Cache-Control: public, max-age=604800
+
+/brand/*
+  Cache-Control: public, max-age=604800
