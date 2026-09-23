@@ -82,6 +82,40 @@ Para publicar:
 npm run deploy
 ```
 
+### Cabeceras de seguridad
+
+`public/_headers` viaja con el build y Cloudflare lo aplica solo. Se puede
+comprobar en cualquier momento:
+
+```bash
+curl -sI https://seohdesigntech.com/ | grep -iE "security|x-frame|nosniff|referrer|permissions"
+```
+
+### Ajustes que NO están en este repositorio
+
+Dos cosas dependen del panel de Cloudflare y no pueden corregirse desde aquí,
+porque ni `_headers` ni `_redirects` distinguen esquema ni nombre de host:
+
+**1. `http://` sirve el sitio en claro.** Hoy `http://seohdesigntech.com`
+devuelve `200` con la página, no una redirección. Quien teclea el dominio sin
+escribir `https://` recibe el sitio sin cifrar, legible y modificable por
+cualquiera en esa red. HSTS no lo cubre: el navegador solo lo obedece *después*
+de una primera visita correcta por HTTPS.
+
+> Solución: **SSL/TLS → Edge Certificates → Always Use HTTPS: activado.**
+
+**2. `www` no tiene cabeceras y por HTTP está roto.**
+`https://www.seohdesigntech.com` responde `301` hacia la raíz, y esa respuesta
+de redirección no lleva ninguna cabecera de seguridad; `http://www` devuelve
+`522`. Los analizadores que prueban `www` califican esa redirección, no el
+sitio, y dan una nota falsa.
+
+> Se corrige con lo mismo de arriba, más una regla de redirección de `www` a la
+> raíz que conserve el esquema.
+
+Tras activarlo, las cuatro direcciones —con y sin `www`, por HTTP y por
+HTTPS— deben acabar en `https://seohdesigntech.com` con las seis cabeceras.
+
 Comprueba antes que `npm run build` pasa y que el CI está en verde.
 
 ## Pendiente
